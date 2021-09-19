@@ -15,7 +15,11 @@ import static org.junit.Assert.assertTrue;
 import jdk.jfr.StackTrace;
 
 class MyStackTest {
-    private final MyStack ourStack = new MyStack();
+    private MyStack ourStack;
+    @Before
+    public void setup() {
+        ourStack = new MyStack();
+    }
 
     @Test
     void myInitialPopTest(){
