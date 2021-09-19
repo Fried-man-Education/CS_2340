@@ -3,6 +3,8 @@
  * book by Andrew Hunt and David Thomas
  */
 
+package java;
+
 public class MyStack {
     private String[] stack;
     private int next_index;
@@ -30,3 +32,5 @@ public class MyStack {
     }
 
 }
+
+
