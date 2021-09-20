@@ -3,16 +3,7 @@ package java;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-
-
-import jdk.jfr.StackTrace;
+import static org.junit.Assert.*;
 
 public class MyStackTest {
     private MyStack ourStack;
@@ -28,19 +19,20 @@ public class MyStackTest {
     }
 
     @Test
-    void alikAddTest(String input) {
-        ourStack.push(input);
-        assertEquals(input, ourStack.top());
+    public void alikAddTest() {
+        String s = "test";
+        ourStack.push(s);
+        assertEquals(s, ourStack.top());
 
-        String thirdInput = input + " 3";
-        ourStack.push(input + " 2");
+        String thirdInput = s + " 3";
+        ourStack.push(s + " 2");
         ourStack.push(thirdInput);
         assertEquals(thirdInput, ourStack.top());
         ourStack.delete(3);
     }
 
     @Test
-    void alikDeleteTest() {
+    public void alikDeleteTest() {
         ourStack.push("1");
         ourStack.push("2");
         ourStack.push("3");
@@ -52,7 +44,7 @@ public class MyStackTest {
     }
 
     @Test
-    void alikPopTest() {
+    public void alikPopTest() {
         ourStack.push("1");
         ourStack.push("2");
         ourStack.push("3");
@@ -72,7 +64,7 @@ public class MyStackTest {
 
         assertSame(temp, ourStack.pop()); // 4, 3, 2, 1, 0
 
-        String cur = null;
+        String cur;
         for (int i = 0; i < 5; i++) {
             cur = ourStack.top();
             assertNotNull(cur);
@@ -94,7 +86,7 @@ public class MyStackTest {
     }
   
     @Test
-    void nickDeleteTest() {
+    public void nickDeleteTest() {
         ourStack.push("a");
         assertEquals("a", ourStack.top());
         ourStack.push("b");
