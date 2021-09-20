@@ -10,6 +10,9 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# iml files
+*.iml
+
 # Package Files #
 *.jar
 *.war
@@ -26,5 +29,6 @@ hs_err_pid*
 .idea 
 /out
 /_MACOS
+/_MACOSX
 desktop.ini
 .DS_Store #mac os
