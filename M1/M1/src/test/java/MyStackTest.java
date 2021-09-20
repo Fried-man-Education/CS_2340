@@ -21,7 +21,7 @@ public class MyStackTest {
         ourStack = new MyStack();
     }
 
-    @Test
+    @Test KobyTest
     public void myInitialPopTest(){
         ourStack.push("FirstElement");
         assertEquals("FirstElement", ourStack.pop());
