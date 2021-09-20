@@ -60,4 +60,15 @@ class MyStackTest {
         assertEquals("2", ourStack.pop());
         assertEquals("1", ourStack.pop());
     }
+
+    @Test JoePushTest
+    void joePushTest() {
+        ourStack.push("1");
+        assertEquals("1", ourStack.top());
+        ourStack.push("2");
+        assertEquals("1", ourStack.top());
+        ourStack.push("3");
+        assertEquals("1", ourStack.top());
+        ourStack.delete(3);
+    }
 }
