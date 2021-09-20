@@ -1,4 +1,4 @@
-package java;
+package cs2340;
 
 import org.junit.Before;
 import org.junit.Test;
