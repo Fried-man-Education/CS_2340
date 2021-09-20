@@ -21,7 +21,8 @@ public class MyStackTest {
         ourStack = new MyStack();
     }
 
-    @Test KobyTest
+    /// Koby's test
+    @Test
     public void myInitialPopTest(){
         ourStack.push("FirstElement");
         assertEquals("FirstElement", ourStack.pop());
@@ -91,5 +92,17 @@ public class MyStackTest {
         ourStack.push("3");
         assertEquals("1", ourStack.top());
         ourStack.delete(3);
+    }
+  
+    @Test
+    void nickDeleteTest() {
+        ourStack.push("a");
+        assertEquals("a", ourStack.top());
+        ourStack.push("b");
+        assertEquals("b", ourStack.top());
+        ourStack.push("c");
+        assertEquals("c", ourStack.top());
+        ourStack.delete(3);
+        assertNull(ourStack.top());
     }
 }
