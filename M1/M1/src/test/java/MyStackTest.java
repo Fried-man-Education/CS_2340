@@ -81,4 +81,15 @@ public class MyStackTest {
 
         assertNull(ourStack.top());
     }
+
+    @Test
+    public void joePushTest() {
+        ourStack.push("1");
+        assertEquals("1", ourStack.top());
+        ourStack.push("2");
+        assertEquals("1", ourStack.top());
+        ourStack.push("3");
+        assertEquals("1", ourStack.top());
+        ourStack.delete(3);
+    }
 }
