@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 
 import jdk.jfr.StackTrace;
 
-class MyStackTest {
+public class MyStackTest {
     private MyStack ourStack;
     @Before
     public void setup() {
@@ -22,7 +22,7 @@ class MyStackTest {
     }
 
     @Test
-    void myInitialPopTest(){
+    public void myInitialPopTest(){
         ourStack.push("FirstElement");
         assertEquals("FirstElement", ourStack.pop());
     }
@@ -59,5 +59,26 @@ class MyStackTest {
         assertEquals("3", ourStack.pop());
         assertEquals("2", ourStack.pop());
         assertEquals("1", ourStack.pop());
+    }
+
+    @Test
+    public void levelPeekTest() {
+        String temp = "item #last";
+
+        for (int i = 0; i < 5; i++) {
+            ourStack.push("item #" + i);
+        }
+        ourStack.push(temp);
+
+        assertSame(temp, ourStack.pop()); // 4, 3, 2, 1, 0
+
+        String cur = null;
+        for (int i = 0; i < 5; i++) {
+            cur = ourStack.top();
+            assertNotNull(cur);
+            assertEquals(cur, ourStack.pop());
+        }
+
+        assertNull(ourStack.top());
     }
 }
