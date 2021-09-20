@@ -3,7 +3,7 @@
  * book by Andrew Hunt and David Thomas
  */
 
-package java;
+package cs2340;
 
 public class MyStack {
     private String[] stack;
