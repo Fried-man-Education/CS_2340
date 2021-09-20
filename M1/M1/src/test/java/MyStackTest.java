@@ -93,7 +93,7 @@ public class MyStackTest {
         assertEquals("1", ourStack.top());
         ourStack.delete(3);
     }
-
+  
     @Test
     void nickDeleteTest() {
         ourStack.push("a");
