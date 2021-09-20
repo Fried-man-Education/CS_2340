@@ -21,15 +21,14 @@ public class MyStackTest {
         ourStack = new MyStack();
     }
 
-    /// Koby's test
     @Test
-    public void myInitialPopTest(){
+    public void kobyInitialPopTest(){
         ourStack.push("FirstElement");
         assertEquals("FirstElement", ourStack.pop());
     }
 
-    @Test AlikAddTest
-    void addTest(String input) {
+    @Test
+    void alikAddTest(String input) {
         ourStack.push(input);
         assertEquals(input, ourStack.top());
 
@@ -40,8 +39,8 @@ public class MyStackTest {
         ourStack.delete(3);
     }
 
-    @Test AlikDeleteTest
-    void deleteTest() {
+    @Test
+    void alikDeleteTest() {
         ourStack.push("1");
         ourStack.push("2");
         ourStack.push("3");
@@ -52,8 +51,8 @@ public class MyStackTest {
         ourStack.delete(1);
     }
 
-    @Test AliksPopTest
-    void popTest() {
+    @Test
+    void alikPopTest() {
         ourStack.push("1");
         ourStack.push("2");
         ourStack.push("3");
@@ -63,7 +62,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void levelPeekTest() {
+    public void andrewLevelPeekTest() {
         String temp = "item #last";
 
         for (int i = 0; i < 5; i++) {
