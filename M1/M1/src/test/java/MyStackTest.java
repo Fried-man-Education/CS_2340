@@ -82,8 +82,8 @@ public class MyStackTest {
         assertNull(ourStack.top());
     }
 
-    @Test JoePushTest
-    void joePushTest() {
+    @Test
+    public void joePushTest() {
         ourStack.push("1");
         assertEquals("1", ourStack.top());
         ourStack.push("2");
