@@ -15,6 +15,11 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <Label fx:id="HealthLabel" layoutX="505.0" layoutY="7.0" text="Health:  100">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
       <Pane fx:id="MapBackgroundPane" layoutY="40.0" style="-fx-background-color: green;">
          <children>
             <GridPane fx:id="MapPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0">
@@ -136,10 +141,5 @@
             </GridPane>
          </children>
       </Pane>
-      <Label fx:id="MoneyLabel1" layoutX="505.0" layoutY="7.0" text="Health:  100">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
    </children>
 </Pane>
