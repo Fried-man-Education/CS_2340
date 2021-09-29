@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="InitialGameScreen" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="MoneyLabel" layoutX="8.0" layoutY="7.0" text="Money: $0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <GridPane fx:id="MapPane" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0">
+          <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+          </columnConstraints>
+          <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+              <RowConstraints minHeight="10.0" prefHeight="20.0" />
+          </rowConstraints>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="#36ff47" strokeType="INSIDE" width="600.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="2" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="3" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="4" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="5" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="6" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="7" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="8" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="9" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="10" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="11" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="12" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#36ff47" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" GridPane.rowIndex="13" />
+         </children>
+      </GridPane>
+   </children>
+</Pane>
