@@ -16,11 +16,9 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("InitialGameScreen.fxml"));
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("WelcomeScreen.fxml"));
-        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-        Scene scene = new Scene(fxmlLoader.load(), screenBounds.getWidth(), screenBounds.getHeight());
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Tower Defense");
         stage.setScene(scene);
-        stage.setFullScreen(true);
         stage.setResizable(false);
         stage.show();
     }
