@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane fx:id="GameSettingsScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="GameSettingsScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tower_defense.tower_defense.GameSettingsController">
    <children>
       <Label fx:id="ConfigurationTitle" layoutX="214.0" layoutY="79.0" text="Configuration">
          <font>
@@ -15,11 +15,11 @@
          </font>
       </Label>
       <Label fx:id="NameLabel" layoutX="255.0" layoutY="149.0" text="Enter your name" />
-      <TextField fx:id="NameTextInput" layoutX="220.0" layoutY="171.0" />
+      <TextField fx:id="nameField" layoutX="220.0" layoutY="171.0" />
       <Label fx:id="DifficultyLabel" layoutX="257.0" layoutY="222.0" text="Select difficulty" />
-      <Button fx:id="EasyButton" layoutX="214.0" layoutY="248.0" mnemonicParsing="false" text="Easy" />
-      <Button fx:id="MediumButton" layoutX="268.0" layoutY="248.0" mnemonicParsing="false" text="Medium" />
-      <Button fx:id="HardButton" layoutX="343.0" layoutY="248.0" mnemonicParsing="false" text="Hard" />
-      <Button fx:id="BeginGameButton" layoutX="258.0" layoutY="301.0" mnemonicParsing="false" text="Begin Game" />
+      <Button fx:id="EasyButton" onAction="#onDifficultyChange" layoutX="214.0" layoutY="248.0" mnemonicParsing="false" text="Easy" />
+      <Button fx:id="MediumButton" onAction="#onDifficultyChange" layoutX="268.0" layoutY="248.0" mnemonicParsing="false" text="Medium" />
+      <Button fx:id="HardButton" onAction="#onDifficultyChange" layoutX="343.0" layoutY="248.0" mnemonicParsing="false" text="Hard" />
+      <Button fx:id="BeginGameButton" onAction="#onNextButtonClick" layoutX="258.0" layoutY="301.0" mnemonicParsing="false" text="Begin Game" />
    </children>
 </Pane>
