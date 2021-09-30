@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class GameSettingsController extends MainApplication {
     @FXML TextField nameField;
-    String tempDifficulty;
+    public String tempDifficulty;
 
     @FXML
     public void onNextButtonClick(ActionEvent actionEvent) throws IOException { // TODO: Find Stage with less references
@@ -31,6 +31,6 @@ public class GameSettingsController extends MainApplication {
     }
 
     public boolean checkValidName (String name) {
-        return name.matches(".*\\w.*") && name != null && name.trim().length() > 0;
+        return name != null && name.trim().length() > 0;
     }
 }

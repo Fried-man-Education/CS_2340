@@ -2,6 +2,7 @@ module com.tower_defense.tower_defense {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
+    requires junit;
 
 
     opens com.tower_defense.tower_defense to javafx.fxml;
