@@ -21,3 +21,14 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# JavaFX specific
+.idea/Tower_Defense.iml
+.idea/libraries/Maven__org_openjfx_javafx_base_mac_16.xml
+.idea/libraries/Maven__org_openjfx_javafx_controls_mac_16.xml
+.idea/libraries/Maven__org_openjfx_javafx_fxml_mac_16.xml
+.idea/libraries/Maven__org_openjfx_javafx_graphics_mac_16.xml
+.idea/libraries/Maven__org_openjfx_javafx_base_win_16.xml
+.idea/libraries/Maven__org_openjfx_javafx_controls_win_16.xml
+.idea/libraries/Maven__org_openjfx_javafx_fxml_win_16.xml
+.idea/libraries/Maven__org_openjfx_javafx_graphics_win_16.xml
