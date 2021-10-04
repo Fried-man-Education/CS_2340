@@ -16,7 +16,7 @@ public class GameSettingsControllerTest {
     // Andrew Friedman's Test
     @Test(timeout = TIMEOUT)
     public void testInitialization() {
-        assertNull(settingsScreen.tempDifficulty);
+        assertNull(settingsScreen.getTempDifficulty());
     }
 
     // Andrew Friedman's Test
