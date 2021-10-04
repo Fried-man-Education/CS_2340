@@ -8,13 +8,13 @@ public class GameController extends MainApplication {
 
     private static String difficulty;
     private static String name;
-    @FXML private Label MoneyLabel;
-    @FXML private Label HealthLabel;
+    @FXML private Label moneyLabel;
+    @FXML private Label healthLabel;
 
     @FXML
     public void initialize() {
-        MoneyLabel.setText("Money: " + difficultMoney(difficulty));
-        HealthLabel.setText("Health: " + difficultHealth(difficulty));
+        moneyLabel.setText("Money: " + difficultMoney(difficulty));
+        healthLabel.setText("Health: " + difficultHealth(difficulty));
     }
 
     public String difficultMoney(String difficulty) {
