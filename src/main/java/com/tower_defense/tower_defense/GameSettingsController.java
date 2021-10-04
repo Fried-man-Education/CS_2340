@@ -18,7 +18,7 @@ public class GameSettingsController extends MainApplication {
     public void onNextButtonClick(ActionEvent actionEvent) throws IOException {
         // Find Stage with less references
         if (checkValidName(nameField.getText()) && tempDifficulty != null) {
-            GameController.setName(nameField.getText());
+            GameController.setName(nameField.getText().trim());
             GameController.setDifficulty(tempDifficulty);
             loadStage("GameScreen.fxml",
                     (Stage) ((Node) actionEvent.getSource()).getScene().getWindow());
@@ -31,7 +31,7 @@ public class GameSettingsController extends MainApplication {
         tempDifficulty = clickedButton.getText();
     }
 
-    public boolean checkValidName(String name) {
+    public static boolean checkValidName(String name) {
         return name != null && name.trim().length() > 0;
     }
 

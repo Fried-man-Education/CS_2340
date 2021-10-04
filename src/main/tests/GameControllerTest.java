@@ -1,4 +1,5 @@
 import com.tower_defense.tower_defense.GameController;
+import com.tower_defense.tower_defense.GameSettingsController;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -42,6 +43,25 @@ public class GameControllerTest {
         String hard = "hard";
         GameController.setDifficulty(hard);
         assertEquals(hard, GameController.getDifficulty());
+    }
+
+    // Nicholas Hulston's Test
+    @Test(timeout = TIMEOUT)
+    public void testNames() {
+        boolean validName = GameSettingsController.checkValidName("");
+        assertFalse(validName);
+
+        validName = GameSettingsController.checkValidName(" ");
+        assertFalse(validName);
+
+        validName = GameSettingsController.checkValidName("a");
+        assertTrue(validName);
+
+        validName = GameSettingsController.checkValidName("Hello!   ");
+        assertTrue(validName);
+
+        validName = GameSettingsController.checkValidName("   Test    ");
+        assertTrue(validName);
     }
 
     /* JUNIT TEST IDEAS:
