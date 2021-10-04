@@ -31,7 +31,7 @@ public class GameSettingsController extends MainApplication {
         tempDifficulty = clickedButton.getText();
     }
 
-    public boolean checkValidName(String name) {
+    public static boolean checkValidName(String name) {
         return name != null && name.trim().length() > 0;
     }
 
