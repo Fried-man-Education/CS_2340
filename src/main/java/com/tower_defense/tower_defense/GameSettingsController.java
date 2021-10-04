@@ -18,8 +18,8 @@ public class GameSettingsController extends MainApplication {
     @FXML
     public void onNextButtonClick(ActionEvent actionEvent) throws IOException { // TODO: Find Stage with less references
         if (checkValidName (nameField.getText()) && tempDifficulty != null) {
-            GameController.name = nameField.getText();
-            GameController.difficulty = tempDifficulty;
+            GameController.setName(nameField.getText());
+            GameController.setDifficulty(tempDifficulty);
             loadStage("GameScreen.fxml", (Stage) ((Node) actionEvent.getSource()).getScene().getWindow());
         }
     }

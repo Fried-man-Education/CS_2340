@@ -30,6 +30,22 @@ public class GameControllerTest {
         assertEquals("50", gameScreen.difficultHealth("Hard"));
     }
 
+    // Joseph Vitko's Test
+    @Test(timeout = TIMEOUT)
+    public void testSetDifficulty() {
+        String easy = "easy";
+        GameController.setDifficulty(easy);
+        assertEquals(easy, GameController.getDifficulty());
+
+        String medium = "medium";
+        GameController.setDifficulty(medium);
+        assertEquals(medium, GameController.getDifficulty());
+
+        String hard = "hard";
+        GameController.setDifficulty(hard);
+        assertEquals(hard, GameController.getDifficulty());
+    }
+
     /* JUNIT TEST IDEAS:
        - checking initialization (global variable values)
        - checking difficultMoney() values

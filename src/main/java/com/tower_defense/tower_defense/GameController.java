@@ -15,8 +15,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GameController extends MainApplication {
-    public static String name;
-    public static String difficulty;
+
+    private static String difficulty;
+    private static String name;
     @FXML Label MoneyLabel;
     @FXML Label HealthLabel;
 
@@ -52,5 +53,21 @@ public class GameController extends MainApplication {
             default:
                 throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
         }
+    }
+
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        GameController.name = name;
+    }
+
+    public static String getDifficulty() {
+        return difficulty;
+    }
+
+    public static void setDifficulty(String difficulty) {
+        GameController.difficulty = difficulty;
     }
 }
