@@ -27,31 +27,31 @@ public class GameController extends MainApplication {
         HealthLabel.setText("Health: " + difficultHealth(difficulty));
     }
 
-    public String difficultMoney (String difficulty) {
+    public String difficultMoney(String difficulty) {
         int startingMoney = 1000;
         switch (difficulty) {
-            case "Easy":
-                return String.valueOf(startingMoney);
-            case "Medium":
-                return String.valueOf(startingMoney/2);
-            case "Hard":
-                return String.valueOf(startingMoney/4);
-            default:
-                throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
+        case "Easy":
+            return String.valueOf(startingMoney);
+        case "Medium":
+            return String.valueOf(startingMoney / 2);
+        case "Hard":
+            return String.valueOf(startingMoney / 4);
+        default:
+            throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
         }
     }
 
-    public String difficultHealth (String difficulty) {
+    public String difficultHealth(String difficulty) {
         int startingHealth = 200;
         switch (difficulty) {
-            case "Easy":
-                return String.valueOf(startingHealth);
-            case "Medium":
-                return String.valueOf(startingHealth/2);
-            case "Hard":
-                return String.valueOf(startingHealth/4);
-            default:
-                throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
+        case "Easy":
+            return String.valueOf(startingHealth);
+        case "Medium":
+            return String.valueOf(startingHealth / 2);
+        case "Hard":
+            return String.valueOf(startingHealth / 4);
+        default:
+            throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
         }
     }
 
