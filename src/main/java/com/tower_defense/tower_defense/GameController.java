@@ -51,7 +51,7 @@ public class GameController extends MainApplication {
     }
 
     public static void setName(String name) {
-        GameController.name = name;
+        GameController.name = name.trim();
     }
 
     public static String getDifficulty() {

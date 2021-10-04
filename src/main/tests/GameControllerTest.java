@@ -64,6 +64,22 @@ public class GameControllerTest {
         assertTrue(validName);
     }
 
+    // Andrew Friedman's Test
+    @Test(timeout = TIMEOUT)
+    public void testNameTrim() {
+        GameController.setName("  a   ");
+        assertEquals(GameController.getName(), "a");
+
+        GameController.setName("    b");
+        assertEquals(GameController.getName(), "b");
+
+        GameController.setName("c      ");
+        assertEquals(GameController.getName(), "c");
+
+        GameController.setName("     Hello, my name is Andrew!      !      ");
+        assertEquals(GameController.getName(), "Hello, my name is Andrew!      !");
+    }
+
     /* JUNIT TEST IDEAS:
        - checking initialization (global variable values)
        - checking difficultMoney() values
