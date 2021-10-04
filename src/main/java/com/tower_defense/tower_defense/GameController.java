@@ -8,8 +8,8 @@ public class GameController extends MainApplication {
 
     private static String difficulty;
     private static String name;
-    @FXML Label MoneyLabel;
-    @FXML Label HealthLabel;
+    @FXML private Label MoneyLabel;
+    @FXML private Label HealthLabel;
 
     @FXML
     public void initialize() {
