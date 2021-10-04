@@ -29,30 +29,21 @@ public class GameController extends MainApplication {
 
     public String difficultMoney (String difficulty) {
         int startingMoney = 1000;
-        switch (difficulty) {
-            case "Easy":
-                return String.valueOf(startingMoney);
-            case "Medium":
-                return String.valueOf(startingMoney/2);
-            case "Hard":
-                return String.valueOf(startingMoney/4);
-            default:
-                throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
-        }
+        return calculateValue(difficulty, startingMoney);
     }
 
     public String difficultHealth (String difficulty) {
         int startingHealth = 200;
-        switch (difficulty) {
-            case "Easy":
-                return String.valueOf(startingHealth);
-            case "Medium":
-                return String.valueOf(startingHealth/2);
-            case "Hard":
-                return String.valueOf(startingHealth/4);
-            default:
-                throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
-        }
+        return calculateValue(difficulty, startingHealth);
+    }
+
+    private String calculateValue(String difficulty, int num) {
+        return switch (difficulty) {
+            case "Easy" -> String.valueOf(num);
+            case "Medium" -> String.valueOf(num / 2);
+            case "Hard" -> String.valueOf(num / 4);
+            default -> throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
+        };
     }
 
     public static String getName() {
