@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -140,8 +139,8 @@
                 </GridPane>
             </children>
         </Pane>
-      <Circle fill="#d300e6" layoutX="300.0" layoutY="28.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#ff8e21" layoutX="392.0" layoutY="28.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="DODGERBLUE" layoutX="204.0" layoutY="28.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="164.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d300e6" height="40.0" layoutX="280.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff8e21" height="40.0" layoutX="393.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
     </children>
 </Pane>
