@@ -1,7 +1,10 @@
 package com.tower_defense.tower_defense;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+
+import java.io.IOException;
 
 
 public class GameController extends MainApplication {
@@ -10,6 +13,7 @@ public class GameController extends MainApplication {
     private static String name;
     @FXML private Label moneyLabel;
     @FXML private Label healthLabel;
+
 
     @FXML
     public void initialize() {
@@ -39,6 +43,9 @@ public class GameController extends MainApplication {
             throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
         }
     }
+//    public void BlueButtonoonAction (ActionEvent actionEvent) throws IOException {
+//
+//    }
 
     public static String getName() {
         return name;
