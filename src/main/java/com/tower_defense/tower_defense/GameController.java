@@ -2,7 +2,10 @@ package com.tower_defense.tower_defense;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 
@@ -61,5 +64,13 @@ public class GameController extends MainApplication {
 
     public static void setDifficulty(String difficulty) {
         GameController.difficulty = difficulty;
+    }
+
+    @FXML
+    public void onGridClicked(MouseEvent event) {
+        Node clickedNode = event.getPickResult().getIntersectedNode();
+        Integer colIndex = GridPane.getColumnIndex(clickedNode);
+        Integer rowIndex = GridPane.getRowIndex(clickedNode);
+        System.out.println("(" + colIndex + ", " + rowIndex + ")");
     }
 }
