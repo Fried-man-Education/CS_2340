@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,29 +35,30 @@ public class GameController extends MainApplication {
 
     @FXML
     public void initialize() {
+        this.towers = new ArrayList<>();
         towerMap.put("0x1e90ffff", 0);
         towerMap.put("0xd300e6ff", 1);
         towerMap.put("0xff8e21ff", 2);
 
-        moneyLabel.setText("Money: " + difficultMoney(difficulty));
-        healthLabel.setText("Health: " + difficultHealth(difficulty));
+        this.setMoney(difficultMoney(difficulty));
+        this.setHealth(difficultHealth(difficulty));
     }
 
-    public String difficultMoney(String difficulty) {
+    public int difficultMoney(String difficulty) {
         int startingMoney = 1000;
         return calculateValue(difficulty, startingMoney);
     }
 
-    public String difficultHealth(String difficulty) {
+    public int difficultHealth(String difficulty) {
         int startingHealth = 200;
         return calculateValue(difficulty, startingHealth);
     }
 
-    private String calculateValue(String difficulty, int num) {
+    private int calculateValue(String difficulty, int num) {
         return switch (difficulty) {
-            case "Easy" -> String.valueOf(num);
-            case "Medium" -> String.valueOf(num / 2);
-            case "Hard" -> String.valueOf(num / 4);
+            case "Easy" -> num;
+            case "Medium" -> num / 2;
+            case "Hard" -> num / 4;
             default -> throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
         };
     }
