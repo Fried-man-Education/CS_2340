@@ -8,9 +8,9 @@ public abstract class AbstractTower {
 
     Rectangle graphic;
     Color color;
-    int cost;
-    int row;
-    int col;
+    public int cost;
+    public int row;
+    public int col;
 
     public AbstractTower(Rectangle graphic, Color color, int cost) {
         this.graphic = graphic;

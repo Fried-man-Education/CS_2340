@@ -1,5 +1,9 @@
 package com.tower_defense.tower_defense;
 
+import com.tower_defense.tower_defense.towers.AbstractTower;
+import com.tower_defense.tower_defense.towers.MachineTower;
+import com.tower_defense.tower_defense.towers.NormalTower;
+import com.tower_defense.tower_defense.towers.SplashTower;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -92,5 +96,30 @@ public class GameController extends MainApplication {
 
     public int getHealth() {
         return this.health;
+    }
+
+    public void buildTower(int towerType, int row, int col) {
+        AbstractTower tower;
+        switch (towerType) {
+            case 0:
+                tower = new NormalTower();
+                break;
+            case 1:
+                tower = new SplashTower();
+                break;
+            case 2:
+                tower = new MachineTower();
+                break;
+            default:
+                tower = new NormalTower();
+        }
+        if (tower.cost > this.money) {
+            System.out.println("You do not have enough money to print this tower");
+            return;
+        } else {
+            // purchase the tower and deduct money
+            this.setMoney(this.money - tower.cost);
+        }
+        tower.place(row, col);
     }
 }
