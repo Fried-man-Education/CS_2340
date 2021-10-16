@@ -14,6 +14,8 @@ public class GameController extends MainApplication {
 
     private static String difficulty;
     private static String name;
+    private int money;
+    private int health;
     @FXML private Label moneyLabel;
     @FXML private Label healthLabel;
 
@@ -72,5 +74,23 @@ public class GameController extends MainApplication {
         Integer colIndex = GridPane.getColumnIndex(clickedNode);
         Integer rowIndex = GridPane.getRowIndex(clickedNode);
         System.out.println("(" + colIndex + ", " + rowIndex + ")");
+    }
+
+    public void setMoney(int newMoney) {
+        this.money = newMoney;
+        moneyLabel.setText("Money: " + this.money);
+    }
+
+    public int getMoney() {
+        return this.money;
+    }
+
+    public void setHealth(int newHealth) {
+        this.health = newHealth;
+        healthLabel.setText("Health: " + this.health);
+    }
+
+    public int getHealth() {
+        return this.health;
     }
 }
