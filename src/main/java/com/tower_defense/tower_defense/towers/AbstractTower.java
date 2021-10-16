@@ -9,8 +9,8 @@ public abstract class AbstractTower {
     Rectangle graphic;
     Color color;
     public int cost;
-    public int row;
-    public int col;
+    public int x;
+    public int y;
 
     public AbstractTower(Rectangle graphic, Color color, int cost) {
         this.graphic = graphic;
@@ -21,10 +21,10 @@ public abstract class AbstractTower {
 
     abstract void shoot();
 
-    public void place(int row, int col) {
+    public void place(int x, int y) {
         System.out.println("Placing a tower");
-        this.row = row;
-        this.col = col;
+        this.x = x;
+        this.y = y;
         // draw the graphic at the specified location
     }
 

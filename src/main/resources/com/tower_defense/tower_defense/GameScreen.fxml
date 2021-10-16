@@ -136,8 +136,8 @@
                 </GridPane>
             </children>
         </Pane>
-      <Circle fill="#d300e6" layoutX="300.0" layoutY="28.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#ff8e21" layoutX="392.0" layoutY="28.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="DODGERBLUE" layoutX="204.0" layoutY="28.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#d300e6" layoutX="300.0" layoutY="28.0" onMouseClicked="#onHoldTower" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#ff8e21" layoutX="392.0" layoutY="28.0" onMouseClicked="#onHoldTower" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="DODGERBLUE" layoutX="204.0" layoutY="28.0" onMouseClicked="#onHoldTower" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
     </children>
 </Pane>
