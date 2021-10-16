@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class GameController extends MainApplication {
@@ -20,6 +21,7 @@ public class GameController extends MainApplication {
     private static String name;
     private int money;
     private int health;
+    private List<AbstractTower> towers;
     @FXML private Label moneyLabel;
     @FXML private Label healthLabel;
 
@@ -121,5 +123,6 @@ public class GameController extends MainApplication {
             this.setMoney(this.money - tower.cost);
         }
         tower.place(row, col);
+        towers.add(tower);
     }
 }
