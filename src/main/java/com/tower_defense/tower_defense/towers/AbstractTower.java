@@ -3,6 +3,7 @@ package com.tower_defense.tower_defense.towers;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+// extend this class to create a new type of tower
 public abstract class AbstractTower {
 
     Rectangle graphic;
