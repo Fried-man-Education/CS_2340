@@ -21,6 +21,13 @@ public abstract class AbstractTower {
 
     abstract void shoot();
 
+    public void place(int row, int col) {
+        System.out.println("Placing a tower");
+        this.row = row;
+        this.col = col;
+        // draw the graphic at the specified location
+    }
+
     private void initializeColor() {
         if (this.graphic != null && this.color != null) {
             graphic.setFill(color);

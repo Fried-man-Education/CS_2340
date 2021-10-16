@@ -13,7 +13,7 @@ public class MachineTower extends AbstractTower {
     }
 
     @Override
-    void shoot() {
+    public void shoot() {
         System.out.println("Machine tower shoots");
     }
 }
