@@ -139,7 +139,7 @@ public class GameController extends MainApplication {
         unselectLastTower();
 
         if (tower.cost > this.money) {
-            System.out.println("You do not have enough money to print this tower");
+            System.out.println("You do not have enough money to place this tower");
             return;
         } else {
             // purchase the tower and deduct money
