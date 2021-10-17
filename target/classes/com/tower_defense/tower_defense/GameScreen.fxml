@@ -10,24 +10,24 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="GameScreen" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tower_defense.tower_defense.GameController">
-    <children>
-        <Label fx:id="moneyLabel" layoutX="14.0" layoutY="16.0" text="Money: $0">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Label fx:id="healthLabel" layoutX="495.0" layoutY="16.0" text="Health:  100">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
+<Pane fx:id="GameScreen" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tower_defense.tower_defense.GameController">
+    <Label fx:id="moneyLabel" layoutX="14.0" layoutY="16.0" text="Money: $0">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Label>
+    <Label fx:id="healthLabel" layoutX="495.0" layoutY="16.0" text="Health:  100">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Label>
 
-
-
-      <Circle fill="#d300e6" layoutX="300.0" layoutY="28.0" onMouseClicked="#onHoldTower" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#ff8e21" layoutX="392.0" layoutY="28.0" onMouseClicked="#onHoldTower" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="DODGERBLUE" layoutX="204.0" layoutY="28.0" onMouseClicked="#onHoldTower" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-        <Pane fx:id="MapPane" layoutY="60.0" prefHeight="340.0" prefWidth="600.0" />
-    </children>
+    <Circle fill="#d300e6" layoutX="300.0" layoutY="28.0" onMouseClicked="#onHoldTower" radius="25.0" stroke="BLACK"
+            strokeType="INSIDE"/>
+    <Circle fill="#ff8e21" layoutX="392.0" layoutY="28.0" onMouseClicked="#onHoldTower" radius="25.0" stroke="BLACK"
+            strokeType="INSIDE"/>
+    <Circle fill="DODGERBLUE" layoutX="204.0" layoutY="28.0" onMouseClicked="#onHoldTower" radius="25.0" stroke="BLACK"
+            strokeType="INSIDE"/>
+    <Pane fx:id="MapPane" layoutY="60.0" prefHeight="340.0" prefWidth="600.0"/>
 </Pane>
