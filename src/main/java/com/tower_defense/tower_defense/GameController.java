@@ -222,7 +222,7 @@ public class GameController extends MainApplication {
             throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
         }
     }
- //test
+
     private void placeTower(int x, int y) {
         if (isPath(x, y) || isBase(x, y)) {
             return;
