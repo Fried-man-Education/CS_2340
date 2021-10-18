@@ -7,6 +7,8 @@ import javafx.scene.shape.Rectangle;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 
 public class GameControllerTest {
@@ -106,5 +108,16 @@ public class GameControllerTest {
         assertEquals(20, (int)temp.getHeight());
         assertEquals(24, (int)temp.getWidth());
         assertEquals(Color.web("0x808080ff"), temp.getFill());
+    }
+
+    //Koby Test
+    @Test(timeout = TIMEOUT)
+    public void testIsPath(){
+        assertTrue(gameScreen.isPath(2,12));
+        assertFalse(gameScreen.isPath(3,12));
+    }
+    public void testIsBase(){
+        assertTrue(gameScreen.isPath(21,0));
+        assertFalse(gameScreen.isPath(30,5));
     }
 }

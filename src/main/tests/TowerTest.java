@@ -37,4 +37,6 @@ public class TowerTest {
         assertEquals(0, temp.x);
         assertEquals(0, temp.y);
     }
+
+
 }

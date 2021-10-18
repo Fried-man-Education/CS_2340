@@ -197,7 +197,7 @@ public class GameController extends MainApplication {
         System.out.println(selectedTower);
     }
 
-    private boolean isPath(int x, int y) {
+    public boolean isPath(int x, int y) {
         if (x == 2 && y > 11) {
             return true;
         } else if (y == 11 && x < 21 && x >= 2) {
