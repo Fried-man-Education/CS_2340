@@ -61,5 +61,5 @@
          </Label>
       </children>
    </Pane>
-    <Pane fx:id="MapPane" layoutY="60.0" prefHeight="340.0" prefWidth="600.0" />
+    <Pane fx:id="mapPane" layoutY="60.0" prefHeight="340.0" prefWidth="600.0" />
 </Pane>

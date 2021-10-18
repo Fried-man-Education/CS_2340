@@ -27,41 +27,48 @@ public class GameController extends MainApplication {
     private int money;
     private int health;
     private List<AbstractTower> towers;
-    @FXML private Label moneyLabel;
-    @FXML private Label healthLabel;
-    @FXML private Pane MapPane;
+    @FXML
+    private Label moneyLabel;
+    @FXML
+    private Label healthLabel;
+    @FXML
+    private Pane mapPane;
 
-    private static final Map<String, Integer> towerMap = new HashMap<>(); // 0 = Normal, 1 = Splash, 2 = Machine
-    private static int selectedTower = -1; // -1 = none selected, 0 = normal, 1 = splash, 2 = machine
-    public static final Paint[] colors = new Paint[]{Color.web("0x1e90ff"), Color.web("0xd300e6"), Color.web("0xff8e21")};
+    // 0 = Normal, 1 = Splash, 2 = Machine
+    private static final Map<String, Integer> TOWER_MAP = new HashMap<>();
+    // -1 = none selected, 0 = normal, 1 = splash, 2 = machine
+    private static int selectedTower = -1;
+    public static final Paint[] COLORS = new Paint[]{Color.web("0x1e90ff"),
+            Color.web("0xd300e6"), Color.web("0xff8e21")};
     private static Rectangle lastRectangle;
-    public static GridPane grid;
+    private static GridPane grid;
 
     @FXML
     public void initialize() {
-        MapPane.getChildren().add(createGrid());
+        mapPane.getChildren().add(createGrid());
 
         this.towers = new ArrayList<>();
-        towerMap.put("0x1e90ffff", 0);
-        towerMap.put("0xd300e6ff", 1);
-        towerMap.put("0xff8e21ff", 2);
+        TOWER_MAP.put("0x1e90ffff", 0);
+        TOWER_MAP.put("0xd300e6ff", 1);
+        TOWER_MAP.put("0xff8e21ff", 2);
 
         this.setMoney(difficultMoney(difficulty));
         this.setHealth(difficultHealth(difficulty));
     }
 
-    public GridPane createGrid(){
+    public GridPane createGrid() {
         grid = new GridPane();
         grid.setPrefHeight(600);
         grid.setPrefWidth(340);
         grid.setOnMouseClicked(this::onGridClicked);
 
-        int numRows = 17, numCols = 25;
-        for(int row = 0; row < numRows; row++){
-            for(int col = 0; col < numCols; col++){
-                if (isPath(col, row))
+        int numRows = 17;
+        int numCols = 25;
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                if (isPath(col, row)) {
                     grid.add(createGrayTile(row, col), col, row);
-                else if (isBase(col, row)) {
+                } else if (isBase(col, row)) {
                     grid.add(createBaseTile(row, col), col, row);
                 } else {
                     grid.add(createGreenTile(row, col), col, row);
@@ -71,18 +78,22 @@ public class GameController extends MainApplication {
         return grid;
     }
 
-    public static Rectangle createGrayTile(int row, int col){
+    public static GridPane getGrid() {
+        return grid;
+    }
+
+    public static Rectangle createGrayTile(int row, int col) {
         Rectangle graySquare = new Rectangle();
-        graySquare.setId("" + row +","+col);
+        graySquare.setId("" + row + "," + col);
         graySquare.setHeight(20);
         graySquare.setWidth(24);
         graySquare.setFill(Color.GREY);
         return graySquare;
     }
 
-    public static Rectangle createGreenTile(int row, int col){
+    public static Rectangle createGreenTile(int row, int col) {
         Rectangle greenSquare = new Rectangle();
-        greenSquare.setId(row +","+col);
+        greenSquare.setId(row + "," + col);
         greenSquare.setHeight(20);
         greenSquare.setWidth(24);
         greenSquare.setFill(Color.GREEN);
@@ -109,12 +120,15 @@ public class GameController extends MainApplication {
     }
 
     private int calculateValue(String difficulty, int num) {
-        return switch (difficulty) {
-            case "Easy" -> num;
-            case "Medium" -> num / 2;
-            case "Hard" -> num / 4;
-            default -> throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
-        };
+        if (difficulty.equals("Easy")) {
+            return num;
+        } else if (difficulty.equals("Medium")) {
+            return num / 2;
+        } else if (difficulty.equals("Hard")) {
+            return num / 4;
+        } else {
+            throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
+        }
     }
 
     public void setMoney(int newMoney) {
@@ -164,12 +178,13 @@ public class GameController extends MainApplication {
     public void onHoldTower(MouseEvent event) {
         Rectangle rectangle = (Rectangle) (event.getPickResult().getIntersectedNode());
         String color = rectangle.getFill().toString();
-        int tower = towerMap.getOrDefault(color, selectedTower); // If the color is not in the map, then it must be faded (selected already)
+        // If the color is not in the map, then it must be faded (selected already)
+        int tower = TOWER_MAP.getOrDefault(color, selectedTower);
 
         // ReClick the tower they already have selected, unselect
         if (tower == selectedTower) {
             if (tower != -1) {
-                rectangle.setFill(colors[tower]);
+                rectangle.setFill(COLORS[tower]);
             }
             selectedTower = -1;
         } else { // Update selected tower
@@ -183,11 +198,13 @@ public class GameController extends MainApplication {
     }
 
     private boolean isPath(int x, int y) {
-        if(x == 2 && y > 11){
+        if (x == 2 && y > 11) {
             return true;
-        } else if(y == 11 && x < 21 && x >= 2){
+        } else if (y == 11 && x < 21 && x >= 2) {
             return true;
-        } else return x == 21 && y >= 4 && y <= 11;
+        } else {
+            return x == 21 && y >= 4 && y <= 11;
+        }
     }
 
     private boolean isBase(int x, int y) {
@@ -195,35 +212,45 @@ public class GameController extends MainApplication {
     }
 
     private int calculateCost(String difficulty, int num) {
-        return switch (difficulty) {
-            case "Easy" -> num / 4;
-            case "Medium" -> num / 2;
-            case "Hard" -> num;
-            default -> throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
-        };
+        if (difficulty.equals("Easy")) {
+            return num;
+        } else if (difficulty.equals("Medium")) {
+            return num / 2;
+        } else if (difficulty.equals("Hard")) {
+            return num / 4;
+        } else {
+            throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
+        }
     }
 
     private void placeTower(int x, int y) {
-        if (isPath(x, y) || isBase(x, y)) return;
+        if (isPath(x, y) || isBase(x, y)) {
+            return;
+        }
         for (AbstractTower t : towers) {
-            if (t.x == x && t.y == y) return;
+            if (t.getX() == x && t.getY() == y) {
+                return;
+            }
         }
 
-        AbstractTower tower = switch (selectedTower) {
-            case 0 -> new NormalTower(calculateCost(difficulty, 200));
-            case 2 -> new SplashTower(calculateCost(difficulty, 300));
-            case 1 -> new MachineTower(calculateCost(difficulty, 200));
-            default -> null;
-        };
+        AbstractTower tower;
+        if (selectedTower == 0) {
+            tower = new NormalTower(calculateCost(difficulty, 200));
+        } else if (selectedTower == 1) {
+            tower = new MachineTower(calculateCost(difficulty, 200));
+        } else if (selectedTower == 2) {
+            tower = new SplashTower(calculateCost(difficulty, 300));
+        } else {
+            return;
+        }
         unselectLastTower();
-        if (tower == null) return;
 
-        if (tower.cost > this.money) {
+        if (tower.getCost() > this.money) {
             System.out.println("You do not have enough money to place this tower");
             return;
         } else {
             // purchase the tower and deduct money
-            this.setMoney(this.money - tower.cost);
+            this.setMoney(this.money - tower.getCost());
         }
         tower.place(x, y);
         towers.add(tower);
@@ -232,7 +259,7 @@ public class GameController extends MainApplication {
 
     private void unselectLastTower() {
         if (lastRectangle != null && selectedTower != -1) {
-            lastRectangle.setFill(colors[selectedTower]);
+            lastRectangle.setFill(COLORS[selectedTower]);
         }
         selectedTower = -1;
         lastRectangle = null;
