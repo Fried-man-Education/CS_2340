@@ -33,7 +33,7 @@ public class GameController extends MainApplication {
 
     private static final Map<String, Integer> towerMap = new HashMap<>(); // 0 = Normal, 1 = Splash, 2 = Machine
     private static int selectedTower = -1; // -1 = none selected, 0 = normal, 1 = splash, 2 = machine
-    public static final Paint[] colors = new Paint[]{Color.web("0x1e90ffff"), Color.web("0xd300e6ff"), Color.web("0xff8e21ff")};
+    public static final Paint[] colors = new Paint[]{Color.web("0x1e90ff"), Color.web("0xd300e6"), Color.web("0xff8e21")};
     private static Rectangle lastRectangle;
     public static GridPane grid;
 
