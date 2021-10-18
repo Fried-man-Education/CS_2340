@@ -112,7 +112,6 @@ public class GameControllerTest {
     public void testGridLayoutInitialization() {
         int numRows = 17, numCols = 25;
         GridPane grid = gameScreen.createGrid();
-        Node result = null;
         ObservableList<Node> children = grid.getChildren();
         for (Node node : children) {
             int row = grid.getRowIndex(node);

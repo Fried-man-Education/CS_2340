@@ -77,7 +77,7 @@ public class GameController extends MainApplication {
 
     public Rectangle createWhiteTile(int row, int col){
         Rectangle whiteSquare = new Rectangle();
-        whiteSquare.setId("" + row +","+col);
+        whiteSquare.setId(row +","+col);
         whiteSquare.setHeight(20);
         whiteSquare.setWidth(24);
         whiteSquare.setFill(Color.GREY);
@@ -86,7 +86,7 @@ public class GameController extends MainApplication {
 
     public Rectangle createGreenTile(int row, int col){
         Rectangle greenSquare = new Rectangle();
-        greenSquare.setId("" + row +","+col);
+        greenSquare.setId(row +","+col);
         greenSquare.setHeight(20);
         greenSquare.setWidth(24);
         greenSquare.setFill(Color.GREEN);
