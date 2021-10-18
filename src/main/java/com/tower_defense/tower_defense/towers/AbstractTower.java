@@ -9,8 +9,8 @@ public abstract class AbstractTower {
     private Rectangle graphic;
     private Color color;
     private final int cost;
-    public int x;
-    public int y;
+    private int x;
+    private int y;
 
     public AbstractTower(Rectangle graphic, Color color, int cost) {
         this.graphic = graphic;
@@ -55,15 +55,15 @@ public abstract class AbstractTower {
         }
     }
 
-    public Color getColor () {
+    public Color getColor() {
         return color;
     }
 
-    public Rectangle getGraphic () {
+    public Rectangle getGraphic() {
         return graphic;
     }
 
-    public int getCost () {
+    public int getCost() {
         return cost;
     }
 }
