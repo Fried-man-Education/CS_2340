@@ -207,7 +207,7 @@ public class GameController extends MainApplication {
         }
     }
 
-    private boolean isBase(int x, int y) {
+    public boolean isBase(int x, int y) {
         return y >= 1 && y <= 3 && x >= 20 && x <= 22;
     }
 
