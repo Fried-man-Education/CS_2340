@@ -1,5 +1,4 @@
 import com.tower_defense.tower_defense.GameController;
-import com.tower_defense.tower_defense.GameSettingsController;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
@@ -7,7 +6,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class GameControllerTest {
     private static final int TIMEOUT = 200;
@@ -21,17 +21,17 @@ public class GameControllerTest {
     //Alik Emelianov's Test
     @Test(timeout = TIMEOUT)
     public void testDifficultMoney() {
-        assertEquals("1000", gameScreen.difficultMoney("Easy"));
-        assertEquals("500", gameScreen.difficultMoney("Medium"));
-        assertEquals("250", gameScreen.difficultMoney("Hard"));
+        assertEquals(1000, gameScreen.difficultMoney("Easy"));
+        assertEquals(500, gameScreen.difficultMoney("Medium"));
+        assertEquals(250, gameScreen.difficultMoney("Hard"));
     }
 
     //Koby Beard's Test
     @Test(timeout = TIMEOUT)
     public void testDifficultHealth() {
-        assertEquals("200", gameScreen.difficultHealth("Easy"));
-        assertEquals("100", gameScreen.difficultHealth("Medium"));
-        assertEquals("50", gameScreen.difficultHealth("Hard"));
+        assertEquals(200, gameScreen.difficultHealth("Easy"));
+        assertEquals(100, gameScreen.difficultHealth("Medium"));
+        assertEquals(50, gameScreen.difficultHealth("Hard"));
     }
 
     // Joseph Vitko's Test
@@ -48,41 +48,6 @@ public class GameControllerTest {
         String hard = "hard";
         GameController.setDifficulty(hard);
         assertEquals(hard, GameController.getDifficulty());
-    }
-
-    // Nicholas Hulston's Test
-    @Test(timeout = TIMEOUT)
-    public void testNames() {
-        boolean validName = GameSettingsController.checkValidName("");
-        assertFalse(validName);
-
-        validName = GameSettingsController.checkValidName(" ");
-        assertFalse(validName);
-
-        validName = GameSettingsController.checkValidName("a");
-        assertTrue(validName);
-
-        validName = GameSettingsController.checkValidName("Hello!   ");
-        assertTrue(validName);
-
-        validName = GameSettingsController.checkValidName("   Test    ");
-        assertTrue(validName);
-    }
-
-    // Andrew Friedman's Test
-    @Test(timeout = TIMEOUT)
-    public void testNameTrim() {
-        GameController.setName("  a   ");
-        assertEquals(GameController.getName(), "a");
-
-        GameController.setName("    b");
-        assertEquals(GameController.getName(), "b");
-
-        GameController.setName("c      ");
-        assertEquals(GameController.getName(), "c");
-
-        GameController.setName("     Hello, my name is Andrew!      !      ");
-        assertEquals(GameController.getName(), "Hello, my name is Andrew!      !");
     }
 
     //Alik Emelianov's Test
@@ -131,11 +96,14 @@ public class GameControllerTest {
         }
     }
 
-    /* JUNIT TEST IDEAS:
-       - checking initialization (global variable values)
-       - checking difficultMoney() values
-       - checking difficultHealth() values
-       - If you can't think of anything change the public variables "name" &
-       "difficulty" to private. Then, make getter & setter functions and test those.
-     */
+    // Nick Hulston's Test
+    @Test(timeout = TIMEOUT)
+    public void testGrayTile() {
+        int x = 0, y = 0;
+        Rectangle temp = gameScreen.createGrayTile(x,y);
+        assertEquals(x + "," + y, temp.getId());
+        assertEquals(20, (int)temp.getHeight());
+        assertEquals(24, (int)temp.getWidth());
+        assertEquals(Color.web("0x808080ff"), temp.getFill());
+    }
 }

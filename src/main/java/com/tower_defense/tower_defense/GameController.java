@@ -218,12 +218,12 @@ public class GameController extends MainApplication {
         unselectLastTower();
         if (tower == null) return;
 
-        if (tower.cost > this.money) {
+        if (tower.getCost() > this.money) {
             System.out.println("You do not have enough money to place this tower");
             return;
         } else {
             // purchase the tower and deduct money
-            this.setMoney(this.money - tower.cost);
+            this.setMoney(this.money - tower.getCost());
         }
         tower.place(x, y);
         towers.add(tower);

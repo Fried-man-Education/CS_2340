@@ -9,7 +9,7 @@ public abstract class AbstractTower {
 
     Rectangle graphic;
     Color color;
-    public int cost;
+    int cost;
     public int x;
     public int y;
 
@@ -44,6 +44,18 @@ public abstract class AbstractTower {
         } else {
             System.err.println("Cannot initialize tower color, color or graphic have not been declared yet");
         }
+    }
+
+    public Color getColor () {
+        return color;
+    }
+
+    public Rectangle getGraphic () {
+        return graphic;
+    }
+
+    public int getCost () {
+        return cost;
     }
 
 }
