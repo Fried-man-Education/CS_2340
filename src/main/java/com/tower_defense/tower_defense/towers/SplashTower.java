@@ -5,11 +5,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class SplashTower extends AbstractTower {
-    final static Color color = (Color) GameController.colors[1];
+    final static Color color = (Color) GameController.colors[2];
     final static Rectangle graphic = new Rectangle();
     final static int cost = 200;
 
-    public SplashTower() {
+    public SplashTower(int cost) {
         super(graphic, color, cost);
     }
 

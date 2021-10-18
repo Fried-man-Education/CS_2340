@@ -9,7 +9,7 @@ public class NormalTower extends AbstractTower {
     final static Rectangle graphic = new Rectangle();
     final static int cost = 100;
 
-    public NormalTower() {
+    public NormalTower(int cost) {
         super(graphic, color, cost);
     }
 

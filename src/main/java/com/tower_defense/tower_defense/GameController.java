@@ -156,7 +156,6 @@ public class GameController extends MainApplication {
         Node clickedNode = event.getPickResult().getIntersectedNode();
         Integer x = GridPane.getColumnIndex(clickedNode);
         Integer y = GridPane.getRowIndex(clickedNode);
-        System.out.println("(" + x + ", " + y + ")");
 
         placeTower(x, y);
     }
@@ -195,6 +194,15 @@ public class GameController extends MainApplication {
         return y >= 1 && y <= 3 && x >= 20 && x <= 22;
     }
 
+    private int calculateCost(String difficulty, int num) {
+        return switch (difficulty) {
+            case "Easy" -> num / 4;
+            case "Medium" -> num / 2;
+            case "Hard" -> num;
+            default -> throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
+        };
+    }
+
     private void placeTower(int x, int y) {
         if (isPath(x, y) || isBase(x, y)) return;
         for (AbstractTower t : towers) {
@@ -202,9 +210,9 @@ public class GameController extends MainApplication {
         }
 
         AbstractTower tower = switch (selectedTower) {
-            case 0 -> new NormalTower();
-            case 1 -> new SplashTower();
-            case 2 -> new MachineTower();
+            case 0 -> new NormalTower(calculateCost(difficulty, 200));
+            case 2 -> new SplashTower(calculateCost(difficulty, 300));
+            case 1 -> new MachineTower(calculateCost(difficulty, 200));
             default -> null;
         };
         unselectLastTower();
