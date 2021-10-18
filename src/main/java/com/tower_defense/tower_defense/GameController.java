@@ -12,7 +12,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ public class GameController extends MainApplication {
     private static final Map<String, Integer> towerMap = new HashMap<>(); // 0 = Normal, 1 = Splash, 2 = Machine
     private static int selectedTower = -1; // -1 = none selected, 0 = normal, 1 = splash, 2 = machine
     public static final Paint[] colors = new Paint[]{Color.web("0x1e90ffff"), Color.web("0xd300e6ff"), Color.web("0xff8e21ff")};
-    private static Circle lastCircle;
+    private static Rectangle lastRectangle;
     public static GridPane grid;
 
     @FXML
@@ -164,23 +163,23 @@ public class GameController extends MainApplication {
 
     @FXML
     public void onHoldTower(MouseEvent event) {
-        Circle circle = (Circle) (event.getPickResult().getIntersectedNode());
-        String color = circle.getFill().toString();
+        Rectangle rectangle = (Rectangle) (event.getPickResult().getIntersectedNode());
+        String color = rectangle.getFill().toString();
         int tower = towerMap.getOrDefault(color, selectedTower); // If the color is not in the map, then it must be faded (selected already)
 
         // ReClick the tower they already have selected, unselect
         if (tower == selectedTower) {
             if (tower != -1) {
-                circle.setFill(colors[tower]);
+                rectangle.setFill(colors[tower]);
             }
             selectedTower = -1;
         } else { // Update selected tower
             unselectLastTower();
-            circle.setFill(Color.GRAY); // Set current tower to gray
+            rectangle.setFill(Color.GRAY); // Set current tower to gray
             selectedTower = tower; // update selected tower
         }
 
-        lastCircle = circle;
+        lastRectangle = rectangle;
         System.out.println(selectedTower);
     }
 
@@ -198,6 +197,10 @@ public class GameController extends MainApplication {
 
     private void placeTower(int x, int y) {
         if (isPath(x, y) || isBase(x, y)) return;
+        for (AbstractTower t : towers) {
+            if (t.x == x && t.y == y) return;
+        }
+
         AbstractTower tower = switch (selectedTower) {
             case 0 -> new NormalTower();
             case 1 -> new SplashTower();
@@ -220,10 +223,10 @@ public class GameController extends MainApplication {
     }
 
     private void unselectLastTower() {
-        if (lastCircle != null && selectedTower != -1) {
-            lastCircle.setFill(colors[selectedTower]);
+        if (lastRectangle != null && selectedTower != -1) {
+            lastRectangle.setFill(colors[selectedTower]);
         }
         selectedTower = -1;
-        lastCircle = null;
+        lastRectangle = null;
     }
 }
