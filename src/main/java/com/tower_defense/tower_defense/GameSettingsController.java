@@ -11,7 +11,8 @@ import java.io.IOException;
 
 public class GameSettingsController extends MainApplication {
 
-    @FXML private TextField nameField;
+    @FXML
+    private TextField nameField;
     private String tempDifficulty;
 
     @FXML

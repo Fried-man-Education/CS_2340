@@ -5,12 +5,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class MachineTower extends AbstractTower {
-    final static Color color = (Color) GameController.colors[1];
-    final static Rectangle graphic = new Rectangle();
-    static int cost;
+    static final Color COLOR = (Color) GameController.COLORS[1];
+    static final Rectangle GRAPHIC = new Rectangle();
 
     public MachineTower(int cost) {
-        super(graphic, color, cost);
+        super(GRAPHIC, COLOR, cost);
     }
 
     @Override

@@ -6,10 +6,9 @@ import javafx.scene.shape.Rectangle;
 
 // extend this class to create a new type of tower
 public abstract class AbstractTower {
-
-    Rectangle graphic;
-    Color color;
-    int cost;
+    private Rectangle graphic;
+    private Color color;
+    private final int cost;
     public int x;
     public int y;
 
@@ -18,6 +17,15 @@ public abstract class AbstractTower {
         this.color = color;
         this.cost = cost;
         this.initializeColor();
+    }
+
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     abstract void shoot();
@@ -35,14 +43,15 @@ public abstract class AbstractTower {
         this.x = x;
         this.y = y;
         // draw the graphic at the specified location
-        GameController.grid.add(this.getRectangle(), x, y);
+        GameController.getGrid().add(this.getRectangle(), x, y);
     }
 
     private void initializeColor() {
         if (this.graphic != null && this.color != null) {
             graphic.setFill(color);
         } else {
-            System.err.println("Cannot initialize tower color, color or graphic have not been declared yet");
+            System.err.println("Cannot initialize tower color,"
+                    + " color or graphic have not been declared yet");
         }
     }
 
@@ -57,5 +66,4 @@ public abstract class AbstractTower {
     public int getCost () {
         return cost;
     }
-
 }

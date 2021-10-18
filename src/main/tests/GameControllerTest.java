@@ -6,8 +6,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
+
 
 public class GameControllerTest {
     private static final int TIMEOUT = 200;
@@ -54,41 +54,42 @@ public class GameControllerTest {
     @Test(timeout = 10000)
     public void testGridNumberInitialization() {
         GridPane grid = gameScreen.createGrid();
-        int numGray = 0, numGreen = 0, numBlue = 0;
-        for(Node node: grid.getChildren()){
+        int numGray = 0;
+        int numGreen = 0;
+        int numBlue = 0;
+        for (Node node : grid.getChildren()) {
             Rectangle cell = (Rectangle) node;
             Color rectangleColor = (Color) cell.getFill();
 
-            if(rectangleColor.equals(Color.GREEN)){
+            if (rectangleColor.equals(Color.GREEN)) {
                 numGreen++;
-            } else if(rectangleColor.equals(Color.GRAY)){
+            } else if (rectangleColor.equals(Color.GRAY)) {
                 numGray++;
-            } else if(rectangleColor.equals(Color.BLUE)) {
+            } else if (rectangleColor.equals(Color.BLUE)) {
                 numBlue++;
             }
         }
-        assertEquals(32,numGray);
-        assertEquals(384,numGreen);
-        assertEquals(9,numBlue);
+        assertEquals(32, numGray);
+        assertEquals(384, numGreen);
+        assertEquals(9, numBlue);
     }
 
     //Alik Emelianov's 2nd Test
     @Test(timeout = 10000)
     public void testGridLayoutInitialization() {
-        int numRows = 17, numCols = 25;
         GridPane grid = gameScreen.createGrid();
         ObservableList<Node> children = grid.getChildren();
         for (Node node : children) {
             int row = grid.getRowIndex(node);
             int col = grid.getColumnIndex(node);
             Rectangle rect = (Rectangle) node;
-            if(col == 2 && row > 11){
+            if (col == 2 && row > 11) {
                 assertEquals(rect.getFill(), Color.GRAY);
-            } else if(row == 11 && col < 21 && col >= 2){
+            } else if (row == 11 && col < 21 && col >= 2) {
                 assertEquals(rect.getFill(), Color.GRAY);
-            } else if(col == 21 && row >= 4 && row <= 11){
+            } else if (col == 21 && row >= 4 && row <= 11) {
                 assertEquals(rect.getFill(), Color.GRAY);
-            } else if(row >= 1 && row <= 3 && col >= 20 && col <= 22){
+            } else if (row >= 1 && row <= 3 && col >= 20 && col <= 22) {
                 assertEquals(rect.getFill(), Color.BLUE);
             } else {
                 assertEquals(rect.getFill(), Color.GREEN);
