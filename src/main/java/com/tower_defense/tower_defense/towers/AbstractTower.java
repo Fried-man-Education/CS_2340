@@ -1,5 +1,6 @@
 package com.tower_defense.tower_defense.towers;
 
+import com.tower_defense.tower_defense.GameController;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -21,11 +22,20 @@ public abstract class AbstractTower {
 
     abstract void shoot();
 
+    private Rectangle getRectangle() {
+        Rectangle square = new Rectangle();
+        square.setHeight(20);
+        square.setWidth(24);
+        square.setFill(color);
+        return square;
+    }
+
     public void place(int x, int y) {
         System.out.println("Placing a tower");
         this.x = x;
         this.y = y;
         // draw the graphic at the specified location
+        GameController.grid.add(this.getRectangle(), x, y);
     }
 
     private void initializeColor() {

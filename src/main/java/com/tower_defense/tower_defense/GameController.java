@@ -34,9 +34,9 @@ public class GameController extends MainApplication {
 
     private static final Map<String, Integer> towerMap = new HashMap<>(); // 0 = Normal, 1 = Splash, 2 = Machine
     private static int selectedTower = -1; // -1 = none selected, 0 = normal, 1 = splash, 2 = machine
-    private static final Paint[] colors = new Paint[]{Color.web("0x1e90ffff"), Color.web("0xd300e6ff"), Color.web("0xff8e21ff")};
+    public static final Paint[] colors = new Paint[]{Color.web("0x1e90ffff"), Color.web("0xd300e6ff"), Color.web("0xff8e21ff")};
     private static Circle lastCircle;
-
+    public static GridPane grid;
 
     @FXML
     public void initialize() {
@@ -52,20 +52,17 @@ public class GameController extends MainApplication {
     }
 
     public GridPane createGrid(){
-        GridPane grid = new GridPane();
+        grid = new GridPane();
         grid.setPrefHeight(600);
         grid.setPrefWidth(340);
+        grid.setOnMouseClicked(this::onGridClicked);
 
         int numRows = 17, numCols = 25;
         for(int row = 0; row < numRows; row++){
             for(int col = 0; col < numCols; col++){
-                if(col == 2 && row > 11){
-                    grid.add(createWhiteTile(row, col), col, row);
-                } else if(row == 11 && col < 21 && col >= 2){
-                    grid.add(createWhiteTile(row, col), col, row);
-                } else if(col == 21 && row >= 4 && row <= 11){
-                    grid.add(createWhiteTile(row, col), col, row);
-                } else if(row >= 1 && row <= 3 && col >= 20 && col <= 22){
+                if (isPath(col, row))
+                    grid.add(createGrayTile(row, col), col, row);
+                else if (isBase(col, row)) {
                     grid.add(createBaseTile(row, col), col, row);
                 } else {
                     grid.add(createGreenTile(row, col), col, row);
@@ -75,16 +72,16 @@ public class GameController extends MainApplication {
         return grid;
     }
 
-    public Rectangle createWhiteTile(int row, int col){
-        Rectangle whiteSquare = new Rectangle();
-        whiteSquare.setId("" + row +","+col);
-        whiteSquare.setHeight(20);
-        whiteSquare.setWidth(24);
-        whiteSquare.setFill(Color.GREY);
-        return whiteSquare;
+    public static Rectangle createGrayTile(int row, int col){
+        Rectangle graySquare = new Rectangle();
+        graySquare.setId("" + row +","+col);
+        graySquare.setHeight(20);
+        graySquare.setWidth(24);
+        graySquare.setFill(Color.GREY);
+        return graySquare;
     }
 
-    public Rectangle createGreenTile(int row, int col){
+    public static Rectangle createGreenTile(int row, int col){
         Rectangle greenSquare = new Rectangle();
         greenSquare.setId("" + row +","+col);
         greenSquare.setHeight(20);
@@ -93,7 +90,7 @@ public class GameController extends MainApplication {
         return greenSquare;
     }
 
-    public Rectangle createBaseTile(int row, int col) {
+    public static Rectangle createBaseTile(int row, int col) {
         Rectangle base = new Rectangle();
         base.setId(row + "," + col);
         base.setHeight(20);
@@ -187,14 +184,28 @@ public class GameController extends MainApplication {
         System.out.println(selectedTower);
     }
 
+    private boolean isPath(int x, int y) {
+        if(x == 2 && y > 11){
+            return true;
+        } else if(y == 11 && x < 21 && x >= 2){
+            return true;
+        } else return x == 21 && y >= 4 && y <= 11;
+    }
+
+    private boolean isBase(int x, int y) {
+        return y >= 1 && y <= 3 && x >= 20 && x <= 22;
+    }
+
     private void placeTower(int x, int y) {
-        // TODO check that not on path
+        if (isPath(x, y) || isBase(x, y)) return;
         AbstractTower tower = switch (selectedTower) {
+            case 0 -> new NormalTower();
             case 1 -> new SplashTower();
             case 2 -> new MachineTower();
-            default -> new NormalTower();
+            default -> null;
         };
         unselectLastTower();
+        if (tower == null) return;
 
         if (tower.cost > this.money) {
             System.out.println("You do not have enough money to place this tower");
@@ -209,8 +220,9 @@ public class GameController extends MainApplication {
     }
 
     private void unselectLastTower() {
-        if (lastCircle == null || selectedTower == -1) return;
-        lastCircle.setFill(colors[selectedTower]);
+        if (lastCircle != null && selectedTower != -1) {
+            lastCircle.setFill(colors[selectedTower]);
+        }
         selectedTower = -1;
         lastCircle = null;
     }
