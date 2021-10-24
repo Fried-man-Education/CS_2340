@@ -6,9 +6,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class GameControllerTest {
     private static final int TIMEOUT = 200;
@@ -98,53 +97,7 @@ public class GameControllerTest {
         }
     }
 
-    // Nick Hulston's Test
-    @Test(timeout = TIMEOUT)
-    public void testGrayTile() {
-        int x = 0;
-        int y = 0;
-        Rectangle temp = gameScreen.createGrayTile(x, y);
-        assertEquals(x + "," + y, temp.getId());
-        assertEquals(20, (int) temp.getHeight());
-        assertEquals(24, (int) temp.getWidth());
-        assertEquals(Color.web("0x808080ff"), temp.getFill());
-    }
-
-    // Joseph Vitko's Test
-    @Test(timeout = TIMEOUT)
-    public void testGreenTile() {
-        int x = 0;
-        int y = 0;
-        Rectangle temp = gameScreen.createGreenTile(x, y);
-        assertEquals(x + "," + y, temp.getId());
-        assertEquals(20, (int) temp.getHeight());
-        assertEquals(24, (int) temp.getWidth());
-        assertEquals(Color.web("0x008000ff"), temp.getFill());
-    }
-
-    // Joseph Vitko's Test
-    @Test(timeout = TIMEOUT)
-    public void testBaseTile() {
-        int x = 0;
-        int y = 0;
-        Rectangle temp = gameScreen.createBaseTile(x, y);
-        assertEquals(x + "," + y, temp.getId());
-        assertEquals(20, (int) temp.getHeight());
-        assertEquals(24, (int) temp.getWidth());
-        assertEquals(Color.web("0x0000ffff"), temp.getFill());
-    }
-    //Koby Test
-    @Test(timeout = TIMEOUT)
-    public void testIsBase() {
-        assertTrue(gameScreen.isBase(21, 2));
-        assertFalse(gameScreen.isBase(2, 100));
-    }
-    //Koby Test
-    @Test(timeout = TIMEOUT)
-    public void testIsPath() {
-        assertTrue(gameScreen.isPath(2, 100));
-        assertFalse(gameScreen.isPath(11, 10));
-    }
+    /**/
 
 
 }

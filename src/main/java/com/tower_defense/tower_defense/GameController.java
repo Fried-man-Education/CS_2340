@@ -57,56 +57,14 @@ public class GameController extends MainApplication {
     }
 
     public GridPane createGrid() {
-        grid = new GridPane();
-        grid.setPrefHeight(600);
-        grid.setPrefWidth(340);
-        grid.setOnMouseClicked(this::onGridClicked);
+        grid = new GridController();
 
-        int numRows = 17;
-        int numCols = 25;
-        for (int row = 0; row < numRows; row++) {
-            for (int col = 0; col < numCols; col++) {
-                if (isPath(col, row)) {
-                    grid.add(createGrayTile(row, col), col, row);
-                } else if (isBase(col, row)) {
-                    grid.add(createBaseTile(row, col), col, row);
-                } else {
-                    grid.add(createGreenTile(row, col), col, row);
-                }
-            }
-        }
+        grid.setOnMouseClicked(this::onGridClicked);
         return grid;
     }
 
     public static GridPane getGrid() {
         return grid;
-    }
-
-    public static Rectangle createGrayTile(int row, int col) {
-        Rectangle graySquare = new Rectangle();
-        graySquare.setId("" + row + "," + col);
-        graySquare.setHeight(20);
-        graySquare.setWidth(24);
-        graySquare.setFill(Color.GREY);
-        return graySquare;
-    }
-
-    public static Rectangle createGreenTile(int row, int col) {
-        Rectangle greenSquare = new Rectangle();
-        greenSquare.setId(row + "," + col);
-        greenSquare.setHeight(20);
-        greenSquare.setWidth(24);
-        greenSquare.setFill(Color.GREEN);
-        return greenSquare;
-    }
-
-    public static Rectangle createBaseTile(int row, int col) {
-        Rectangle base = new Rectangle();
-        base.setId(row + "," + col);
-        base.setHeight(20);
-        base.setWidth(24);
-        base.setFill(Color.BLUE);
-        return base;
     }
 
     public int difficultMoney(String difficulty) {
@@ -197,6 +155,17 @@ public class GameController extends MainApplication {
         System.out.println(selectedTower);
     }
 
+    private int calculateCost(String difficulty, int num) {
+        if (difficulty.equals("Easy")) {
+            return num / 4;
+        } else if (difficulty.equals("Medium")) {
+            return num / 2;
+        } else if (difficulty.equals("Hard")) {
+            return num;
+        } else {
+            throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
+        }
+    }
     public boolean isPath(int x, int y) {
         if (x == 2 && y > 11) {
             return true;
@@ -209,18 +178,6 @@ public class GameController extends MainApplication {
 
     public boolean isBase(int x, int y) {
         return y >= 1 && y <= 3 && x >= 20 && x <= 22;
-    }
-
-    private int calculateCost(String difficulty, int num) {
-        if (difficulty.equals("Easy")) {
-            return num / 4;
-        } else if (difficulty.equals("Medium")) {
-            return num / 2;
-        } else if (difficulty.equals("Hard")) {
-            return num;
-        } else {
-            throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
-        }
     }
 
     private void placeTower(int x, int y) {
