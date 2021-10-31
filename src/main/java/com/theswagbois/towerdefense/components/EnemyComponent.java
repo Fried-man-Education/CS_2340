@@ -29,7 +29,7 @@ public class EnemyComponent extends Component {
 
     @Override
     public void onAdded() {
-        //waypoints = ((MainApplication) FXGL.getApp()).getWaypoints();
+        waypoints = ((MainApplication) FXGL.getApp()).getWaypoints();
 
         nextWaypoint = waypoints.remove(0);
     }

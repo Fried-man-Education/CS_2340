@@ -26,7 +26,7 @@ public class WelcomeMenu extends FXGLMenu {
     }
 
     private void setFirstMenu() {
-        var button = new StartButton("Start new game", this::setSecondMenu);
+        var button = new StartButton("Start new game", this::fireNewGame);
         button.setTranslateX(getAppWidth() / 2.0 - 100);
         button.setTranslateY(getAppHeight() * 2.0 / 3.0 - 20);
 
