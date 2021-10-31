@@ -1,6 +1,8 @@
 import com.almasb.fxgl.app.CursorInfo;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
+import com.almasb.fxgl.app.scene.FXGLMenu;
+import com.almasb.fxgl.app.scene.SceneFactory;
 import com.almasb.fxgl.core.math.FXGLMath;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
@@ -24,6 +26,13 @@ public class MainApplication extends GameApplication {
         gameSettings.setIntroEnabled(false);
         gameSettings.setCloseConfirmation(false);
         gameSettings.setManualResizeEnabled(false);
+        //gameSettings.setMainMenuEnabled(false);
+        gameSettings.setSceneFactory(new SceneFactory() {
+            @Override
+            public FXGLMenu newMainMenu() {
+                return new WelcomeMenu();
+            }
+        });
     }
 
     @Override
@@ -43,15 +52,11 @@ public class MainApplication extends GameApplication {
         getGameWorld().addEntityFactory(new TowerFactory());
         getGameWorld().addEntityFactory(new EnemyFactory());
 
-        run(() -> {
-            spawn("Ally", FXGLMath.randomPoint(
-                    new Rectangle2D(0, 0, getAppWidth(), getAppHeight()))
-            );
-
-            spawn("Enemy", FXGLMath.randomPoint(
-                    new Rectangle2D(0, 0, getAppWidth(), getAppHeight()))
-            );
-        }, Duration.seconds(1));
+//        run(() -> {
+//            spawn("Enemy", FXGLMath.randomPoint(
+//                    new Rectangle2D(0, 0, getAppWidth(), getAppHeight()))
+//            );
+//        }, Duration.seconds(1));
 
         super.initGame();
     }
