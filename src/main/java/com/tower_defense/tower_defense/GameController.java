@@ -230,7 +230,7 @@ public class GameController extends MainApplication {
     public void startCombat() {
         level++;
         int numEnemies = level * 5;
-        EnemyController controller = new EnemyController(numEnemies);
+        //EnemyController controller = new EnemyController(numEnemies);
         for (int i = 0; i < numEnemies; i++) {
             GhostEnemy ghost = new GhostEnemy();
             sendEnemy(ghost);

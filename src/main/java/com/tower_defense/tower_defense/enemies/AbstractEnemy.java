@@ -120,12 +120,26 @@ public abstract class AbstractEnemy {
     }
 
     public void move(int newX, int newY){
-        System.out.print(x);
+        System.out.print("working");
         int oldX = this.x;
         int oldY = this.y;
         GameController.getGrid().add(this.createGraphic(), newX, newY);
-        Color gridColor = Color.BLUE;
-        GameController.getGrid().add(this.createGraphic(gridColor), oldX, oldY);
+        Color gridColor = Color.GRAY;
+        try
+        {
+            Thread.sleep(100);
+            System.out.print("T");
+
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+            System.out.print("NW");
+        }
+        System.out.print("gets here");
+        if (oldX % 2 == 0) {
+            GameController.getGrid().add(this.createGraphic(gridColor), oldX, oldY);
+        }
         this.x = newX;
         this.y = newY;
     }
