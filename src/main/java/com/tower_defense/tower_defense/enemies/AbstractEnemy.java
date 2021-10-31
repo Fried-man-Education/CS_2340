@@ -4,6 +4,7 @@ package com.tower_defense.tower_defense.enemies;
 import com.tower_defense.tower_defense.GameController;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import java.util.concurrent.TimeUnit;
 
 //// extend this class to create a new type of enemy
 //public abstract class AbstractEnemy {
@@ -106,6 +107,10 @@ public abstract class AbstractEnemy {
     }
 
     private Rectangle createGraphic() {
+        return createGraphic(color);
+    }
+
+    private Rectangle createGraphic(Color color) {
         Rectangle square = new Rectangle();
         square.setHeight(20);
         square.setWidth(24);
@@ -114,10 +119,15 @@ public abstract class AbstractEnemy {
         return square;
     }
 
-    public void move(int x, int y){
-        this.x = x;
-        this.y = y;
-        GameController.getGrid().add(this.createGraphic(), x, y);
+    public void move(int newX, int newY){
+        System.out.print(x);
+        int oldX = this.x;
+        int oldY = this.y;
+        GameController.getGrid().add(this.createGraphic(), newX, newY);
+        Color gridColor = Color.BLUE;
+        GameController.getGrid().add(this.createGraphic(gridColor), oldX, oldY);
+        this.x = newX;
+        this.y = newY;
     }
 
     private void initializeColor() {
