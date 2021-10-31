@@ -24,5 +24,23 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.almasb:fxgl:11.17" level="project" />
+    <orderEntry type="library" name="Maven: com.github.almasb:fxgl-core:11.17" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:16" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:mac:16" level="project" />
+    <orderEntry type="library" name="Maven: com.gluonhq.attach:audio:4.0.9" level="project" />
+    <orderEntry type="library" name="Maven: com.github.almasb:fxgl-io:11.17" level="project" />
+    <orderEntry type="library" name="Maven: com.gluonhq.attach:storage:4.0.9" level="project" />
+    <orderEntry type="library" name="Maven: com.gluonhq.attach:util:4.0.9" level="project" />
+    <orderEntry type="library" name="Maven: com.github.almasb:fxgl-entity:11.17" level="project" />
+    <orderEntry type="library" name="Maven: com.github.almasb:fxgl-scene:11.17" level="project" />
+    <orderEntry type="library" name="Maven: com.github.almasb:fxgl-gameplay:11.17" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.12.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.12.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.12.1" level="project" />
+    <orderEntry type="library" name="Maven: com.gluonhq.attach:lifecycle:4.0.9" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:modular:1.5.10" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:13.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.5.10" level="project" />
   </component>
 </module>

@@ -1,9 +1,13 @@
+import com.almasb.fxgl.app.CursorInfo;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.core.math.FXGLMath;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Cursor;
 import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
+
+import java.awt.*;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
@@ -14,7 +18,12 @@ public class MainApplication extends GameApplication {
 
     @Override
     protected void initSettings(GameSettings gameSettings) {
-
+        gameSettings.setTitle("Tower Defense");
+        gameSettings.setWidth(800);
+        gameSettings.setHeight(600);
+        gameSettings.setIntroEnabled(false);
+        gameSettings.setCloseConfirmation(false);
+        gameSettings.setManualResizeEnabled(false);
     }
 
     @Override
@@ -29,7 +38,10 @@ public class MainApplication extends GameApplication {
 
     @Override
     protected void initGame() {
+        getGameScene().setCursor(Cursor.DEFAULT);
+
         getGameWorld().addEntityFactory(new TowerFactory());
+        getGameWorld().addEntityFactory(new EnemyFactory());
 
         run(() -> {
             spawn("Ally", FXGLMath.randomPoint(
