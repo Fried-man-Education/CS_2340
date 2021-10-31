@@ -8,6 +8,5 @@ public class GhostEnemy extends AbstractEnemy {
     public GhostEnemy(int health){
         super(new Rectangle(), (Color) GameController.ENEMY_COLORS[0], health);
     }
-
-    
 }
+

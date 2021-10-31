@@ -222,4 +222,5 @@ public class GameController extends MainApplication {
         selectedTower = -1;
         lastRectangle = null;
     }
+
 }
