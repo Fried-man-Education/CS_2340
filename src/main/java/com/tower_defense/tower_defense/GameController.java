@@ -38,8 +38,9 @@ public class GameController extends MainApplication {
     private static final Map<String, Integer> TOWER_MAP = new HashMap<>();
     // -1 = none selected, 0 = normal, 1 = splash, 2 = machine
     private static int selectedTower = -1;
-    public static final Paint[] COLORS = new Paint[]{Color.web("0x1e90ff"),
+    public static final Paint[] TOWER_COLORS = new Paint[]{Color.web("0x1e90ff"),
             Color.web("0xd300e6"), Color.web("0xff8e21")};
+    public static final Paint[] ENEMY_COLORS = new Paint[]{Color.web("0xffffff")};
     private static Rectangle lastRectangle;
     private static GridPane grid;
 
@@ -142,7 +143,7 @@ public class GameController extends MainApplication {
         // ReClick the tower they already have selected, unselect
         if (tower == selectedTower) {
             if (tower != -1) {
-                rectangle.setFill(COLORS[tower]);
+                rectangle.setFill(TOWER_COLORS[tower]);
             }
             selectedTower = -1;
         } else { // Update selected tower
@@ -216,7 +217,7 @@ public class GameController extends MainApplication {
 
     private void unselectLastTower() {
         if (lastRectangle != null && selectedTower != -1) {
-            lastRectangle.setFill(COLORS[selectedTower]);
+            lastRectangle.setFill(TOWER_COLORS[selectedTower]);
         }
         selectedTower = -1;
         lastRectangle = null;

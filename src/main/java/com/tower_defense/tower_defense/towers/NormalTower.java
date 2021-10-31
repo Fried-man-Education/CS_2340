@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class NormalTower extends AbstractTower {
-    static final Color COLOR = (Color) GameController.COLORS[0];
+    static final Color COLOR = (Color) GameController.TOWER_COLORS[0];
     static final Rectangle GRAPHIC = new Rectangle();
 
     public NormalTower(int cost) {
