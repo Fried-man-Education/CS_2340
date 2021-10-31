@@ -2,6 +2,7 @@ package com.theswagbois.towerdefense.components;
 
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.component.Component;
+import com.theswagbois.towerdefense.event.EnemyReachedGoalEvent;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Rectangle;
 import com.theswagbois.towerdefense.MainApplication;
@@ -31,5 +32,43 @@ public class EnemyComponent extends Component {
         //waypoints = ((MainApplication) FXGL.getApp()).getWaypoints();
 
         nextWaypoint = waypoints.remove(0);
+    }
+
+    @Override
+    public void onUpdate(double tpf) {
+
+        velocity = nextWaypoint.subtract(entity.getPosition())
+                .normalize()
+                .multiply(speed);
+
+        entity.translate(velocity);
+
+        if (nextWaypoint.distance(entity.getPosition()) < speed) {
+            entity.setPosition(nextWaypoint);
+
+            if (!waypoints.isEmpty()) {
+                nextWaypoint = waypoints.remove(0);
+            } else {
+                if (!hasReachedGoal) {
+                    hasReachedGoal = true;
+                    FXGL.getEventBus().fireEvent(new EnemyReachedGoalEvent());
+                }
+
+            }
+        }
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+        this.graphic.setHeight(Math.sqrt(hp) + 10);
+        this.graphic.setWidth(Math.sqrt(hp) + 10);
+    }
+
+    public Point2D getVelocity() {
+        return velocity;
     }
 }
