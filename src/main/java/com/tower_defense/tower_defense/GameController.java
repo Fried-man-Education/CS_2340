@@ -4,6 +4,8 @@ import com.tower_defense.tower_defense.towers.AbstractTower;
 import com.tower_defense.tower_defense.towers.MachineTower;
 import com.tower_defense.tower_defense.towers.NormalTower;
 import com.tower_defense.tower_defense.towers.SplashTower;
+import com.tower_defense.tower_defense.enemies.AbstractEnemy;
+import com.tower_defense.tower_defense.enemies.GhostEnemy;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -33,6 +35,7 @@ public class GameController extends MainApplication {
     private Label healthLabel;
     @FXML
     private Pane mapPane;
+    private int level = 0;
 
     // 0 = Normal, 1 = Splash, 2 = Machine
     private static final Map<String, Integer> TOWER_MAP = new HashMap<>();
@@ -167,6 +170,7 @@ public class GameController extends MainApplication {
             throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
         }
     }
+
     public boolean isPath(int x, int y) {
         if (x == 2 && y > 11) {
             return true;
@@ -223,4 +227,26 @@ public class GameController extends MainApplication {
         lastRectangle = null;
     }
 
+    public void startCombat() {
+        level++;
+        int numEnemies = level * 5;
+        for (int i = 0; i < numEnemies; i++) {
+            GhostEnemy ghost = new GhostEnemy();
+            sendEnemy(ghost);
+        }
+    }
+
+    public void sendEnemy(AbstractEnemy enemy) {
+        int numRows = 17;
+        int numCols = 25;
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                if (isPath(col, row)) {
+                    enemy.move(col, row);
+                }
+            }
+        }
+    }
+
 }
+
