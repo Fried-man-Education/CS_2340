@@ -26,7 +26,7 @@ public class MainApplication extends GameApplication {
         gameSettings.setIntroEnabled(false);
         gameSettings.setCloseConfirmation(false);
         gameSettings.setManualResizeEnabled(false);
-        //gameSettings.setMainMenuEnabled(false);
+        gameSettings.setMainMenuEnabled(true);
         gameSettings.setSceneFactory(new SceneFactory() {
             @Override
             public FXGLMenu newMainMenu() {
