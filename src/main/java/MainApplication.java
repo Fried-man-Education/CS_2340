@@ -8,6 +8,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
+import services.TowerData;
 
 import java.awt.*;
 
@@ -26,7 +27,7 @@ public class MainApplication extends GameApplication {
         gameSettings.setIntroEnabled(false);
         gameSettings.setCloseConfirmation(false);
         gameSettings.setManualResizeEnabled(false);
-        //gameSettings.setMainMenuEnabled(false);
+        gameSettings.setMainMenuEnabled(true);
         gameSettings.setSceneFactory(new SceneFactory() {
             @Override
             public FXGLMenu newMainMenu() {
