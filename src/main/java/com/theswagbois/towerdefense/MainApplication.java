@@ -6,6 +6,7 @@ import com.almasb.fxgl.app.scene.FXGLMenu;
 import com.almasb.fxgl.app.scene.SceneFactory;
 import javafx.scene.Cursor;
 import javafx.scene.input.KeyCode;
+import org.jetbrains.annotations.NotNull;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
@@ -23,12 +24,7 @@ public class MainApplication extends GameApplication {
         gameSettings.setCloseConfirmation(false);
         gameSettings.setManualResizeEnabled(false);
         gameSettings.setMainMenuEnabled(true);
-        gameSettings.setSceneFactory(new SceneFactory() {
-            @Override
-            public FXGLMenu newMainMenu() {
-                return new WelcomeMenu();
-            }
-        });
+        gameSettings.setSceneFactory(new MySceneFactory());
     }
 
     @Override

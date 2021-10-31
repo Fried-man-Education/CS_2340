@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Tower_Defense2" target="16" />
+      <module name="Tower_Defense2" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
