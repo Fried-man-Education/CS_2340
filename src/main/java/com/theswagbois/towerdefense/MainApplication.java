@@ -1,16 +1,11 @@
-import com.almasb.fxgl.app.CursorInfo;
+package com.theswagbois.towerdefense;
+
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.app.scene.FXGLMenu;
 import com.almasb.fxgl.app.scene.SceneFactory;
-import com.almasb.fxgl.core.math.FXGLMath;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.input.KeyCode;
-import javafx.util.Duration;
-import services.TowerData;
-
-import java.awt.*;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
@@ -50,7 +45,7 @@ public class MainApplication extends GameApplication {
     protected void initGame() {
         getGameScene().setCursor(Cursor.DEFAULT);
 
-        getGameWorld().addEntityFactory(new TowerFactory());
+        getGameWorld().addEntityFactory(new TowerDefenseFactory());
         getGameWorld().addEntityFactory(new EnemyFactory());
 
 //        run(() -> {

@@ -1,3 +1,5 @@
+package com.theswagbois.towerdefense;
+
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.dsl.components.ProjectileComponent;
 import com.almasb.fxgl.entity.Entity;
@@ -9,7 +11,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class TowerFactory implements EntityFactory {
+public class TowerDefenseFactory implements EntityFactory {
     @Spawns("Ally")
     public Entity newAlly(SpawnData data) {
         Texture texture = FXGL.texture("brick.png").multiplyColor(Color.GREEN);

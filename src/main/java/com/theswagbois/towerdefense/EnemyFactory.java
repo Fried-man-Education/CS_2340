@@ -1,3 +1,5 @@
+package com.theswagbois.towerdefense;
+
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.dsl.components.ProjectileComponent;
 import com.almasb.fxgl.entity.Entity;
