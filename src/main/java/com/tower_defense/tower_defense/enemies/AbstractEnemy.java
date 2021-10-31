@@ -1,5 +1,4 @@
 package com.tower_defense.tower_defense.enemies;
-
 import com.tower_defense.tower_defense.GameController;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
