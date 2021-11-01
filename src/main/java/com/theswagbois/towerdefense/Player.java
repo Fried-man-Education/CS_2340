@@ -23,10 +23,10 @@ public class Player {
 
     public static void setDifficulty(String difficulty) {
         Player.difficulty = difficulty;
-
+        calculateMoneyAndHp();
     }
 
-    private void calculateMoneyAndHp() {
+    private static void calculateMoneyAndHp() {
         int newHP = 0;
         int newMoney = 0;
         switch (difficulty) {
