@@ -6,17 +6,11 @@ import com.theswagbois.towerdefense.models.Player;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.scene.Cursor;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-
-import java.io.Console;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
@@ -48,48 +42,37 @@ public class WelcomeMenu extends FXGLMenu {
         exitButton.setTranslateY(startButton.getTranslateY());
 
         var bg = texture("titleScreen.png", getAppWidth(), getAppHeight());
-        bg.setTranslateY(0);
-        bg.setTranslateX(0);
-        getContentRoot().getChildren().add(bg);
 
-        getContentRoot().getChildren().add(startButton);
-        getContentRoot().getChildren().add(exitButton);
+        getContentRoot().getChildren().addAll(bg, startButton, exitButton);
     }
 
     private void setSecondMenu() {
         getContentRoot().getChildren().clear();
 
-        final double textFieldWidth = 200;
+        final double textFieldWidth = 250;
 
-        var title = new Text("Configuration");
-        title.setFont(Font.font(30));
-        title.setTranslateX(getAppWidth() / 2.0 - title.getLayoutBounds().getWidth() / 2);
-        title.setTranslateY(getAppHeight() / 3.0);
-
-        var nameText = new Text("Enter your name");
-        nameText.setFont(Font.font(15));
-        nameText.setTranslateX(getAppWidth() / 2.0 - nameText.getLayoutBounds().getWidth() / 2);
-        nameText.setTranslateY(getAppHeight() / 3.0 + 50);
 
         nameTextField.setMaxWidth(textFieldWidth);
         nameTextField.setPrefWidth(textFieldWidth);
-        nameTextField.setTranslateX(getAppWidth() / 2.0 - textFieldWidth / 2);
-        nameTextField.setTranslateY(getAppHeight() / 3.0 + 60);
+        nameTextField.setPrefHeight(40);
+        nameTextField.setTranslateX(getAppWidth() / 2.0 - textFieldWidth / 2 + 190);
+        nameTextField.setTranslateY(getAppHeight() / 3.0 - 60);
+        String style = "-fx-control-inner-background: #121212;";
+        style += "-fx-focus-color: #850300; -fx-border-color: #850300; -fx-faint-focus-color: #121212;";
+        style += "-fx-text-fill: #850300;";
+        nameTextField.setStyle(style);
 
-        var difficultyText = new Text("Select difficulty");
-        difficultyText.setFont(Font.font(15));
-        difficultyText.setTranslateX(getAppWidth() / 2.0 - difficultyText.getLayoutBounds().getWidth() / 2);
-        difficultyText.setTranslateY(getAppHeight() / 3.0 + 150);
-
-        var easyButton = new DifficultyButton("Easy", -100);
-        var mediumButton = new DifficultyButton("Medium", 0);
+        var easyButton = new DifficultyButton("Easy", 0);
+        var mediumButton = new DifficultyButton("Medium", 50);
         var hardButton = new DifficultyButton("Hard", 100);
 
         var beginGameButton = new defaultButton("Start new game", this::startGame);
         beginGameButton.setTranslateX(getAppWidth() / 2.0 - defaultButtonWidth / 2.0);
         beginGameButton.setTranslateY(getAppHeight() / 3.0 + 250);
 
-        getContentRoot().getChildren().addAll(title, nameText, nameTextField, difficultyText, easyButton, mediumButton, hardButton, beginGameButton);
+        var bg = texture("settingsScreen.png", getAppWidth(), getAppHeight());
+
+        getContentRoot().getChildren().addAll(bg, nameTextField, easyButton, mediumButton, hardButton, beginGameButton);
     }
 
     private void startGame() {
@@ -106,17 +89,20 @@ public class WelcomeMenu extends FXGLMenu {
         Platform.exit();
     }
 
-    private class DifficultyButton extends Button {
+    private class DifficultyButton extends defaultButton {
         final double buttonWidth = 75;
         final double yOffset = 160;
 
         public DifficultyButton(String name, int xOffset) {
-            setText(name);
-            setPrefWidth(buttonWidth);
+            super(name, new Runnable() {
+                @Override
+                public void run() {
+                    Player.setDifficulty(name);
+                }
+            });
             setMaxWidth(buttonWidth);
-            setTranslateX(getAppWidth() / 2.0 - buttonWidth / 2 + xOffset);
-            setTranslateY(getAppHeight() / 3.0 + yOffset);
-            setOnMouseClicked(e -> Player.setDifficulty(name));
+            setTranslateX(getAppWidth() / 2.0 + 113);
+            setTranslateY(getAppHeight() / 3.0 - buttonWidth / 2 + xOffset + 35);
         }
     }
 
