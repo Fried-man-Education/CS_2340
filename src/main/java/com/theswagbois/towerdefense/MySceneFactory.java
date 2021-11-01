@@ -1,19 +1,13 @@
 package com.theswagbois.towerdefense;
 
 import com.almasb.fxgl.app.scene.FXGLMenu;
-import com.almasb.fxgl.app.scene.MenuType;
 import com.almasb.fxgl.app.scene.SceneFactory;
+import org.jetbrains.annotations.NotNull;
 
 public class MySceneFactory extends SceneFactory {
+    @NotNull
     @Override
     public FXGLMenu newMainMenu() {
         return new WelcomeMenu();
     }
-
-    @Override
-    public FXGLMenu newGameMenu() {
-        return new SettingsMenu();
-    }
-
-
 }
