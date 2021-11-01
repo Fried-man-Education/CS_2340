@@ -3,15 +3,20 @@ package com.theswagbois.towerdefense.ui;
 import com.almasb.fxgl.app.scene.FXGLMenu;
 import com.almasb.fxgl.app.scene.MenuType;
 import com.theswagbois.towerdefense.models.Player;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+
+import java.io.Console;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
@@ -19,34 +24,41 @@ public class WelcomeMenu extends FXGLMenu {
 
     private final Pane startPane = new Pane();
     private final Pane settingsPane = new Pane();
-    private static final double startButtonWidth = 200;
-    private static final double startButtonHeight = 40;
+    private static double defaultButtonWidth;
+    private static double defaultButtonHeight;
 
     private final TextField nameTextField = new TextField();
 
     public WelcomeMenu() {
         super(MenuType.MAIN_MENU);
-        // TODO set cursor to default
-
-        getContentRoot().getChildren().add(startPane);
+        getContentRoot().setCursor(Cursor.DEFAULT); // sets cursor to default
+        // adaptive button sizing
+        defaultButtonWidth = getAppWidth() / 4;
+        defaultButtonHeight = getAppHeight() / 15;
         setFirstMenu();
     }
 
     private void setFirstMenu() {
-        var button = new StartButton("Start new game", this::setSecondMenu);
-        button.setTranslateX(getAppWidth() / 2.0 - startButtonWidth / 2.0);
-        button.setTranslateY(getAppHeight() * 2.0 / 3.0 - startButtonHeight / 2.0);
+        var startButton = new defaultButton("new game", this::setSecondMenu);
+        startButton.setTranslateX(getAppWidth() / 3.0 - defaultButtonWidth / 2.0);
+        startButton.setTranslateY(getAppHeight() * 2.0 / 3.0 - defaultButtonHeight / 2.0);
 
-        var text = new Text("Welcome to Tower Defense");
-        text.setFont(Font.font(30));
-        text.setTranslateY(getAppHeight() / 3.0);
-        text.setTranslateX(getAppWidth() / 2.0 - text.getLayoutBounds().getWidth() / 2);
+        var exitButton = new defaultButton("exit", this::closeApp);
+        exitButton.setTranslateX(getAppWidth() / 3.0 * 2 - defaultButtonWidth / 2.0);
+        exitButton.setTranslateY(startButton.getTranslateY());
 
-        startPane.getChildren().add(button);
-        startPane.getChildren().add(text);
+        var bg = texture("titleScreen.png", getAppWidth(), getAppHeight());
+        bg.setTranslateY(0);
+        bg.setTranslateX(0);
+        getContentRoot().getChildren().add(bg);
+
+        getContentRoot().getChildren().add(startButton);
+        getContentRoot().getChildren().add(exitButton);
     }
 
     private void setSecondMenu() {
+        getContentRoot().getChildren().clear();
+
         final double textFieldWidth = 200;
 
         var title = new Text("Configuration");
@@ -73,14 +85,11 @@ public class WelcomeMenu extends FXGLMenu {
         var mediumButton = new DifficultyButton("Medium", 0);
         var hardButton = new DifficultyButton("Hard", 100);
 
-        var beginGameButton = new StartButton("Start new game", this::startGame);
-        beginGameButton.setTranslateX(getAppWidth() / 2.0 - startButtonWidth / 2.0);
+        var beginGameButton = new defaultButton("Start new game", this::startGame);
+        beginGameButton.setTranslateX(getAppWidth() / 2.0 - defaultButtonWidth / 2.0);
         beginGameButton.setTranslateY(getAppHeight() / 3.0 + 250);
 
-        settingsPane.getChildren().addAll(title, nameText, nameTextField, difficultyText, easyButton, mediumButton, hardButton, beginGameButton);
-
-        getContentRoot().getChildren().remove(startPane);
-        getContentRoot().getChildren().add(settingsPane);
+        getContentRoot().getChildren().addAll(title, nameText, nameTextField, difficultyText, easyButton, mediumButton, hardButton, beginGameButton);
     }
 
     private void startGame() {
@@ -91,6 +100,10 @@ public class WelcomeMenu extends FXGLMenu {
 
     public static boolean checkValidName(String name) {
         return name != null && name.trim().length() > 0;
+    }
+
+    private  void closeApp() {
+        Platform.exit();
     }
 
     private class DifficultyButton extends Button {
@@ -107,20 +120,19 @@ public class WelcomeMenu extends FXGLMenu {
         }
     }
 
-    private static class StartButton extends StackPane {
-        public StartButton(String name, Runnable action) {
+    private static class defaultButton extends StackPane {
+        public defaultButton(String name, Runnable action) {
+            var bg = new Rectangle(defaultButtonWidth, defaultButtonHeight);
+            bg.setStroke(Paint.valueOf("#850300"));
 
-            var bg = new Rectangle(startButtonWidth, startButtonHeight);
-            bg.setStroke(Color.WHITE);
-
-            var text = getUIFactoryService().newText(name, Color.WHITE, 18);
+            var text = getUIFactoryService().newText(name, (Color) Paint.valueOf("#850300"), 18);
 
             bg.fillProperty().bind(
-                    Bindings.when(hoverProperty()).then(Color.WHITE).otherwise(Color.BLACK)
+                    Bindings.when(hoverProperty()).then((Color) Paint.valueOf("#850300")).otherwise((Color) Paint.valueOf("#121212"))
             );
 
             text.fillProperty().bind(
-                    Bindings.when(hoverProperty()).then(Color.BLACK).otherwise(Color.WHITE)
+                    Bindings.when(hoverProperty()).then(Paint.valueOf("#121212")).otherwise((Color) Paint.valueOf("#850300"))
             );
 
             setOnMouseClicked(e -> action.run());
