@@ -9,8 +9,11 @@ import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
 import com.theswagbois.towerdefense.collision.BulletEnemyHandler;
+import com.theswagbois.towerdefense.collision.EnemyMonumentHandler;
+import com.theswagbois.towerdefense.collision.PathTowerHandler;
 import com.theswagbois.towerdefense.event.EnemyKilledEvent;
 import com.theswagbois.towerdefense.event.EnemyReachedGoalEvent;
+import com.theswagbois.towerdefense.event.IllegalTowerLocationEvent;
 import com.theswagbois.towerdefense.models.Player;
 import com.theswagbois.towerdefense.services.LevelData;
 import com.theswagbois.towerdefense.services.TowerData;
@@ -49,6 +52,9 @@ public class MainApplication extends GameApplication {
     }
 
     private Label hpLabel;
+    private Label moneyLabel;
+
+    private int lastCost = 0;
 
     public static void main(String[] args) {
         launch(args);
@@ -134,6 +140,10 @@ public class MainApplication extends GameApplication {
             spawnPath(startX, endX, startY, endY);
         }
 
+        Point2D monumentLocation = waypoints.get(waypoints.size() - 1);
+        spawnMonument((int) monumentLocation.getX(), (int) monumentLocation.getY());
+
+
         BooleanProperty enemiesLeft = new SimpleBooleanProperty();
         enemiesLeft.bind(getip("numEnemies").greaterThan(0));
 
@@ -141,6 +151,7 @@ public class MainApplication extends GameApplication {
 
         getEventBus().addEventHandler(EnemyKilledEvent.ANY, this::onEnemyKilled);
         getEventBus().addEventHandler(EnemyReachedGoalEvent.ANY, this::reduceHp);
+        getEventBus().addEventHandler(IllegalTowerLocationEvent.ANY, this::handleIllegalTowerPosition);
 
         super.initGame();
     }
@@ -148,6 +159,8 @@ public class MainApplication extends GameApplication {
     @Override
     protected void initPhysics() {
         getPhysicsWorld().addCollisionHandler(new BulletEnemyHandler());
+        getPhysicsWorld().addCollisionHandler(new PathTowerHandler());
+        getPhysicsWorld().addCollisionHandler(new EnemyMonumentHandler());
     }
 
     private Color selectedColor;
@@ -178,10 +191,13 @@ public class MainApplication extends GameApplication {
         }
         hpLabel = new Label(Player.getHp() + " HP");
         hpLabel.setTextFill(Color.WHITE);
+        moneyLabel = new Label("$" + Player.getMoney());
+        moneyLabel.setTextFill(Color.WHITE);
         Rectangle labelsBackground = new Rectangle(160, 80, Color.BLACK);
         Pane labelsPane = new Pane();
         labelsPane.getChildren().add(labelsBackground);
         labelsPane.getChildren().add(hpLabel);
+        labelsPane.getChildren().add(moneyLabel);
         labelsPane.setTranslateX(510);
         labelsPane.setTranslateY(500);
         getGameScene().addUINode(labelsPane);
@@ -211,10 +227,28 @@ public class MainApplication extends GameApplication {
     }
 
     private void placeTower() {
-        spawn("Tower",
-                new SpawnData(getInput().getMouseXWorld(), getInput().getMouseYWorld())
-                        .put("color", selectedColor)
-                        .put("index", selectedIndex)
+        TowerData selectedTower = TowerData.getTowersData().get(selectedIndex);
+        lastCost = selectedTower.getCost();
+        if (Player.getMoney() >= lastCost) {
+            Player.decreaseMoney(lastCost);
+            spawn("Tower",
+                    new SpawnData(getInput().getMouseXWorld(), getInput().getMouseYWorld())
+                            .put("color", selectedColor)
+                            .put("index", selectedIndex)
+            );
+            moneyLabel.setText("$" + Player.getMoney());
+        } else {
+            showMessage("Not enough money to purchase tower");
+        }
+    }
+
+    private void spawnMonument(int x, int y) {
+        int width = 50;
+        int height = 50;
+        spawn("Monument",
+                new SpawnData(x - width / 2.0, y - height / 2.0)
+                        .put("height", height)
+                        .put("width", width)
         );
     }
 
@@ -248,6 +282,10 @@ public class MainApplication extends GameApplication {
             Player.decreaseHP(10);
             this.hpLabel.setText(Player.getHp() + " HP");
         }
+    }
+
+    private void handleIllegalTowerPosition(IllegalTowerLocationEvent event) {
+        showMessage("You can't place a tower on the path");
     }
 
 

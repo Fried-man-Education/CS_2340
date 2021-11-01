@@ -34,7 +34,7 @@ public class TowerDefenseFactory implements EntityFactory {
     public Entity spawnTower(SpawnData data) {
         return entityBuilder(data)
                 .type(TowerDefenseType.TOWER)
-                .view(new Rectangle(40, 40, data.get("color")))
+                .viewWithBBox(new Rectangle(40, 40, data.get("color")))
                 .with(new CollidableComponent(true))
                 .with(new TowerComponent((Integer) data.getData().get("index")))
                 .build();
@@ -60,6 +60,21 @@ public class TowerDefenseFactory implements EntityFactory {
                         width,
                         height,
                         Color.LIGHTGRAY
+                ))
+                .with(new CollidableComponent(true))
+                .build();
+    }
+
+    @Spawns("Monument")
+    public Entity spawnMonument(SpawnData data) {
+        int width = (Integer) data.getData().get("width");
+        int height = (Integer) data.getData().get("height");
+        return entityBuilder(data)
+                .type(TowerDefenseType.MONUMENT)
+                .viewWithBBox(new Rectangle(
+                        width,
+                        height,
+                        Color.GREEN
                 ))
                 .with(new CollidableComponent(true))
                 .build();

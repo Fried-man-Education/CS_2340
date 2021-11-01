@@ -51,7 +51,6 @@ public class EnemyComponent extends Component {
             } else {
                 if (!hasReachedGoal) {
                     hasReachedGoal = true;
-                    FXGL.getEventBus().fireEvent(new EnemyReachedGoalEvent());
                 }
 
             }
