@@ -193,6 +193,7 @@ public class MainApplication extends GameApplication {
         hpLabel.setTextFill(Color.WHITE);
         moneyLabel = new Label("$" + Player.getMoney());
         moneyLabel.setTextFill(Color.WHITE);
+        moneyLabel.setLayoutY(10);
         Rectangle labelsBackground = new Rectangle(160, 80, Color.BLACK);
         Pane labelsPane = new Pane();
         labelsPane.getChildren().add(labelsBackground);
@@ -227,7 +228,7 @@ public class MainApplication extends GameApplication {
     }
 
     private void placeTower() {
-        TowerData selectedTower = TowerData.getTowersData().get(selectedIndex);
+        TowerData selectedTower = TowerData.getTowersData().get(selectedIndex - 1);
         lastCost = selectedTower.getCost();
         if (Player.getMoney() >= lastCost) {
             Player.decreaseMoney(lastCost);
@@ -285,6 +286,7 @@ public class MainApplication extends GameApplication {
     }
 
     private void handleIllegalTowerPosition(IllegalTowerLocationEvent event) {
+        Player.decreaseMoney(-lastCost);
         showMessage("You can't place a tower on the path");
     }
 
