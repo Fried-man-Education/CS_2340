@@ -203,10 +203,10 @@ public class MainApplication extends GameApplication {
     }
 
     private void reduceHp(EnemyReachedGoalEvent event) {
-        System.out.println("Reducing HP" + Player.getHp());
         int decreaseAmount = 10;
         if (Player.getHp() < decreaseAmount) {
             hpLabel.setText("0 HP");
+            gameOver();
         } else {
             Player.decreaseHP(10);
             this.hpLabel.setText(Player.getHp() + " HP");
