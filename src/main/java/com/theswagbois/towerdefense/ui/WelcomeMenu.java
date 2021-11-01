@@ -22,6 +22,8 @@ public class WelcomeMenu extends FXGLMenu {
     private static final double startButtonWidth = 200;
     private static final double startButtonHeight = 40;
 
+    private final TextField nameTextField = new TextField();
+
     public WelcomeMenu() {
         super(MenuType.MAIN_MENU);
         // TODO set cursor to default
@@ -57,7 +59,6 @@ public class WelcomeMenu extends FXGLMenu {
         nameText.setTranslateX(getAppWidth() / 2.0 - nameText.getLayoutBounds().getWidth() / 2);
         nameText.setTranslateY(getAppHeight() / 3.0 + 50);
 
-        var nameTextField = new TextField();
         nameTextField.setMaxWidth(textFieldWidth);
         nameTextField.setPrefWidth(textFieldWidth);
         nameTextField.setTranslateX(getAppWidth() / 2.0 - textFieldWidth / 2);
@@ -72,7 +73,7 @@ public class WelcomeMenu extends FXGLMenu {
         var mediumButton = new DifficultyButton("Medium", 0);
         var hardButton = new DifficultyButton("Hard", 100);
 
-        var beginGameButton = new StartButton("Start new game", this::fireNewGame);
+        var beginGameButton = new StartButton("Start new game", this::startGame);
         beginGameButton.setTranslateX(getAppWidth() / 2.0 - startButtonWidth / 2.0);
         beginGameButton.setTranslateY(getAppHeight() / 3.0 + 250);
 
@@ -80,6 +81,16 @@ public class WelcomeMenu extends FXGLMenu {
 
         getContentRoot().getChildren().remove(startPane);
         getContentRoot().getChildren().add(settingsPane);
+    }
+
+    private void startGame() {
+        if (checkValidName(nameTextField.getText()) && Player.getDifficulty() != null) {
+            fireNewGame();
+        }
+    }
+
+    public static boolean checkValidName(String name) {
+        return name != null && name.trim().length() > 0;
     }
 
     private class DifficultyButton extends Button {

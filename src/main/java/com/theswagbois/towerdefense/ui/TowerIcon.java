@@ -24,7 +24,7 @@ public class TowerIcon extends Pane {
         Label infoLabel = new Label(td.getHp() + " HP\n" + td.getDamage() + " Damage\n" + td.getAttackDelay() + " s / Shot\n" + Math.round(td.getAccuracy() * 100) + "% Accuracy\n$" + td.getCost());
         infoLabel.setTextFill(Color.WHITE);
 
-        this.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
+        this.hoverProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 getChildren().remove(defaultRect);
                 getChildren().add(overlayRect);
