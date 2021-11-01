@@ -49,8 +49,6 @@ public class MainApplication extends GameApplication {
         return new ArrayList<>(waypoints);
     }
 
-    private int money = 10;
-    private int hp = 100;
     private Label hpLabel;
 
     public static void main(String[] args) {
@@ -99,6 +97,7 @@ public class MainApplication extends GameApplication {
 
     @Override
     protected void initGame() {
+        Player.setDifficulty("Easy");
         TowerData.loadTowersData();
         getGameScene().setCursor(Cursor.DEFAULT);
 
@@ -153,7 +152,7 @@ public class MainApplication extends GameApplication {
 
             getGameScene().addUINode(icon);
         }
-        hpLabel = new Label(hp + " HP");
+        hpLabel = new Label(Player.getHp() + " HP");
         hpLabel.setTextFill(Color.WHITE);
         Rectangle labelsBackground = new Rectangle(160, 80, Color.BLACK);
         Pane labelsPane = new Pane();
@@ -204,10 +203,13 @@ public class MainApplication extends GameApplication {
     }
 
     private void reduceHp(EnemyReachedGoalEvent event) {
-        this.hp = this.hp - 10;
-        this.hpLabel.setText(hp + " HP");
-        if (this.hp <= 0) {
+        int decreaseAmount = 10;
+        if (Player.getHp() < decreaseAmount) {
+            hpLabel.setText("0 HP");
             gameOver();
+        } else {
+            Player.decreaseHP(10);
+            this.hpLabel.setText(Player.getHp() + " HP");
         }
     }
 
