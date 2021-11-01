@@ -243,13 +243,19 @@ public class MainApplication extends GameApplication {
         TowerData selectedTower = TowerData.getTowersData().get(selectedIndex - 1);
         lastCost = selectedTower.getCost();
         if (Player.getMoney() >= lastCost) {
+            // adjust money and corresponding label
             Player.decreaseMoney(lastCost);
-            spawn("Tower",
+            moneyLabel.setText("$" + Player.getMoney());
+            // instantiate tower
+            Entity instantiatedTower;
+            instantiatedTower = spawn("Tower",
                     new SpawnData(getInput().getMouseXWorld(), getInput().getMouseYWorld())
                             .put("color", selectedColor)
                             .put("index", selectedIndex)
             );
-            moneyLabel.setText("$" + Player.getMoney());
+            // center tower on mouse
+            instantiatedTower.setX(instantiatedTower.getX() - instantiatedTower.getWidth() / 2);
+            instantiatedTower.setY(instantiatedTower.getY() - instantiatedTower.getHeight() / 2);
         } else {
             showMessage("Not enough money to purchase tower");
         }
