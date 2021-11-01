@@ -20,12 +20,15 @@ import com.theswagbois.towerdefense.services.TowerData;
 import com.theswagbois.towerdefense.ui.TowerIcon;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -53,8 +56,12 @@ public class MainApplication extends GameApplication {
 
     private Label hpLabel;
     private Label moneyLabel;
+    private Button startCombatButton;
+    private Pane labelsPane = new Pane();
 
     private int lastCost = 0;
+
+    boolean combatStarted = false;
 
     public static void main(String[] args) {
         launch(args);
@@ -193,12 +200,15 @@ public class MainApplication extends GameApplication {
         hpLabel.setTextFill(Color.WHITE);
         moneyLabel = new Label("$" + Player.getMoney());
         moneyLabel.setTextFill(Color.WHITE);
-        moneyLabel.setLayoutY(10);
+        moneyLabel.setLayoutY(15);
+        startCombatButton = new Button("Start Combat");
+        startCombatButton.setOnMousePressed(event -> startCombat());
+        startCombatButton.setLayoutY(30);
         Rectangle labelsBackground = new Rectangle(160, 80, Color.BLACK);
-        Pane labelsPane = new Pane();
         labelsPane.getChildren().add(labelsBackground);
         labelsPane.getChildren().add(hpLabel);
         labelsPane.getChildren().add(moneyLabel);
+        labelsPane.getChildren().add(startCombatButton);
         labelsPane.setTranslateX(510);
         labelsPane.setTranslateY(500);
         getGameScene().addUINode(labelsPane);
@@ -215,16 +225,18 @@ public class MainApplication extends GameApplication {
     }
 
     private void spawnEnemy() {
-        double secondsElapsed = getGameTimer().getNow();
-        inc("numEnemies", -1);
+        if (combatStarted) {
+            double secondsElapsed = getGameTimer().getNow();
+            inc("numEnemies", -1);
 
-        int width = 20;
-        int height = 20;
+            int width = 20;
+            int height = 20;
 
-        spawn("Enemy",
-                new SpawnData(enemySpawnPoint.getX() - width / 2.0, enemySpawnPoint.getY() - height / 2.0)
-                        .put("hp", FXGLMath.random(20, (int) Math.round(40 + secondsElapsed / 2)))
-        );
+            spawn("Enemy",
+                    new SpawnData(enemySpawnPoint.getX() - width / 2.0, enemySpawnPoint.getY() - height / 2.0)
+                            .put("hp", FXGLMath.random(20, (int) Math.round(40 + secondsElapsed / 2)))
+            );
+        }
     }
 
     private void placeTower() {
@@ -288,6 +300,11 @@ public class MainApplication extends GameApplication {
     private void handleIllegalTowerPosition(IllegalTowerLocationEvent event) {
         Player.decreaseMoney(-lastCost);
         showMessage("You can't place a tower on the path");
+    }
+
+    private void startCombat() {
+        combatStarted = true;
+        labelsPane.getChildren().remove(startCombatButton);
     }
 
 
