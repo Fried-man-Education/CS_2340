@@ -16,7 +16,7 @@ public class TowerData {
 
     public static void loadTowersData() {
         for (int i = 1; i <= numTowers; i++) {
-            HashMap<String, Object> towerData = getAssetLoader().loadJSON("tower" + i + ".json", HashMap.class).get();
+            HashMap<String, Object> towerData = getAssetLoader().loadJSON("towers/tower" + i + ".json", HashMap.class).get();
             String name = (String) towerData.get("name");
             String color = (String) towerData.get("color");
             int damage = (Integer) towerData.get("damage");

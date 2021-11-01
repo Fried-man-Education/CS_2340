@@ -1,7 +1,8 @@
-package com.theswagbois.towerdefense;
+package com.theswagbois.towerdefense.ui;
 
 import com.almasb.fxgl.app.scene.FXGLMenu;
 import com.almasb.fxgl.app.scene.MenuType;
+import com.theswagbois.towerdefense.models.Player;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -91,9 +92,7 @@ public class WelcomeMenu extends FXGLMenu {
             setMaxWidth(buttonWidth);
             setTranslateX(getAppWidth() / 2.0 - buttonWidth / 2 + xOffset);
             setTranslateY(getAppHeight() / 3.0 + yOffset);
-            setOnMouseClicked(e -> {
-                Player.setDifficulty(name);
-            });
+            setOnMouseClicked(e -> Player.setDifficulty(name));
         }
     }
 
@@ -113,9 +112,7 @@ public class WelcomeMenu extends FXGLMenu {
                     Bindings.when(hoverProperty()).then(Color.BLACK).otherwise(Color.WHITE)
             );
 
-            setOnMouseClicked(e -> {
-                action.run();
-            });
+            setOnMouseClicked(e -> action.run());
 
 
             getChildren().addAll(bg, text);

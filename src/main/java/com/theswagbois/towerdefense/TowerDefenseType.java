@@ -1,5 +1,5 @@
 package com.theswagbois.towerdefense;
 
 public enum TowerDefenseType {
-    TOWER, ENEMY, BULLET
+    TOWER, ENEMY, BULLET, PATH
 }

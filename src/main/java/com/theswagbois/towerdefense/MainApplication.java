@@ -2,9 +2,7 @@ package com.theswagbois.towerdefense;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
-import com.almasb.fxgl.app.scene.FXGLMenu;
 import com.almasb.fxgl.app.scene.GameView;
-import com.almasb.fxgl.app.scene.SceneFactory;
 import com.almasb.fxgl.core.math.FXGLMath;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.SpawnData;
@@ -13,6 +11,8 @@ import com.almasb.fxgl.input.UserAction;
 import com.theswagbois.towerdefense.collision.BulletEnemyHandler;
 import com.theswagbois.towerdefense.event.EnemyKilledEvent;
 import com.theswagbois.towerdefense.event.EnemyReachedGoalEvent;
+import com.theswagbois.towerdefense.models.Player;
+import com.theswagbois.towerdefense.services.LevelData;
 import com.theswagbois.towerdefense.services.TowerData;
 import com.theswagbois.towerdefense.ui.TowerIcon;
 import javafx.beans.property.BooleanProperty;
@@ -28,7 +28,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -97,18 +96,43 @@ public class MainApplication extends GameApplication {
 
     @Override
     protected void initGame() {
-        Player.setDifficulty("Easy");
         TowerData.loadTowersData();
+        LevelData.loadLevelData();
         getGameScene().setCursor(Cursor.DEFAULT);
 
         getGameWorld().addEntityFactory(new TowerDefenseFactory());
-        waypoints.addAll(Arrays.asList(
-                new Point2D(700, 0),
-                new Point2D(700, 300),
-                new Point2D(50, 300),
-                new Point2D(50, 450),
-                new Point2D(700, 500)
-        ));
+
+        enemySpawnPoint = LevelData.levels.get(0).getSpawnPoint();
+        waypoints = LevelData.levels.get(0).getWaypoints();
+
+        for (int i = 0; i < waypoints.size(); i++) {
+            Point2D point1;
+            if (i == 0) {
+                point1 = enemySpawnPoint;
+            } else {
+                point1 = waypoints.get(i-1);
+            }
+            Point2D point2 = waypoints.get(i);
+
+            int startX = (int) point1.getX();
+            int endX = (int) point2.getX();
+            int startY = (int) point1.getY();
+            int endY = (int) point2.getY();
+
+            if (endX < startX) {
+                int temp = startX;
+                startX = endX;
+                endX = temp;
+            }
+
+            if (endY < startY) {
+                int temp = startY;
+                startY = endY;
+                endY = temp;
+            }
+
+            spawnPath(startX, endX, startY, endY);
+        }
 
         BooleanProperty enemiesLeft = new SimpleBooleanProperty();
         enemiesLeft.bind(getip("numEnemies").greaterThan(0));
@@ -163,12 +187,25 @@ public class MainApplication extends GameApplication {
         getGameScene().addUINode(labelsPane);
     }
 
+    private void spawnPath(int startX, int endX, int startY, int endY) {
+        int thickness = 75;
+        int width = Math.abs(endX - startX) + thickness;
+        int height = Math.abs(endY - startY) + thickness;
+        SpawnData spawnData = new SpawnData(startX - thickness / 2.0, startY - thickness / 2.0);
+        spawnData.put("width", width);
+        spawnData.put("height", height);
+        spawn("Path", spawnData);
+    }
+
     private void spawnEnemy() {
         double secondsElapsed = getGameTimer().getNow();
         inc("numEnemies", -1);
 
+        int width = 20;
+        int height = 20;
+
         spawn("Enemy",
-                new SpawnData(enemySpawnPoint.getX(), enemySpawnPoint.getY())
+                new SpawnData(enemySpawnPoint.getX() - width / 2.0, enemySpawnPoint.getY() - height / 2.0)
                         .put("hp", FXGLMath.random(20, (int) Math.round(40 + secondsElapsed / 2)))
         );
     }

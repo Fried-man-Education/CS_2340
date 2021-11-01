@@ -1,4 +1,4 @@
-package com.theswagbois.towerdefense;
+package com.theswagbois.towerdefense.models;
 
 public class Player {
     private static String name;

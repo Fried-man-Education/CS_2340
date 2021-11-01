@@ -49,4 +49,19 @@ public class TowerDefenseFactory implements EntityFactory {
                 .with(new OffscreenCleanComponent())
                 .build();
     }
+
+    @Spawns("Path")
+    public Entity spawnPath(SpawnData data) {
+        int width = (Integer) data.getData().get("width");
+        int height = (Integer) data.getData().get("height");
+        return entityBuilder(data)
+                .type(TowerDefenseType.PATH)
+                .viewWithBBox(new Rectangle(
+                        width,
+                        height,
+                        Color.LIGHTGRAY
+                ))
+                .with(new CollidableComponent(true))
+                .build();
+    }
 }
