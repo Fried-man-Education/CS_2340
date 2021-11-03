@@ -1,5 +1,7 @@
 package com.theswagbois.towerdefense.services;
 
+import com.theswagbois.towerdefense.models.Tower;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,15 +9,15 @@ import java.util.List;
 import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
 
 public class Towers {
-    private static final List<Towers> TOWERS_DATA = new ArrayList<>();
-    public static final int NUMTOWERS = 3;
+    private static final List<Tower> TOWERS_DATA = new ArrayList<>();
+    private static int numTowers = 3;
 
-    public static List<Towers> getTowersData() {
+    public static List<Tower> getTowersData() {
         return TOWERS_DATA;
     }
 
     public static void loadTowersData() {
-        for (int i = 1; i <= NUMTOWERS; i++) {
+        for (int i = 1; i <= numTowers; i++) {
             HashMap<String, Object> towerData =
                     getAssetLoader().loadJSON(
                             "towers/tower" + i + ".json",
@@ -30,108 +32,17 @@ public class Towers {
             double accuracy = (Double) towerData.get("accuracy");
             double bulletSpeed = (Double) towerData.get("bulletSpeed");
             int[] intValues = new int[]{i, damage, cost};
-            Towers td = new Towers(name, color,  hp,
+            Tower t = new Tower(name, color,  hp,
                     attackDelay, accuracy, bulletSpeed, intValues);
-            TOWERS_DATA.add(td);
+            TOWERS_DATA.add(t);
         }
     }
-
-    private String name;
-    private String color;
-    private int index;
-    private int damage;
-    private int hp;
-    private double attackDelay;
-    private int cost;
-    private double accuracy;
-    private double bulletSpeed;
-
-    public Towers(String name, String color, int hp,
-                  double attackDelay, double accuracy, double bulletSpeed, int[] intValues) {
-        this.name = name;
-        this.color = color;
-        this.index = intValues[0];
-        this.damage = intValues[1];
-        this.hp = hp;
-        this.attackDelay = attackDelay;
-        this.cost = intValues[2];
-        this.accuracy = accuracy;
-        this.bulletSpeed = bulletSpeed;
-    }
-
     public static int getNumTowers() {
-        return NUMTOWERS;
+        return numTowers;
     }
 
-    public String getName() {
-        return name;
+    public static void setNumTowers(int num) {
+        numTowers = num;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public double getAttackDelay() {
-        return attackDelay;
-    }
-
-    public void setAttackDelay(double attackDelay) {
-        this.attackDelay = attackDelay;
-    }
-
-    public int getCost() {
-        return cost;
-    }
-
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
-
-    public double getAccuracy() {
-        return accuracy;
-    }
-
-    public void setAccuracy(double accuracy) {
-        this.accuracy = accuracy;
-    }
-
-    public double getBulletSpeed() {
-        return bulletSpeed;
-    }
-
-    public void setBulletSpeed(double bulletSpeed) {
-        this.bulletSpeed = bulletSpeed;
-    }
 }

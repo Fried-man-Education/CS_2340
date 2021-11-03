@@ -1,9 +1,16 @@
 package ui;
 
+import com.theswagbois.towerdefense.models.Level;
+import com.theswagbois.towerdefense.services.Levels;
+import com.theswagbois.towerdefense.services.Towers;
 import com.theswagbois.towerdefense.ui.GamePanel;
+import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -11,8 +18,16 @@ public class GamePanelTest {
     private static final int TIMEOUT = 200;
     private GamePanel gamePanel;
 
+    @Rule
+    public JavaFXThreadingRule javafxRule = new JavaFXThreadingRule();
+
     @Before
     public void setup() {
+        Towers.setNumTowers(0);
+        Level l = new Level(new Point2D(0, 0), new ArrayList<Point2D>(), 0, 0);
+        Level.setActiveLevel(l);
+        Levels.getLevels().add(l);
+        Levels.setLevelCount(1);
         gamePanel = new GamePanel();
     }
 

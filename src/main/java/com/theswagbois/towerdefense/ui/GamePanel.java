@@ -45,7 +45,7 @@ public class GamePanel extends Pane {
     }
 
     private void initializeIcons() {
-        for (int i = 0; i < Towers.NUMTOWERS; i++) {
+        for (int i = 0; i < Towers.getNumTowers(); i++) {
             int index = i + 1;
 
             TowerIcon icon = new TowerIcon(i);

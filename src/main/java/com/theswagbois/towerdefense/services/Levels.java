@@ -21,6 +21,8 @@ import static com.theswagbois.towerdefense.entities.Spawn.spawnPath;
 
 public class Levels {
 
+    private static int levelCount = 3;
+
     private static final List<Level> LEVELS = new ArrayList<Level>();
 
     public static List<Level> getLevels() {
@@ -28,7 +30,6 @@ public class Levels {
     }
 
     public static void loadLevelData() {
-        int levelCount = 3;
         for (int i = 1; i <= levelCount; i++) {
             HashMap<String, Object> levelData =
                     getAssetLoader().loadJSON(
@@ -127,5 +128,13 @@ public class Levels {
 
     public static void restartGame() {
         initializeLevel(0);
+    }
+
+    public static int getLevelCount() {
+        return levelCount;
+    }
+
+    public static void setLevelCount(int levelCount) {
+        Levels.levelCount = levelCount;
     }
 }

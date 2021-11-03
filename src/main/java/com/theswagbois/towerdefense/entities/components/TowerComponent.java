@@ -7,6 +7,7 @@ import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.time.LocalTimer;
 import com.theswagbois.towerdefense.entities.TowerDefenseType;
+import com.theswagbois.towerdefense.models.Tower;
 import com.theswagbois.towerdefense.services.Towers;
 import javafx.geometry.Point2D;
 import javafx.util.Duration;
@@ -22,12 +23,12 @@ public class TowerComponent extends Component {
     private double accuracyError = 1;
 
     public TowerComponent(int index) {
-        Towers td = Towers.getTowersData().get(index - 1);
-        this.damage = td.getDamage();
-        this.hp = td.getHp();
-        this.attackDelay = td.getAttackDelay();
-        this.accuracy = td.getAccuracy();
-        this.bulletSpeed = td.getBulletSpeed();
+        Tower t = Towers.getTowersData().get(index - 1);
+        this.damage = t.getDamage();
+        this.hp = t.getHp();
+        this.attackDelay = t.getAttackDelay();
+        this.accuracy = t.getAccuracy();
+        this.bulletSpeed = t.getBulletSpeed();
     }
 
     @Override
