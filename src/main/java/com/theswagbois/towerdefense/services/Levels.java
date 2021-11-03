@@ -59,7 +59,7 @@ public class Levels {
 
         Level.setActiveLevel(LEVELS.get(index));
         Point2D enemySpawnPoint = Level.getActiveLevel().getSpawnPoint();
-        List<Point2D> waypoints = Level.getActiveLevel().getWaypoints();
+        List<Point2D> waypoints = Level.getActiveLevel().getWayPoints();
 
         // generate path entities
         for (int i = 0; i < waypoints.size(); i++) {

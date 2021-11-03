@@ -29,7 +29,7 @@ public class EnemyComponent extends Component {
 
     @Override
     public void onAdded() {
-        waypoints = Level.getActiveLevel().getWaypoints();
+        waypoints = Level.getActiveLevel().getWayPoints();
 
         nextWaypoint = waypoints.get(0);
     }
