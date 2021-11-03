@@ -20,6 +20,9 @@ public class Level {
     }
 
     public void setSpawnPoint(Point2D spawnPoint) {
+        if (spawnPoint == null) {
+            throw new IllegalArgumentException("spawn point cannot be null");
+        }
         this.spawnPoint = spawnPoint;
     }
 
@@ -28,6 +31,11 @@ public class Level {
     }
 
     public void setWaypoints(List<Point2D> waypoints) {
+        if (waypoints == null) {
+            throw new IllegalArgumentException("waypoints cannot be null");
+        } else if (waypoints.isEmpty()) {
+            throw new IllegalArgumentException("waypoints cannot be empty");
+        }
         this.waypoints = waypoints;
     }
 
@@ -36,6 +44,9 @@ public class Level {
     }
 
     public static void setActiveLevel(Level activeLevel) {
+        if (activeLevel == null) {
+            throw new IllegalArgumentException("active level cannot be null");
+        }
         Level.activeLevel = activeLevel;
     }
 }
