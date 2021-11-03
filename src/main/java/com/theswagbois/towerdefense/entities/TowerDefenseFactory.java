@@ -17,7 +17,11 @@ public class TowerDefenseFactory implements EntityFactory {
     @Spawns("Enemy")
     public Entity spawnEnemy(SpawnData data) {
         int hp = (Integer) data.getData().get("hp");
-        Rectangle enemyGraphic = new Rectangle(Math.sqrt(hp) + 10, Math.sqrt(hp) + 10, Color.RED);
+        Rectangle enemyGraphic = new Rectangle(
+                Math.sqrt(hp) + 10,
+                Math.sqrt(hp) + 10,
+                Color.rgb(218, 65, 103)
+        );
         enemyGraphic.setTranslateZ(10);
         return entityBuilder(data)
                 .type(TowerDefenseType.ENEMY)

@@ -91,7 +91,7 @@ public class PlayerTest {
         Player.setDifficulty("Easy");
         // Money should be 1000
 
-        Player.decreaseMoney(500);
+        Player.incrementMoney(-500);
         assertEquals(500, Player.getMoney());
         assertEquals(500, Player.getLastExpense());
     }

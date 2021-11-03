@@ -19,12 +19,15 @@ public class EnemyComponent extends Component {
     private Point2D velocity;
     private boolean hasReachedGoal;
 
+    private final int moneyValue;
+
 
     public EnemyComponent(int hp, Rectangle graphic) {
         this.hp = hp;
         this.graphic = graphic;
         this.velocity = new Point2D(0, 0);
         this.speed = 2.0 / Math.sqrt(hp / 10.0);
+        this.moneyValue = hp / 2;
     }
 
     @Override
@@ -70,5 +73,9 @@ public class EnemyComponent extends Component {
 
     public Point2D getVelocity() {
         return velocity;
+    }
+
+    public int getMoneyValue() {
+        return moneyValue;
     }
 }

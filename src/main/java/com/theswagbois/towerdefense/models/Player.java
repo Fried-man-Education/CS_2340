@@ -43,20 +43,20 @@ public class Player {
 
     private static void calculateMoneyAndHp() {
         switch (difficulty) {
-            case "Easy":
-                hp = BASEHP;
-                money = BASEMONEY;
-                break;
-            case "Medium":
-                hp = BASEHP / 2;
-                money = BASEMONEY / 2;
-                break;
-            case "Hard":
-                hp = BASEHP / 4;
-                money = BASEMONEY / 4;
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
+        case "Easy":
+            hp = BASEHP;
+            money = BASEMONEY;
+            break;
+        case "Medium":
+            hp = BASEHP / 2;
+            money = BASEMONEY / 2;
+            break;
+        case "Hard":
+            hp = BASEHP / 4;
+            money = BASEMONEY / 4;
+            break;
+        default:
+            throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
         }
         initalHP = hp;
         initialMoney = money;
@@ -66,14 +66,14 @@ public class Player {
         return money;
     }
 
-    public static void decreaseMoney(int amount) {
-        if (amount > money) {
+    public static void incrementMoney(int amount) {
+        if (-amount > money) {
             throw new IllegalArgumentException("Money cannot be set to a negative number");
         }
-        if (amount >= 0) {
-            lastExpense = amount;
+        if (amount <= 0) {
+            lastExpense = -amount;
         }
-        money = money - amount;
+        money = money + amount;
     }
 
     public static int getHp() {

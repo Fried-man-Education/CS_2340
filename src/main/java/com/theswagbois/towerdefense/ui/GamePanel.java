@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import static com.almasb.fxgl.dsl.FXGL.getGameScene;
+import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
 
 public class GamePanel extends Pane {
     private static Rectangle labelsBackground;
@@ -78,7 +79,8 @@ public class GamePanel extends Pane {
 
     private void startCombat() {
         Combat.setCombatStarted(true);
-        this.getChildren().remove(startCombatButton);
+        Combat.setCombatStartedTimestamp(getGameTimer().getNow());
+        startCombatButton.setDisable(true);
     }
 
     private void initializeBackground() {
@@ -88,6 +90,10 @@ public class GamePanel extends Pane {
     public static void updateLabels() {
         moneyLabel.setText("$" + Player.getMoney());
         hpLabel.setText(Player.getHp() + " HP");
+
+        if (!Combat.isCombatStarted() && startCombatButton.isDisabled()) {
+            startCombatButton.setDisable(false);
+        }
     }
 
     public static Color getSelectedColor() {

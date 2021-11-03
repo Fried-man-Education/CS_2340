@@ -2,6 +2,7 @@ package com.theswagbois.towerdefense.services;
 
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
+import com.theswagbois.towerdefense.models.Combat;
 import com.theswagbois.towerdefense.models.Level;
 import com.theswagbois.towerdefense.models.Player;
 import com.theswagbois.towerdefense.ui.GamePanel;
@@ -12,7 +13,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
-import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
+import static com.almasb.fxgl.dsl.FXGL.set;
+import static com.almasb.fxgl.dsl.FXGL.showMessage;
+import static com.almasb.fxgl.dsl.FXGLForKtKt.*;
 import static com.theswagbois.towerdefense.entities.Spawn.spawnMonument;
 import static com.theswagbois.towerdefense.entities.Spawn.spawnPath;
 
@@ -25,19 +28,22 @@ public class Levels {
     }
 
     public static void loadLevelData() {
-        int levelCount = 1;
+        int levelCount = 3;
         for (int i = 1; i <= levelCount; i++) {
             HashMap<String, Object> levelData =
                     getAssetLoader().loadJSON(
                             "levels/level" + i + ".json",
                             HashMap.class
                     ).get();
-            int pointsCount = levelData.size();
+            int numEnemies = (Integer) levelData.get("numEnemies");
+            HashMap<String, Object> waypointsData =
+                    (HashMap<String, Object>) levelData.get("waypoints");
+            int pointsCount = waypointsData.size();
             Point2D spawnPoint = new Point2D(0, 0);
             List<Point2D> waypoints = new ArrayList<Point2D>();
             for (int j = 0; j < pointsCount; j++) {
                 HashMap<String, Object> pointData =
-                        (HashMap<String, Object>) levelData.get(String.valueOf(j));
+                        (HashMap<String, Object>) waypointsData.get(String.valueOf(j));
                 int x = (Integer) pointData.get("x");
                 int y = (Integer) pointData.get("y");
                 Point2D point = new Point2D(x, y);
@@ -47,8 +53,9 @@ public class Levels {
                     waypoints.add(point);
                 }
             }
-            Level level = new Level(spawnPoint, waypoints, i - 1);
+            Level level = new Level(spawnPoint, waypoints, i - 1, numEnemies);
             LEVELS.add(level);
+            System.out.println(LEVELS);
         }
     }
 
@@ -96,13 +103,29 @@ public class Levels {
 
         Player.resetHP();
         Player.resetMoney();
+        Combat.setCombatStarted(false);
 
         if (GamePanel.isInitialized()) {
             GamePanel.updateLabels();
         }
+
+        set("numEnemies", Level.getActiveLevel().getNumEnemies());
     }
 
     public static void retryLevel() {
         initializeLevel(Level.getActiveLevel().getIndex());
+    }
+
+    public static void nextLevel() {
+        int nextIndex = Level.getActiveLevel().getIndex() + 1;
+        if (nextIndex >= LEVELS.size()) {
+            showMessage("Congratulations! You completed every level! Play Again?",
+                    Levels::restartGame);
+        }
+        initializeLevel(nextIndex);
+    }
+
+    public static void restartGame() {
+        initializeLevel(0);
     }
 }

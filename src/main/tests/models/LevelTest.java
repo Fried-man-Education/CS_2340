@@ -16,7 +16,8 @@ public class LevelTest {
         Point2D randPoint = new Point2D(1,1);
         ArrayList<Point2D> randWayPoints = new ArrayList<>();
         int index = 1;
-        level = new Level(randPoint, randWayPoints, index);
+        int numEnemies = 10;
+        level = new Level(randPoint, randWayPoints, index, numEnemies);
     }
 
     //#11 Alik Emelianov

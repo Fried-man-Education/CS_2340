@@ -1,6 +1,8 @@
 package com.theswagbois.towerdefense.event;
 
 import com.almasb.fxgl.entity.Entity;
+import com.theswagbois.towerdefense.entities.components.EnemyComponent;
+import com.theswagbois.towerdefense.models.Player;
 import javafx.event.Event;
 import javafx.event.EventType;
 
@@ -9,7 +11,7 @@ public class EnemyKilledEvent extends Event {
     public static final EventType<EnemyKilledEvent> ANY
             = new EventType<>(Event.ANY, "ENEMY_KILLED");
 
-    private Entity enemy;
+    private final Entity enemy;
 
     /**
      * @return killed enemy

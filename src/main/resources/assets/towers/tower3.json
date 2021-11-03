@@ -1,10 +1,10 @@
 {
-  "name": "Splash Tower",
-  "color": "rgb(0,127,127)",
+  "name": "Sniper Tower",
+  "color": "rgb(8,61,119)",
   "hp": 30,
-  "damage": 15,
-  "attackDelay": 1.5,
-  "cost": 100,
-  "accuracy": 0.4,
-  "bulletSpeed": 200.0
+  "damage": 90,
+  "attackDelay": 3.0,
+  "cost": 300,
+  "accuracy": 0.9,
+  "bulletSpeed": 500.0
 }

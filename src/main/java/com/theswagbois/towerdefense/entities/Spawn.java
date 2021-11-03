@@ -26,16 +26,16 @@ public class Spawn {
 
     public static void spawnEnemy() {
         if (Combat.isCombatStarted()) {
-            double secondsElapsed = getGameTimer().getNow();
+            double secondsElapsed = getGameTimer().getNow() - Combat.getCombatStartedTimestamp();
 
-            int width = 20;
-            int height = 20;
+            int hp = FXGLMath.random(20, (int) Math.round(40 + secondsElapsed / 2));
+            int width = (int) (Math.sqrt(hp) + 10);
+            int height = (int) (Math.sqrt(hp) + 10);
 
             spawn("Enemy",
                     new SpawnData(Level.getActiveLevel().getSpawnPoint().getX() - width / 2.0,
                             Level.getActiveLevel().getSpawnPoint().getY() - height / 2.0)
-                            .put("hp",
-                                    FXGLMath.random(20, (int) Math.round(40 + secondsElapsed / 2)))
+                            .put("hp", hp)
             );
         }
     }
@@ -43,7 +43,7 @@ public class Spawn {
     public static void spawnTower() {
         Towers selectedTower = Towers.getTowersData().get(GamePanel.getSelectedIndex() - 1);
         if (Player.getMoney() >= selectedTower.getCost()) {
-            Player.decreaseMoney(selectedTower.getCost());
+            Player.incrementMoney(-selectedTower.getCost());
             GamePanel.updateLabels();
 
             // instantiate tower
