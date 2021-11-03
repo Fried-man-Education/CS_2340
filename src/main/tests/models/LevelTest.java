@@ -1,4 +1,5 @@
 package models;
+
 import com.theswagbois.towerdefense.models.Level;
 import javafx.geometry.Point2D;
 import org.junit.Before;
@@ -11,6 +12,7 @@ import static org.junit.Assert.*;
 
 public class LevelTest {
     private Level level;
+
     @Before
     public void setup() {
         Point2D randPoint = new Point2D(1, 1);
@@ -65,6 +67,24 @@ public class LevelTest {
     //#16 Andrew Friedman
     @Test
     public void testGetIndex() {
-        assertEquals(1, level.getIndex());
+        int index = 1;
+        assertEquals(index, level.getIndex());
+    }
+
+    //#17 Joseph Vitko
+    @Test
+    public void testGetNumEnemies() {
+        int numEnemies = 10;
+        assertEquals(numEnemies, level.getNumEnemies());
+    }
+
+    //#18 Joseph Vitko
+    @Test
+    public void testToString() {
+        String correct = "Level{spawnPoint=" + level.getSpawnPoint();
+        correct += ", waypoints=" + level.getWayPoints();
+        correct += ", index=" + level.getIndex();
+        correct += ", numEnemies=" + level.getNumEnemies();
+        assertEquals(correct, level.toString());
     }
 }
