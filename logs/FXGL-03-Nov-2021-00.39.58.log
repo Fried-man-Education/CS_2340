@@ -1,0 +1,418 @@
+00:37:41.810 [main                     ] DEBUG Logger               - Configured Logger
+00:37:41.817 [main                     ] DEBUG GameApplication      - Logging settings
+Title: Tower Defense
+Version: 0.0
+Width: 800
+Height: 600
+Fullscreen: false
+Intro: false
+Profiling: false
+Single step:false
+App Mode: DEVELOPER
+Menu Key: ESCAPE
+Stage Style: DECORATED
+Scene Factory: class com.theswagbois.towerdefense.ui.MySceneFactory
+
+00:37:41.988 [JavaFX Application Thread] DEBUG FXGLApplication      - Initializing FXGL
+00:37:41.989 [JavaFX Application Thread] INFO  Engine               - FXGL-11.17 (16.07.2021 15.46) on MAC (J:16.0.2 FX:17.0.1)
+00:37:41.989 [JavaFX Application Thread] DEBUG Engine               - JRE Vendor Name: Azul Systems, Inc.
+00:37:41.989 [JavaFX Application Thread] DEBUG Engine               - Running on OS: Mac OS X version 12.0.1
+00:37:41.989 [JavaFX Application Thread] DEBUG Engine               - Architecture: aarch64
+00:37:41.989 [JavaFX Application Thread] INFO  Engine               - Source code and latest versions at: https://github.com/AlmasB/FXGL
+00:37:41.989 [JavaFX Application Thread] INFO  Engine               -              Join the FXGL chat at: https://gitter.im/AlmasB/FXGL
+00:37:42.040 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Creating a JavaFX scene
+00:37:42.058 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Target settings size: 800.0 x 600.0
+00:37:42.058 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled scene size:    800.0 x 600.0
+00:37:42.058 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled ratio: (1.0, 1.0)
+00:37:42.058 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Set initial scene to FXGLStartupScene
+00:37:42.062 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Opening main window
+00:37:42.105 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Window border size: (0.0, 28.0)
+00:37:42.105 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled size: 800.0 x 600.0
+00:37:42.105 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled ratio: (1.0, 1.0)
+00:37:42.105 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scene size: 800.0 x 600.0
+00:37:42.105 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Stage size: 800.0 x 628.0
+00:37:42.108 [FXGL Background Thread 1 ] DEBUG Engine               - Initializing environment variables
+00:37:42.129 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - User app class for loading assets: class com.theswagbois.towerdefense.MainApplication
+00:37:42.130 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Applying CSS: fxgl_dark.css
+00:37:42.130 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/Users/andrewfriedman/.m2/repository/com/github/almasb/fxgl/11.17/fxgl-11.17.jar!/fxglassets/ui/css/fxgl_dark.css
+00:37:42.154 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Initializing application scenes
+00:37:42.224 [FXGL Background Thread 1 ] DEBUG GameWorld            - Game world initialized
+00:37:42.247 [FXGL Background Thread 1 ] DEBUG PhysicsWorld         - Physics world initialized: appHeight=600, physics.ppm=50.0
+00:37:42.247 [FXGL Background Thread 1 ] DEBUG PhysicsWorld         - Using strategy: BRUTE_FORCE
+00:37:42.248 [FXGL Background Thread 1 ] DEBUG GameScene            - Game scene initialized: 800x600
+00:37:42.258 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/Users/andrewfriedman/Repos/Tower_Defense/target/classes/assets/textures/titleScreen.png
+00:37:42.275 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createMenuBodyGameMenu()
+00:37:42.280 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createOptionsMenu()
+00:37:42.283 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/Users/andrewfriedman/.m2/repository/com/github/almasb/fxgl/11.17/fxgl-11.17.jar!/fxglassets/textures/particles/smoke.png
+00:37:42.322 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/Users/andrewfriedman/.m2/repository/com/github/almasb/fxgl/11.17/fxgl-11.17.jar!/fxglassets/textures/particles/trace_horizontal.png
+00:37:42.338 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Application scenes initialized
+00:37:42.341 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Loading FXGL system data
+00:37:42.343 [FXGL Background Thread 1 ] DEBUG FileSystemAccess     - Reading from: /Users/andrewfriedman/Repos/Tower_Defense/system/fxgl.bundle
+00:37:42.346 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Bundle FXGL: {}
+00:37:42.346 [FXGL Background Thread 1 ] DEBUG UpdaterService       - Checking for updates
+00:37:42.348 [FXGL Background Thread 4 ] DEBUG FXGLApplication      - Loading fonts
+00:37:42.348 [FXGL Background Thread 1 ] DEBUG FXGLApplication      - Loading default localization
+00:37:42.348 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/Users/andrewfriedman/.m2/repository/com/github/almasb/fxgl/11.17/fxgl-11.17.jar!/fxglassets/ui/fonts/VarelaRound-Regular.ttf
+00:37:42.349 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/Users/andrewfriedman/.m2/repository/com/github/almasb/fxgl/11.17/fxgl-11.17.jar!/fxglassets/languages/english.lang
+00:37:42.354 [FXGL Background Thread 1 ] INFO  FXGLApplication      - FXGL initialization took: 0.245 sec
+00:37:42.355 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Place Tower - LMB
+00:37:42.355 [JavaFX Application Thread] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/Users/andrewfriedman/.m2/repository/com/github/almasb/fxgl/11.17/fxgl-11.17.jar!/fxglassets/textures/fxgl_icon.png
+00:37:42.360 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/Users/andrewfriedman/.m2/repository/com/github/almasb/fxgl/11.17/fxgl-11.17.jar!/fxglassets/ui/fonts/Abel-Regular.ttf
+00:37:42.361 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/Users/andrewfriedman/.m2/repository/com/github/almasb/fxgl/11.17/fxgl-11.17.jar!/fxglassets/ui/fonts/lucida_console.ttf
+00:37:42.363 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/Users/andrewfriedman/.m2/repository/com/github/almasb/fxgl/11.17/fxgl-11.17.jar!/fxglassets/ui/fonts/Courier-Prime.ttf
+00:37:42.371 [JavaFX Application Thread] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:/Users/andrewfriedman/.m2/repository/com/github/almasb/fxgl/11.17/fxgl-11.17.jar!/fxglassets/textures/fxgl_default_cursor.png
+00:37:42.375 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Screenshot - CTRL+8
+00:37:42.375 [JavaFX Application Thread] DEBUG Input                - Registered new binding: System info dump - CTRL+9
+00:37:42.375 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Restart - CTRL+R
+00:37:42.375 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Toggle Debug Camera - CTRL+C
+00:37:42.376 [JavaFX Application Thread] DEBUG LoopRunner           - Starting loop
+00:37:42.376 [JavaFX Application Thread] DEBUG LoopRunner           - Initializing JavaFX AnimationTimerLoop
+00:37:42.377 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:37:42.381 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLStartupScene and adding to FXGLMainMenuDummyScene
+00:37:42.381 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLStartupScene -> FXGLMainMenuDummyScene
+00:37:42.381 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Push state: WelcomeMenu
+00:37:42.381 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:37:42.382 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLMainMenuDummyScene and adding to WelcomeMenu
+00:37:42.383 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLMainMenuDummyScene -> WelcomeMenu
+00:37:42.392 [JavaFX Application Thread] DEBUG FXGLApplication      - Registering font factories with UI factory
+00:37:43.923 [JavaFX Application Thread] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/Users/andrewfriedman/Repos/Tower_Defense/target/classes/assets/textures/settingsScreen.png
+00:37:45.353 [FXGL Background Thread 3 ] DEBUG Engine               - Logging environment variables
+00:37:45.356 [FXGL Background Thread 3 ] DEBUG Engine               - achievements: []
+00:37:45.356 [FXGL Background Thread 3 ] DEBUG Engine               - actualHeight: 600.0
+00:37:45.357 [FXGL Background Thread 3 ] DEBUG Engine               - actualHeightProperty: ReadOnlyDoubleProperty [value: 600.0]
+00:37:45.357 [FXGL Background Thread 3 ] DEBUG Engine               - actualWidth: 800.0
+00:37:45.357 [FXGL Background Thread 3 ] DEBUG Engine               - actualWidthProperty: ReadOnlyDoubleProperty [value: 800.0]
+00:37:45.357 [FXGL Background Thread 3 ] DEBUG Engine               - appIcon: fxgl_icon.png
+00:37:45.357 [FXGL Background Thread 3 ] DEBUG Engine               - applicationMode: DEVELOPER
+00:37:45.358 [FXGL Background Thread 3 ] DEBUG Engine               - cSSList: [fxgl_dark.css]
+00:37:45.358 [FXGL Background Thread 3 ] DEBUG Engine               - collisionDetectionStrategy: BRUTE_FORCE
+00:37:45.358 [FXGL Background Thread 3 ] DEBUG Engine               - configClass: Optional.empty
+00:37:45.358 [FXGL Background Thread 3 ] DEBUG Engine               - credits: []
+00:37:45.359 [FXGL Background Thread 3 ] DEBUG Engine               - defaultCursor: CursorInfo(imageName=fxgl_default_cursor.png, hotspotX=7.0, hotspotY=6.0)
+00:37:45.359 [FXGL Background Thread 3 ] DEBUG Engine               - devBBoxColorProperty: ObjectProperty [value: 0xff0000ff]
+00:37:45.359 [FXGL Background Thread 3 ] DEBUG Engine               - devEnableDebugCameraProperty: BooleanProperty [value: false]
+00:37:45.360 [FXGL Background Thread 3 ] DEBUG Engine               - devSensorColorProperty: ObjectProperty [value: 0xffff00ff]
+00:37:45.360 [FXGL Background Thread 3 ] DEBUG Engine               - devShowBBoxProperty: BooleanProperty [value: false]
+00:37:45.360 [FXGL Background Thread 3 ] DEBUG Engine               - devShowPositionProperty: BooleanProperty [value: false]
+00:37:45.360 [FXGL Background Thread 3 ] DEBUG Engine               - enabledMenuItems: []
+00:37:45.361 [FXGL Background Thread 3 ] DEBUG Engine               - engineServices: [class com.almasb.fxgl.app.services.FXGLAssetLoaderService, class com.almasb.fxgl.app.FXGLApplication$GameApplicationService, class com.almasb.fxgl.app.services.FXGLDialogService, class com.almasb.fxgl.app.services.IOTaskExecutorService, class com.almasb.fxgl.io.FileSystemService, class com.almasb.fxgl.localization.LocalizationService, class com.almasb.fxgl.app.services.SystemBundleService, class com.almasb.fxgl.profile.SaveLoadService, class com.almasb.fxgl.ui.FXGLUIFactoryServiceProvider, class com.almasb.fxgl.ui.FXGLDialogFactoryServiceProvider, class com.almasb.fxgl.audio.AudioPlayer, class com.almasb.fxgl.notification.impl.NotificationServiceProvider, class com.almasb.fxgl.achievement.AchievementService, class com.almasb.fxgl.cutscene.CutsceneService, class com.almasb.fxgl.minigames.MiniGameService, class com.almasb.fxgl.net.NetService, class com.almasb.fxgl.app.services.UpdaterService, class com.almasb.fxgl.dev.DevService]
+00:37:45.361 [FXGL Background Thread 3 ] DEBUG Engine               - fontGame: Abel-Regular.ttf
+00:37:45.361 [FXGL Background Thread 3 ] DEBUG Engine               - fontMono: lucida_console.ttf
+00:37:45.361 [FXGL Background Thread 3 ] DEBUG Engine               - fontText: Courier-Prime.ttf
+00:37:45.361 [FXGL Background Thread 3 ] DEBUG Engine               - fontUI: VarelaRound-Regular.ttf
+00:37:45.362 [FXGL Background Thread 3 ] DEBUG Engine               - fullScreen: BooleanProperty [value: false]
+00:37:45.362 [FXGL Background Thread 3 ] DEBUG Engine               - gameDifficulty: MEDIUM
+00:37:45.362 [FXGL Background Thread 3 ] DEBUG Engine               - gameDifficultyProperty: ObjectProperty [value: MEDIUM]
+00:37:45.362 [FXGL Background Thread 3 ] DEBUG Engine               - globalMusicVolume: 0.5
+00:37:45.362 [FXGL Background Thread 3 ] DEBUG Engine               - globalMusicVolumeProperty: DoubleProperty [value: 0.5]
+00:37:45.362 [FXGL Background Thread 3 ] DEBUG Engine               - globalSoundVolume: 0.5
+00:37:45.363 [FXGL Background Thread 3 ] DEBUG Engine               - globalSoundVolumeProperty: DoubleProperty [value: 0.5]
+00:37:45.363 [FXGL Background Thread 3 ] DEBUG Engine               - height: 600
+00:37:45.363 [FXGL Background Thread 3 ] DEBUG Engine               - is3D: false
+00:37:45.363 [FXGL Background Thread 3 ] DEBUG Engine               - isAndroid: false
+00:37:45.363 [FXGL Background Thread 3 ] DEBUG Engine               - isBrowser: false
+00:37:45.363 [FXGL Background Thread 3 ] DEBUG Engine               - isClickFeedbackEnabled: false
+00:37:45.364 [FXGL Background Thread 3 ] DEBUG Engine               - isCloseConfirmation: false
+00:37:45.364 [FXGL Background Thread 3 ] DEBUG Engine               - isDesktop: true
+00:37:45.364 [FXGL Background Thread 3 ] DEBUG Engine               - isDeveloperMenuEnabled: false
+00:37:45.364 [FXGL Background Thread 3 ] DEBUG Engine               - isEntityPreloadEnabled: true
+00:37:45.364 [FXGL Background Thread 3 ] DEBUG Engine               - isExperimentalTiledLargeMap: false
+00:37:45.364 [FXGL Background Thread 3 ] DEBUG Engine               - isFileSystemWriteAllowed: true
+00:37:45.364 [FXGL Background Thread 3 ] DEBUG Engine               - isFullScreenAllowed: false
+00:37:45.364 [FXGL Background Thread 3 ] DEBUG Engine               - isFullScreenFromStart: false
+00:37:45.364 [FXGL Background Thread 3 ] DEBUG Engine               - isGameMenuEnabled: true
+00:37:45.365 [FXGL Background Thread 3 ] DEBUG Engine               - isIOS: false
+00:37:45.365 [FXGL Background Thread 3 ] DEBUG Engine               - isIntroEnabled: false
+00:37:45.365 [FXGL Background Thread 3 ] DEBUG Engine               - isLinux: false
+00:37:45.365 [FXGL Background Thread 3 ] DEBUG Engine               - isMac: true
+00:37:45.365 [FXGL Background Thread 3 ] DEBUG Engine               - isMainMenuEnabled: true
+00:37:45.365 [FXGL Background Thread 3 ] DEBUG Engine               - isManualResizeEnabled: false
+00:37:45.365 [FXGL Background Thread 3 ] DEBUG Engine               - isMobile: false
+00:37:45.365 [FXGL Background Thread 3 ] DEBUG Engine               - isNative: false
+00:37:45.365 [FXGL Background Thread 3 ] DEBUG Engine               - isPauseMusicWhenMinimized: true
+00:37:45.366 [FXGL Background Thread 3 ] DEBUG Engine               - isPreserveResizeRatio: false
+00:37:45.366 [FXGL Background Thread 3 ] DEBUG Engine               - isProfilingEnabled: false
+00:37:45.366 [FXGL Background Thread 3 ] DEBUG Engine               - isScaleAffectedOnResize: true
+00:37:45.366 [FXGL Background Thread 3 ] DEBUG Engine               - isSingleStep: false
+00:37:45.366 [FXGL Background Thread 3 ] DEBUG Engine               - isUserProfileEnabled: false
+00:37:45.366 [FXGL Background Thread 3 ] DEBUG Engine               - isWindows: false
+00:37:45.366 [FXGL Background Thread 3 ] DEBUG Engine               - language: ObjectProperty [value: ENGLISH]
+00:37:45.366 [FXGL Background Thread 3 ] DEBUG Engine               - menuKey: ESCAPE
+00:37:45.367 [FXGL Background Thread 3 ] DEBUG Engine               - mouseSensitivity: 0.2
+00:37:45.367 [FXGL Background Thread 3 ] DEBUG Engine               - notificationViewClass: class com.almasb.fxgl.notification.view.XboxNotificationView
+00:37:45.367 [FXGL Background Thread 3 ] DEBUG Engine               - pixelsPerMeter: 50.0
+00:37:45.367 [FXGL Background Thread 3 ] DEBUG Engine               - platform: MAC
+00:37:45.367 [FXGL Background Thread 3 ] DEBUG Engine               - prefHeightProperty: ReadOnlyDoubleProperty [value: 600.0]
+00:37:45.367 [FXGL Background Thread 3 ] DEBUG Engine               - prefWidthProperty: ReadOnlyDoubleProperty [value: 800.0]
+00:37:45.367 [FXGL Background Thread 3 ] DEBUG Engine               - profileDir: profiles/
+00:37:45.368 [FXGL Background Thread 3 ] DEBUG Engine               - profileName: StringProperty [value: DEFAULT]
+00:37:45.368 [FXGL Background Thread 3 ] DEBUG Engine               - randomSeed: -1
+00:37:45.368 [FXGL Background Thread 3 ] DEBUG Engine               - runtimeInfo: RuntimeInfo(platform=MAC, version=11.17, build=16.07.2021 15.46)
+00:37:45.368 [FXGL Background Thread 3 ] DEBUG Engine               - saveFileExt: sav
+00:37:45.368 [FXGL Background Thread 3 ] DEBUG Engine               - scaledHeightProp$fxgl: DoubleProperty [bound, value: 600.0]
+00:37:45.368 [FXGL Background Thread 3 ] DEBUG Engine               - scaledWidthProp$fxgl: DoubleProperty [bound, value: 800.0]
+00:37:45.368 [FXGL Background Thread 3 ] DEBUG Engine               - sceneFactory: com.theswagbois.towerdefense.ui.MySceneFactory@10bf83ba
+00:37:45.368 [FXGL Background Thread 3 ] DEBUG Engine               - secondsIn24h: 60
+00:37:45.368 [FXGL Background Thread 3 ] DEBUG Engine               - soundMenuBack: menu/back.wav
+00:37:45.369 [FXGL Background Thread 3 ] DEBUG Engine               - soundMenuPress: menu/press.wav
+00:37:45.369 [FXGL Background Thread 3 ] DEBUG Engine               - soundMenuSelect: menu/select.wav
+00:37:45.369 [FXGL Background Thread 3 ] DEBUG Engine               - soundNotification: core/notification.wav
+00:37:45.369 [FXGL Background Thread 3 ] DEBUG Engine               - stageStyle: DECORATED
+00:37:45.369 [FXGL Background Thread 3 ] DEBUG Engine               - supportedLanguages: [ENGLISH, FRENCH, GERMAN, HUNGARIAN, RUSSIAN]
+00:37:45.369 [FXGL Background Thread 3 ] DEBUG Engine               - ticksPerSecond: -1
+00:37:45.369 [FXGL Background Thread 3 ] DEBUG Engine               - title: Tower Defense
+00:37:45.369 [FXGL Background Thread 3 ] DEBUG Engine               - urlGithub: https://github.com/AlmasB/FXGL
+00:37:45.370 [FXGL Background Thread 3 ] DEBUG Engine               - urlLeaderboard: http://fxgl-top.herokuapp.com/
+00:37:45.370 [FXGL Background Thread 3 ] DEBUG Engine               - urlPOM: https://raw.githubusercontent.com/AlmasB/FXGL/release/README.md
+00:37:45.370 [FXGL Background Thread 3 ] DEBUG Engine               - userAppClass: class com.theswagbois.towerdefense.MainApplication
+00:37:45.370 [FXGL Background Thread 3 ] DEBUG Engine               - version: 0.0
+00:37:45.370 [FXGL Background Thread 3 ] DEBUG Engine               - versionCheckDays: 7
+00:37:45.370 [FXGL Background Thread 3 ] DEBUG Engine               - width: 800
+00:37:45.370 [FXGL Background Thread 3 ] DEBUG Engine               - Logging services
+00:37:45.370 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.services.FXGLAssetLoaderService
+00:37:45.371 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.FXGLApplication$GameApplicationService
+00:37:45.371 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.services.FXGLDialogService
+00:37:45.371 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.services.IOTaskExecutorService
+00:37:45.371 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.io.FileSystemService
+00:37:45.371 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.localization.LocalizationService
+00:37:45.371 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.services.SystemBundleService
+00:37:45.371 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.profile.SaveLoadService
+00:37:45.371 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.ui.FXGLUIFactoryServiceProvider
+00:37:45.371 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.ui.FXGLDialogFactoryServiceProvider
+00:37:45.371 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.audio.AudioPlayer
+00:37:45.372 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.notification.impl.NotificationServiceProvider
+00:37:45.372 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.achievement.AchievementService
+00:37:45.372 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.cutscene.CutsceneService
+00:37:45.372 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.minigames.MiniGameService
+00:37:45.372 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.net.NetService
+00:37:45.372 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.services.UpdaterService
+00:37:45.372 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.dev.DevService
+00:37:57.341 [JavaFX Application Thread] DEBUG Menu                 - fireNewGame()
+00:37:57.342 [JavaFX Application Thread] DEBUG GameApplicationServi - Starting new game
+00:37:57.342 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Pop state: WelcomeMenu
+00:37:57.342 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:37:57.344 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from WelcomeMenu and adding to FXGLMainMenuDummyScene
+00:37:57.344 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLMainMenuDummyScene <- WelcomeMenu
+00:37:57.345 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:37:57.352 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLMainMenuDummyScene and adding to FXGLLoadingScene
+00:37:57.353 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLMainMenuDummyScene -> FXGLLoadingScene
+00:37:57.353 [JavaFX Application Thread] DEBUG GameApplicationServi - Clearing previous game
+00:37:57.353 [JavaFX Application Thread] DEBUG GameScene            - Clearing game scene
+00:37:57.353 [JavaFX Application Thread] DEBUG GameWorld            - Clearing game world
+00:37:57.353 [JavaFX Application Thread] DEBUG PhysicsWorld         - Clearing physics world
+00:37:57.355 [FXGL Background Thread 2 ] DEBUG FXGLApplication      - Initializing game
+00:37:57.357 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading JSON from: file:/Users/andrewfriedman/Repos/Tower_Defense/target/classes/assets/towers/tower1.json
+00:37:57.445 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading JSON from: file:/Users/andrewfriedman/Repos/Tower_Defense/target/classes/assets/towers/tower2.json
+00:37:57.445 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading JSON from: file:/Users/andrewfriedman/Repos/Tower_Defense/target/classes/assets/towers/tower3.json
+00:37:57.446 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading JSON from: file:/Users/andrewfriedman/Repos/Tower_Defense/target/classes/assets/levels/level1.json
+00:37:57.465 [FXGL Background Thread 2 ] INFO  FXGLApplication      - Game initialization took: 0.110 sec
+00:37:57.466 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:37:57.470 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLLoadingScene and adding to GameScene
+00:37:57.470 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLLoadingScene -> GameScene
+00:38:07.480 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:07.605 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:16.473 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:16.946 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:16.954 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:16.955 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:18.063 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:19.531 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:19.664 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:19.666 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:22.806 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:23.455 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:24.064 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:24.955 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:25.031 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:25.032 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:26.247 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:26.696 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:28.564 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:28.580 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:30.022 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:30.023 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:30.772 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:30.773 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:31.488 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:31.521 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:31.755 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:33.579 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:33.689 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:35.613 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:37.572 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:37.988 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:39.114 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:39.287 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:39.797 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:40.806 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:40.996 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:42.248 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:42.755 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:43.671 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:43.871 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:44.354 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:45.205 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:45.471 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:45.929 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:46.471 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:46.705 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:46.746 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:46.747 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:46.804 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:46.805 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:47.404 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:48.888 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:48.889 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:49.262 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:49.821 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:49.955 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:50.338 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:51.172 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:51.222 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:51.579 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:52.739 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:53.371 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:53.530 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:55.813 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:55.815 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:56.638 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:57.171 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:58.054 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:58.056 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:58.056 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:58.822 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:38:58.888 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:00.239 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:00.654 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:01.837 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:02.038 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:03.096 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:04.212 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:06.338 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:06.454 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:07.355 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:07.462 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:08.171 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:09.437 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:10.270 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:10.780 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:10.781 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:10.796 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:11.479 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:12.238 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:12.613 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:13.154 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:14.038 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:15.354 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:15.363 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:15.445 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:16.721 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:16.729 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:18.496 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:18.538 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:18.712 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:18.729 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:19.329 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:19.331 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:20.529 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:21.321 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:22.045 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:22.046 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:22.871 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:23.478 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:23.770 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:24.462 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:26.029 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:27.362 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:27.737 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:27.737 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:27.912 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:28.804 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:28.986 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:29.062 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:30.329 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:30.528 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:30.531 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Push state: DialogSubScene
+00:39:30.531 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:39:30.531 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from GameScene and adding to DialogSubScene
+00:39:30.532 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - GameScene -> DialogSubScene
+00:39:33.448 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Pop state: DialogSubScene
+00:39:33.449 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:39:33.450 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from DialogSubScene and adding to GameScene
+00:39:33.451 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - GameScene <- DialogSubScene
+00:39:41.088 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:41.821 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:42.469 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Push state: DialogSubScene
+00:39:42.469 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:39:42.470 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from GameScene and adding to DialogSubScene
+00:39:42.470 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - GameScene -> DialogSubScene
+00:39:43.510 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Pop state: DialogSubScene
+00:39:43.510 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:39:43.511 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from DialogSubScene and adding to GameScene
+00:39:43.512 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - GameScene <- DialogSubScene
+00:39:43.545 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:43.711 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:44.053 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:44.503 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:45.387 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:45.388 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:45.863 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Push state: DialogSubScene
+00:39:45.863 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:39:45.864 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from GameScene and adding to DialogSubScene
+00:39:45.864 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - GameScene -> DialogSubScene
+00:39:47.221 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Pop state: DialogSubScene
+00:39:47.222 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:39:47.223 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from DialogSubScene and adding to GameScene
+00:39:47.224 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - GameScene <- DialogSubScene
+00:39:47.488 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:47.504 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:47.695 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:48.338 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:48.339 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:48.761 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:48.903 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:48.954 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:48.955 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:49.056 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Push state: DialogSubScene
+00:39:49.056 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:39:49.057 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from GameScene and adding to DialogSubScene
+00:39:49.057 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - GameScene -> DialogSubScene
+00:39:49.796 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Pop state: DialogSubScene
+00:39:49.797 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:39:49.798 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from DialogSubScene and adding to GameScene
+00:39:49.798 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - GameScene <- DialogSubScene
+00:39:50.067 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Push state: DialogSubScene
+00:39:50.068 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:39:50.068 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from GameScene and adding to DialogSubScene
+00:39:50.068 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - GameScene -> DialogSubScene
+00:39:51.105 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Pop state: DialogSubScene
+00:39:51.106 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+00:39:51.106 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from DialogSubScene and adding to GameScene
+00:39:51.107 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - GameScene <- DialogSubScene
+00:39:51.879 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:52.603 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:52.786 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:53.103 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:53.105 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:53.545 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:53.712 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:53.713 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:54.437 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:55.295 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:55.479 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:55.896 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:56.487 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:56.488 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:57.095 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:57.653 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:58.103 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:58.203 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:58.491 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyKilledEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:58.491 [JavaFX Application Thread] DEBUG EventBus             - Firing event: com.theswagbois.towerdefense.event.EnemyDamagedEvent[source=javafx.event.Event$$Lambda$128/0x0000000300218e08@1a99d39c]
+00:39:58.638 [JavaFX Application Thread] DEBUG FXGLApplication      - Exiting FXGL
+00:39:58.639 [JavaFX Application Thread] DEBUG LoopRunner           - Stopping loop
+00:39:58.639 [JavaFX Application Thread] DEBUG SystemBundleService  - Saving FXGL system data
+00:39:58.643 [JavaFX Application Thread] DEBUG FileSystemAccess     - Writing to: /Users/andrewfriedman/Repos/Tower_Defense/system/fxgl.bundle
+00:39:58.645 [JavaFX Application Thread] DEBUG Async                - Shutting down background threads
+00:39:58.645 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Closing main window
+00:39:58.651 [JavaFX Application Thread] DEBUG Logger               - Closing Logger
