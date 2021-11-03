@@ -30,11 +30,11 @@ public class Level {
         this.spawnPoint = spawnPoint;
     }
 
-    public List<Point2D> getWaypoints() {
+    public List<Point2D> getWayPoints() {
         return waypoints;
     }
 
-    public void setWaypoints(List<Point2D> waypoints) {
+    public void setWayPoints(List<Point2D> waypoints) {
         if (waypoints == null) {
             throw new IllegalArgumentException("waypoints cannot be null");
         } else if (waypoints.isEmpty()) {
