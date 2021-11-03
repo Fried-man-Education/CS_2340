@@ -9,12 +9,14 @@ public class Level {
 
     private Point2D spawnPoint;
     private List<Point2D> waypoints;
-    private int index;
+    private final int index;
+    private final int numEnemies;
 
-    public Level(Point2D spawnPoint, List<Point2D> points, int index) {
+    public Level(Point2D spawnPoint, List<Point2D> points, int index, int numEnemies) {
         this.spawnPoint = spawnPoint;
         this.waypoints = points;
         this.index = index;
+        this.numEnemies = numEnemies;
     }
 
     public Point2D getSpawnPoint() {
@@ -54,5 +56,19 @@ public class Level {
 
     public int getIndex() {
         return index;
+    }
+
+    public int getNumEnemies() {
+        return numEnemies;
+    }
+
+    @Override
+    public String toString() {
+        return "Level{"
+                + "spawnPoint=" + spawnPoint
+                + ", waypoints=" + waypoints
+                + ", index=" + index
+                + ", numEnemies=" + numEnemies
+                + '}';
     }
 }

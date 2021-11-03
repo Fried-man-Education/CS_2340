@@ -1,10 +1,10 @@
 {
   "name": "Normal Tower",
-  "color": "rgb(0,127,127)",
+  "color": "rgb(247,135,100)",
   "hp": 30,
   "damage": 15,
   "attackDelay": 1.5,
   "cost": 100,
-  "accuracy": 0.4,
-  "bulletSpeed": 200.0
+  "accuracy": 0.6,
+  "bulletSpeed": 300.0
 }

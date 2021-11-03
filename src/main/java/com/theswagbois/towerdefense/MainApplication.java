@@ -17,6 +17,8 @@ import com.theswagbois.towerdefense.services.Levels;
 import com.theswagbois.towerdefense.services.Towers;
 import com.theswagbois.towerdefense.ui.MySceneFactory;
 import com.theswagbois.towerdefense.ui.GamePanel;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.input.MouseButton;
@@ -70,7 +72,7 @@ public class MainApplication extends GameApplication {
 
     @Override
     protected void initGameVars(Map<String, Object> vars) {
-        //vars.put("numEnemies", 100);
+        vars.put("numEnemies", 0);
     }
 
     @Override
@@ -82,10 +84,10 @@ public class MainApplication extends GameApplication {
         getGameWorld().addEntityFactory(new TowerDefenseFactory());
         Levels.initializeLevel(0);
 
-        // BooleanProperty enemiesLeft = new SimpleBooleanProperty();
-        // enemiesLeft.bind(getip("numEnemies").greaterThan(0));
+        BooleanProperty enemiesLeft = new SimpleBooleanProperty();
+        enemiesLeft.bind(getip("numEnemies").greaterThan(-1));
 
-        getGameTimer().runAtInterval(Spawn::spawnEnemy, Duration.seconds(2));
+        getGameTimer().runAtIntervalWhile(Spawn::spawnEnemy, Duration.seconds(2), enemiesLeft);
 
         getEventBus().addEventHandler(EnemyKilledEvent.ANY, EventHandlers::handleEnemyKilled);
         getEventBus().addEventHandler(
