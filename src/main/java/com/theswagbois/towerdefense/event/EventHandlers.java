@@ -2,9 +2,6 @@ package com.theswagbois.towerdefense.event;
 
 import com.almasb.fxgl.app.scene.GameView;
 import com.almasb.fxgl.entity.Entity;
-import com.theswagbois.towerdefense.event.EnemyKilledEvent;
-import com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent;
-import com.theswagbois.towerdefense.event.IllegalTowerLocationEvent;
 import com.theswagbois.towerdefense.models.Player;
 import com.theswagbois.towerdefense.ui.gamePanel.GamePanel;
 import javafx.geometry.Point2D;

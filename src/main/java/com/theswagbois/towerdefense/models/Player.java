@@ -1,7 +1,5 @@
 package com.theswagbois.towerdefense.models;
 
-import com.theswagbois.towerdefense.ui.gamePanel.GamePanel;
-
 public class Player {
     private static String name;
     private static String difficulty;

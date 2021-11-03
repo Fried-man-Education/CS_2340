@@ -23,12 +23,10 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -133,7 +131,8 @@ public class MainApplication extends GameApplication {
         getGameTimer().runAtIntervalWhile(Spawn::spawnEnemy, Duration.seconds(2), enemiesLeft);
 
         getEventBus().addEventHandler(EnemyKilledEvent.ANY, EventHandlers::handleEnemyKilled);
-        getEventBus().addEventHandler(EnemyReachedMonumentEvent.ANY, EventHandlers::handleEnemyReachedMonument);
+        getEventBus().addEventHandler(
+                EnemyReachedMonumentEvent.ANY, EventHandlers::handleEnemyReachedMonument);
         getEventBus().addEventHandler(
                 IllegalTowerLocationEvent.ANY, EventHandlers::handleIllegalTowerLocation
         );

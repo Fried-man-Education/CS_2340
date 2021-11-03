@@ -1,11 +1,9 @@
 package com.theswagbois.towerdefense.entities.components;
 
-import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.component.Component;
 import com.theswagbois.towerdefense.models.Level;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Rectangle;
-import com.theswagbois.towerdefense.MainApplication;
 
 import java.util.List;
 
