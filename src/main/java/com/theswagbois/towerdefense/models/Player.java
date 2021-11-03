@@ -16,6 +16,9 @@ public class Player {
     }
 
     public static void setName(String name) {
+        if (name == null || name.equals("")) {
+            throw new IllegalArgumentException("Name cannot be null");
+        }
         Player.name = name;
     }
 
@@ -24,6 +27,9 @@ public class Player {
     }
 
     public static void setDifficulty(String difficulty) {
+        if (difficulty == null) {
+            throw new IllegalArgumentException("Difficulty cannot be null");
+        }
         Player.difficulty = difficulty;
         calculateMoneyAndHp();
     }

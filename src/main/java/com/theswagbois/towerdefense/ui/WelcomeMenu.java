@@ -85,13 +85,13 @@ public class WelcomeMenu extends FXGLMenu {
     }
 
     private void startGame() {
-        if (checkValidName(nameTextField.getText()) && Player.getDifficulty() != null) {
+        try {
+            Player.setName(nameTextField.getText());
+            Player.setDifficulty(Player.getDifficulty());
             fireNewGame();
+        } catch (Exception e) {
+            System.out.println(e);
         }
-    }
-
-    public static boolean checkValidName(String name) {
-        return name != null && name.trim().length() > 0;
     }
 
     private  void closeApp() {
