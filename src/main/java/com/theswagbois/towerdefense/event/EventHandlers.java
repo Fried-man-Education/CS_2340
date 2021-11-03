@@ -46,7 +46,7 @@ public class EventHandlers {
 
         if (Player.getHp() <= decreaseAmount) {
             decreaseAmount = Player.getHp();
-            showMessage("You Lost. Try Again?", Levels::retryLevel);
+            showMessage("You Lost. Try Again?", Levels::restartGame);
         }
 
         Player.decreaseHP(decreaseAmount);

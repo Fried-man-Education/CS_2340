@@ -132,7 +132,8 @@ public class Levels {
     }
 
     public static void restartGame() {
-        initializeLevel(0);
+        FXGL.getGameController().gotoMainMenu();
+        // initializeLevel(0);
     }
 
     public static int getLevelCount() {
