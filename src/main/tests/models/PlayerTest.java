@@ -3,10 +3,10 @@ package models;
 import com.theswagbois.towerdefense.models.Player;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertFalse;
 
 public class PlayerTest {
     @Test
+    //#1 Nick Hulston
     public void testCheckValidName() {
         assertFalse(Player.validName(null));
         assertFalse(Player.validName(""));
@@ -17,6 +17,7 @@ public class PlayerTest {
         assertTrue(Player.validName("!@#$%^&*()"));
     }
 
+    //#2 Nick Hulston
     @Test
     public void testNameTrim() {
         Player.setName("  a   ");
@@ -32,6 +33,7 @@ public class PlayerTest {
         assertEquals(Player.getName(), "Hello, my name is Andrew!      !");
     }
 
+    //#3 Joseph Vitko
     @Test
     public void testDifficulty() {
         boolean thrown = false;
@@ -53,6 +55,7 @@ public class PlayerTest {
         assertFalse(thrown);
     }
 
+    //#4 Joseph Vitko
     @Test
     public void testMoneyAndHpEasy() {
         Player.setDifficulty("Easy");
@@ -62,6 +65,7 @@ public class PlayerTest {
         assertEquals(200, Player.getHp());
     }
 
+    //#5 Andrew Friedman
     @Test
     public void testMoneyAndHpMedium() {
         Player.setDifficulty("Medium");
@@ -71,6 +75,7 @@ public class PlayerTest {
         assertEquals(100, Player.getHp());
     }
 
+    //#6 Andrew Friedman
     @Test
     public void testMoneyAndHpHard() {
         Player.setDifficulty("Hard");
@@ -80,6 +85,7 @@ public class PlayerTest {
         assertEquals(50, Player.getHp());
     }
 
+    //#7 Kobe Beard
     @Test
     public void testDecreaseMoney() {
         Player.setDifficulty("Easy");
@@ -90,6 +96,7 @@ public class PlayerTest {
         assertEquals(500, Player.getLastExpense());
     }
 
+    //#8 Kobe Beard
     @Test
     public void testDecreaseHP() {
         Player.setDifficulty("Medium");
