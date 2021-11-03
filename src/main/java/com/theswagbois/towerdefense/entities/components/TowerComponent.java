@@ -6,7 +6,7 @@ import com.almasb.fxgl.dsl.components.ProjectileComponent;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.time.LocalTimer;
-import com.theswagbois.towerdefense.TowerDefenseType;
+import com.theswagbois.towerdefense.entities.TowerDefenseType;
 import com.theswagbois.towerdefense.services.TowerData;
 import javafx.geometry.Point2D;
 import javafx.util.Duration;
