@@ -10,13 +10,19 @@ import javafx.scene.shape.Rectangle;
 public class TowerIcon extends Pane {
 
     private Color color;
+    private Rectangle rectangle;
 
     public TowerIcon(int index) {
+
+        boolean selected = false;
 
         Tower t = Towers.getTowersData().get(index);
         this.color = Color.web(t.getColor());
 
         Rectangle defaultRect = new Rectangle(80, 80, color);
+        this.rectangle = defaultRect;
+        rectangle.setStyle("-fx-stroke: white; -fx-stroke-width: 0;");
+
         Rectangle overlayRect = new Rectangle(80, 80, color);
         overlayRect.setOpacity(0.5);
         getChildren().add(defaultRect);
@@ -48,5 +54,13 @@ public class TowerIcon extends Pane {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public void setSelected(boolean selected) {
+        if (selected) {
+            rectangle.setStyle("-fx-stroke: white; -fx-stroke-width: 2;");
+        } else {
+            rectangle.setStyle("-fx-stroke: white; -fx-stroke-width: 0;");
+        }
     }
 }

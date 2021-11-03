@@ -10,6 +10,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.almasb.fxgl.dsl.FXGL.getGameScene;
 import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
 
@@ -24,6 +27,7 @@ public class GamePanel extends Pane {
     private static int selectedIndex = 1;
 
     private static boolean initialized = false;
+    private static List<TowerIcon> icons;
 
     public GamePanel() {
         initializeIcons();
@@ -45,15 +49,21 @@ public class GamePanel extends Pane {
     }
 
     private void initializeIcons() {
+        icons = new ArrayList<>();
         for (int i = 0; i < Towers.getNumTowers(); i++) {
             int index = i + 1;
 
             TowerIcon icon = new TowerIcon(i);
+            icons.add(icon);
             icon.setTranslateX(10 + i * 100);
-            icon.setTranslateY(500);
+            icon.setTranslateY(510);
             icon.setOnMouseClicked(e -> {
                 selectedColor = icon.getColor();
                 selectedIndex = index;
+                for (TowerIcon towerIcon : icons) {
+                    towerIcon.setSelected(false);
+                }
+                icon.setSelected(true);
             });
             if (index == 1) {
                 selectedColor = icon.getColor();
