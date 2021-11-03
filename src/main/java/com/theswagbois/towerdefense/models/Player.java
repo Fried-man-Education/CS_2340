@@ -16,10 +16,14 @@ public class Player {
     }
 
     public static void setName(String name) {
-        if (name == null || name.equals("")) {
+        if (!validName(name)) {
             throw new IllegalArgumentException("Name cannot be null");
         }
-        Player.name = name;
+        Player.name = name.trim();
+    }
+
+    public static boolean validName(String name) {
+        return name != null && !name.trim().equals("");
     }
 
     public static String getDifficulty() {
@@ -35,25 +39,22 @@ public class Player {
     }
 
     private static void calculateMoneyAndHp() {
-        int newHP;
-        int newMoney;
         switch (difficulty) {
-        case "Easy":
-            newHP = BASEHP;
-            newMoney = BASEMONEY;
-            break;
-        case "Medium":
-            newHP = BASEHP / 2;
-            newMoney = BASEMONEY / 2;
-            break;
-        case "Hard":
-            newHP = BASEHP / 4;
-            newMoney = BASEMONEY / 4;
-            break;
-        default: throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
+            case "Easy":
+                hp = BASEHP;
+                money = BASEMONEY;
+                break;
+            case "Medium":
+                hp = BASEHP / 2;
+                money = BASEMONEY / 2;
+                break;
+            case "Hard":
+                hp = BASEHP / 4;
+                money = BASEMONEY / 4;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
         }
-        money = newMoney;
-        hp = newHP;
     }
 
     public static int getMoney() {

@@ -16,8 +16,6 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class WelcomeMenu extends FXGLMenu {
 
-    private final Pane startPane = new Pane();
-    private final Pane settingsPane = new Pane();
     private static double defaultButtonWidth;
     private static double defaultButtonHeight;
 
@@ -89,8 +87,8 @@ public class WelcomeMenu extends FXGLMenu {
             Player.setName(nameTextField.getText());
             Player.setDifficulty(Player.getDifficulty());
             fireNewGame();
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (Exception ignored) {
+            System.out.println("Name or difficulty not yet chosen");
         }
     }
 
@@ -99,16 +97,10 @@ public class WelcomeMenu extends FXGLMenu {
     }
 
     private class DifficultyButton extends DefaultButton {
-        private final double buttonWidth = 75;
-        private final double yOffset = 160;
 
         public DifficultyButton(String name, int xOffset) {
-            super(name, new Runnable() {
-                @Override
-                public void run() {
-                    Player.setDifficulty(name);
-                }
-            });
+            super(name, () -> Player.setDifficulty(name));
+            double buttonWidth = 75;
             setMaxWidth(buttonWidth);
             setTranslateX(getAppWidth() / 2.0 + 113);
             setTranslateY(getAppHeight() / 3.0 - buttonWidth / 2 + xOffset + 35);
@@ -131,7 +123,7 @@ public class WelcomeMenu extends FXGLMenu {
             text.fillProperty().bind(
                     Bindings.when(hoverProperty())
                             .then(Paint.valueOf("#121212"))
-                            .otherwise((Color) Paint.valueOf("#850300"))
+                            .otherwise(Paint.valueOf("#850300"))
             );
 
             setOnMouseClicked(e -> action.run());
