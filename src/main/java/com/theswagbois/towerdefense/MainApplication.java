@@ -12,7 +12,7 @@ import com.theswagbois.towerdefense.collision.BulletEnemyHandler;
 import com.theswagbois.towerdefense.collision.EnemyMonumentHandler;
 import com.theswagbois.towerdefense.collision.PathTowerHandler;
 import com.theswagbois.towerdefense.event.EnemyKilledEvent;
-import com.theswagbois.towerdefense.event.EnemyReachedGoalEvent;
+import com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent;
 import com.theswagbois.towerdefense.event.IllegalTowerLocationEvent;
 import com.theswagbois.towerdefense.models.Player;
 import com.theswagbois.towerdefense.services.LevelData;
@@ -54,11 +54,11 @@ public class MainApplication extends GameApplication {
     private Label hpLabel;
     private Label moneyLabel;
     private Button startCombatButton;
-    private Pane labelsPane = new Pane();
+    private final Pane labelsPane = new Pane();
 
     private int lastCost = 0;
 
-    boolean combatStarted = false;
+    private boolean combatStarted = false;
 
     public static void main(String[] args) {
         launch(args);
@@ -86,7 +86,12 @@ public class MainApplication extends GameApplication {
         Input input = getInput();
 
         input.addAction(new UserAction("Place Tower") {
-            private Rectangle2D worldBounds = new Rectangle2D(0, 0, getAppWidth(), getAppHeight() - 100 - 40);
+            private final Rectangle2D worldBounds = new Rectangle2D(
+                    0,
+                    0,
+                    getAppWidth(),
+                    getAppHeight() - 100 - 40
+            );
 
             @Override
             protected void onActionBegin() {
@@ -112,15 +117,15 @@ public class MainApplication extends GameApplication {
 
         getGameWorld().addEntityFactory(new TowerDefenseFactory());
 
-        enemySpawnPoint = LevelData.levels.get(0).getSpawnPoint();
-        waypoints = LevelData.levels.get(0).getWaypoints();
+        enemySpawnPoint = LevelData.getLevels().get(0).getSpawnPoint();
+        waypoints = LevelData.getLevels().get(0).getWaypoints();
 
         for (int i = 0; i < waypoints.size(); i++) {
             Point2D point1;
             if (i == 0) {
                 point1 = enemySpawnPoint;
             } else {
-                point1 = waypoints.get(i-1);
+                point1 = waypoints.get(i - 1);
             }
             Point2D point2 = waypoints.get(i);
 
@@ -154,7 +159,7 @@ public class MainApplication extends GameApplication {
         getGameTimer().runAtIntervalWhile(this::spawnEnemy, Duration.seconds(2), enemiesLeft);
 
         getEventBus().addEventHandler(EnemyKilledEvent.ANY, this::onEnemyKilled);
-        getEventBus().addEventHandler(EnemyReachedGoalEvent.ANY, this::reduceHp);
+        getEventBus().addEventHandler(EnemyReachedMonumentEvent.ANY, this::reduceHp);
         getEventBus().addEventHandler(IllegalTowerLocationEvent.ANY, this::handleIllegalTowerPosition);
 
         super.initGame();
@@ -177,18 +182,18 @@ public class MainApplication extends GameApplication {
 
         getGameScene().addUINode(uiBG);
 
-        for (int i = 0; i < TowerData.numTowers; i++) {
+        for (int i = 0; i < TowerData.NUMTOWERS; i++) {
             int index = i + 1;
 
             TowerIcon icon = new TowerIcon(i);
             icon.setTranslateX(10 + i * 100);
             icon.setTranslateY(500);
             icon.setOnMouseClicked(e -> {
-                selectedColor = icon.color;
+                selectedColor = icon.getColor();
                 selectedIndex = index;
             });
             if (index == 1) {
-                this.selectedColor = icon.color;
+                this.selectedColor = icon.getColor();
             }
 
             getGameScene().addUINode(icon);
@@ -289,7 +294,7 @@ public class MainApplication extends GameApplication {
         getGameScene().addGameView(new GameView(xMark, 0));
     }
 
-    private void reduceHp(EnemyReachedGoalEvent event) {
+    private void reduceHp(EnemyReachedMonumentEvent event) {
         int decreaseAmount = 10;
         if (Player.getHp() < decreaseAmount) {
             hpLabel.setText("0 HP");
@@ -310,7 +315,9 @@ public class MainApplication extends GameApplication {
         labelsPane.getChildren().remove(startCombatButton);
     }
 
-
+    public boolean isCombatStarted() {
+        return combatStarted;
+    }
 
     private void gameOver() {
         showMessage("Demo Over. Thanks for playing!", getGameController()::exit);

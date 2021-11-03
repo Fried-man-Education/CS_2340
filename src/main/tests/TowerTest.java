@@ -1,7 +1,7 @@
-import javafx.scene.paint.Color;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+//import javafx.scene.paint.Color;
+//import org.junit.Test;
+//
+//import static org.junit.Assert.assertEquals;
 
 public class TowerTest {
     /*private static final int TIMEOUT = 200;

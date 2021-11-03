@@ -1,15 +1,14 @@
 package com.theswagbois.towerdefense.event;
 
-import com.almasb.fxgl.entity.Entity;
 import javafx.event.Event;
 import javafx.event.EventType;
 
-public class EnemyReachedGoalEvent extends Event {
+public class EnemyReachedMonumentEvent extends Event {
 
-    public static final EventType<EnemyReachedGoalEvent> ANY
+    public static final EventType<EnemyReachedMonumentEvent> ANY
             = new EventType<>(Event.ANY, "EnemyReachedGoalEvent");
 
-    public EnemyReachedGoalEvent() {
+    public EnemyReachedMonumentEvent() {
         super(ANY);
     }
 }

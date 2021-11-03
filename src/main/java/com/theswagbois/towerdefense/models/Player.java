@@ -6,8 +6,8 @@ public class Player {
     private static int money;
     private static int hp;
 
-    private static final int baseMoney = 1000;
-    private static final int baseHp = 200;
+    private static final int BASEMONEY = 1000;
+    private static final int BASEHP = 200;
 
     public static String getName() {
         return name;
@@ -27,25 +27,22 @@ public class Player {
     }
 
     private static void calculateMoneyAndHp() {
-        int newHP = 0;
-        int newMoney = 0;
+        int newHP;
+        int newMoney;
         switch (difficulty) {
-            case "Easy": {
-                newHP = baseHp;
-                newMoney = baseMoney;
-                break;
-            }
-            case "Medium": {
-                newHP = baseHp / 2;
-                newMoney = baseMoney / 2;
-                break;
-            }
-            case "Hard": {
-                newHP = baseHp / 4;
-                newMoney = baseMoney / 4;
-                break;
-            }
-            default: throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
+        case "Easy":
+            newHP = BASEHP;
+            newMoney = BASEMONEY;
+            break;
+        case "Medium":
+            newHP = BASEHP / 2;
+            newMoney = BASEMONEY / 2;
+            break;
+        case "Hard":
+            newHP = BASEHP / 4;
+            newMoney = BASEMONEY / 4;
+            break;
+        default: throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
         }
         money = newMoney;
         hp = newHP;

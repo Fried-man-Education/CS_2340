@@ -4,9 +4,7 @@ import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.physics.CollisionHandler;
 import com.theswagbois.towerdefense.TowerDefenseType;
-import com.theswagbois.towerdefense.components.TowerComponent;
-import com.theswagbois.towerdefense.event.EnemyReachedGoalEvent;
-import com.theswagbois.towerdefense.event.IllegalTowerLocationEvent;
+import com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent;
 
 public class EnemyMonumentHandler extends CollisionHandler {
     public EnemyMonumentHandler() {
@@ -16,6 +14,6 @@ public class EnemyMonumentHandler extends CollisionHandler {
     @Override
     protected void onCollisionBegin(Entity enemy, Entity monument) {
         enemy.removeFromWorld();
-        FXGL.getEventBus().fireEvent(new EnemyReachedGoalEvent());
+        FXGL.getEventBus().fireEvent(new EnemyReachedMonumentEvent());
     }
 }

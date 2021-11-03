@@ -1,7 +1,6 @@
 package com.theswagbois.towerdefense.ui;
 
 import com.theswagbois.towerdefense.services.TowerData;
-import javafx.beans.value.ChangeListener;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -9,7 +8,7 @@ import javafx.scene.shape.Rectangle;
 
 public class TowerIcon extends Pane {
 
-    public Color color;
+    private Color color;
 
     public TowerIcon(int index) {
 
@@ -21,7 +20,12 @@ public class TowerIcon extends Pane {
         overlayRect.setOpacity(0.5);
         getChildren().add(defaultRect);
 
-        Label infoLabel = new Label(td.getHp() + " HP\n" + td.getDamage() + " Damage\n" + td.getAttackDelay() + " s / Shot\n" + Math.round(td.getAccuracy() * 100) + "% Accuracy\n$" + td.getCost());
+        Label infoLabel = new Label(
+                td.getHp() + " HP\n"
+                + td.getDamage() + " Damage\n"
+                + td.getAttackDelay() + " s / Shot\n"
+                + Math.round(td.getAccuracy() * 100) + "% Accuracy\n$"
+                + td.getCost());
         infoLabel.setTextFill(Color.WHITE);
 
         this.hoverProperty().addListener((observable, oldValue, newValue) -> {
@@ -35,5 +39,13 @@ public class TowerIcon extends Pane {
                 getChildren().remove(infoLabel);
             }
         });
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }

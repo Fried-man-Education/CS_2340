@@ -27,17 +27,17 @@ public class WelcomeMenu extends FXGLMenu {
         super(MenuType.MAIN_MENU);
         getContentRoot().setCursor(Cursor.DEFAULT); // sets cursor to default
         // adaptive button sizing
-        defaultButtonWidth = getAppWidth() / 4;
-        defaultButtonHeight = getAppHeight() / 15;
+        defaultButtonWidth = getAppWidth() / 4.0;
+        defaultButtonHeight = getAppHeight() / 15.0;
         setFirstMenu();
     }
 
     private void setFirstMenu() {
-        var startButton = new defaultButton("new game", this::setSecondMenu);
+        var startButton = new DefaultButton("new game", this::setSecondMenu);
         startButton.setTranslateX(getAppWidth() / 3.0 - defaultButtonWidth / 2.0);
         startButton.setTranslateY(getAppHeight() * 2.0 / 3.0 - defaultButtonHeight / 2.0);
 
-        var exitButton = new defaultButton("exit", this::closeApp);
+        var exitButton = new DefaultButton("exit", this::closeApp);
         exitButton.setTranslateX(getAppWidth() / 3.0 * 2 - defaultButtonWidth / 2.0);
         exitButton.setTranslateY(startButton.getTranslateY());
 
@@ -58,7 +58,9 @@ public class WelcomeMenu extends FXGLMenu {
         nameTextField.setTranslateX(getAppWidth() / 2.0 - textFieldWidth / 2 + 190);
         nameTextField.setTranslateY(getAppHeight() / 3.0 - 60);
         String style = "-fx-control-inner-background: #121212;";
-        style += "-fx-focus-color: #850300; -fx-border-color: #850300; -fx-faint-focus-color: #121212;";
+        style += "-fx-focus-color: #850300;"
+                + "-fx-border-color: #850300;"
+                + "-fx-faint-focus-color: #121212;";
         style += "-fx-text-fill: #850300;";
         nameTextField.setStyle(style);
 
@@ -66,13 +68,20 @@ public class WelcomeMenu extends FXGLMenu {
         var mediumButton = new DifficultyButton("Medium", 50);
         var hardButton = new DifficultyButton("Hard", 100);
 
-        var beginGameButton = new defaultButton("Start new game", this::startGame);
+        var beginGameButton = new DefaultButton("Start new game", this::startGame);
         beginGameButton.setTranslateX(getAppWidth() / 2.0 - defaultButtonWidth / 2.0);
         beginGameButton.setTranslateY(getAppHeight() / 3.0 + 250);
 
         var bg = texture("settingsScreen.png", getAppWidth(), getAppHeight());
 
-        getContentRoot().getChildren().addAll(bg, nameTextField, easyButton, mediumButton, hardButton, beginGameButton);
+        getContentRoot().getChildren().addAll(
+                bg,
+                nameTextField,
+                easyButton,
+                mediumButton,
+                hardButton,
+                beginGameButton
+        );
     }
 
     private void startGame() {
@@ -89,9 +98,9 @@ public class WelcomeMenu extends FXGLMenu {
         Platform.exit();
     }
 
-    private class DifficultyButton extends defaultButton {
-        final double buttonWidth = 75;
-        final double yOffset = 160;
+    private class DifficultyButton extends DefaultButton {
+        private final double buttonWidth = 75;
+        private final double yOffset = 160;
 
         public DifficultyButton(String name, int xOffset) {
             super(name, new Runnable() {
@@ -106,19 +115,23 @@ public class WelcomeMenu extends FXGLMenu {
         }
     }
 
-    private static class defaultButton extends StackPane {
-        public defaultButton(String name, Runnable action) {
+    private static class DefaultButton extends StackPane {
+        public DefaultButton(String name, Runnable action) {
             var bg = new Rectangle(defaultButtonWidth, defaultButtonHeight);
             bg.setStroke(Paint.valueOf("#850300"));
 
             var text = getUIFactoryService().newText(name, (Color) Paint.valueOf("#850300"), 18);
 
             bg.fillProperty().bind(
-                    Bindings.when(hoverProperty()).then((Color) Paint.valueOf("#850300")).otherwise((Color) Paint.valueOf("#121212"))
+                    Bindings.when(hoverProperty())
+                            .then((Color) Paint.valueOf("#850300"))
+                            .otherwise((Color) Paint.valueOf("#121212"))
             );
 
             text.fillProperty().bind(
-                    Bindings.when(hoverProperty()).then(Paint.valueOf("#121212")).otherwise((Color) Paint.valueOf("#850300"))
+                    Bindings.when(hoverProperty())
+                            .then(Paint.valueOf("#121212"))
+                            .otherwise((Color) Paint.valueOf("#850300"))
             );
 
             setOnMouseClicked(e -> action.run());

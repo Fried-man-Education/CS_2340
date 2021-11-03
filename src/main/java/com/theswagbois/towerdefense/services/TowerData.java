@@ -7,16 +7,20 @@ import java.util.List;
 import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
 
 public class TowerData {
-    private final static List<TowerData> towersData = new ArrayList<>();
-    public final static int numTowers = 3;
+    private static final List<TowerData> TOWERS_DATA = new ArrayList<>();
+    public static final int NUMTOWERS = 3;
 
     public static List<TowerData> getTowersData() {
-        return towersData;
+        return TOWERS_DATA;
     }
 
     public static void loadTowersData() {
-        for (int i = 1; i <= numTowers; i++) {
-            HashMap<String, Object> towerData = getAssetLoader().loadJSON("towers/tower" + i + ".json", HashMap.class).get();
+        for (int i = 1; i <= NUMTOWERS; i++) {
+            HashMap<String, Object> towerData =
+                    getAssetLoader().loadJSON(
+                            "towers/tower" + i + ".json",
+                    HashMap.class
+                ).get();
             String name = (String) towerData.get("name");
             String color = (String) towerData.get("color");
             int damage = (Integer) towerData.get("damage");
@@ -25,8 +29,9 @@ public class TowerData {
             int cost = (Integer) towerData.get("cost");
             double accuracy = (Double) towerData.get("accuracy");
             double bulletSpeed = (Double) towerData.get("bulletSpeed");
-            TowerData td = new TowerData(name, color, i, damage, hp, attackDelay, cost, accuracy, bulletSpeed);
-            towersData.add(td);
+            TowerData td = new TowerData(name, color, i, damage, hp,
+                    attackDelay, cost, accuracy, bulletSpeed);
+            TOWERS_DATA.add(td);
         }
     }
 
@@ -40,7 +45,8 @@ public class TowerData {
     private double accuracy;
     private double bulletSpeed;
 
-    public TowerData(String name, String color, int index, int damage, int hp, double attackDelay, int cost, double accuracy, double bulletSpeed) {
+    public TowerData(String name,String color, int index, int damage, int hp,
+                     double attackDelay, int cost, double accuracy, double bulletSpeed) {
         this.name = name;
         this.color = color;
         this.index = index;
@@ -53,7 +59,7 @@ public class TowerData {
     }
 
     public static int getNumTowers() {
-        return numTowers;
+        return NUMTOWERS;
     }
 
     public String getName() {

@@ -1,13 +1,13 @@
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
-import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+//import javafx.collections.ObservableList;
+//import javafx.scene.Node;
+//import javafx.scene.layout.GridPane;
+//import javafx.scene.paint.Color;
+//import javafx.scene.shape.Rectangle;
+//import org.junit.Before;
+//import org.junit.Test;
+//import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertFalse;
+//import static org.junit.Assert.assertTrue;
 
 public class GameControllerTest {
     /*private static final int TIMEOUT = 200;
