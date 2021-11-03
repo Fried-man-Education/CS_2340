@@ -1,5 +1,5 @@
 {
-  "numEnemies": 1000,
+  "numEnemies": 50,
   "waypoints": {
     "0": {
       "x": 0,

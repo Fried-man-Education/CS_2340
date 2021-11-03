@@ -85,7 +85,7 @@ public class PlayerTest {
         assertEquals(50, Player.getHp());
     }
 
-    //#7 Kobe Beard
+    //#7 Koby Beard
     @Test
     public void testDecreaseMoney() {
         Player.setDifficulty("Easy");
@@ -96,7 +96,7 @@ public class PlayerTest {
         assertEquals(500, Player.getLastExpense());
     }
 
-    //#8 Kobe Beard
+    //#8 Koby Beard
     @Test
     public void testDecreaseHP() {
         Player.setDifficulty("Medium");
