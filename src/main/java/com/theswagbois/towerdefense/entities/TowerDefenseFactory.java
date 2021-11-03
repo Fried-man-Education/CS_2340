@@ -18,6 +18,7 @@ public class TowerDefenseFactory implements EntityFactory {
     public Entity spawnEnemy(SpawnData data) {
         int hp = (Integer) data.getData().get("hp");
         Rectangle enemyGraphic = new Rectangle(Math.sqrt(hp) + 10, Math.sqrt(hp) + 10, Color.RED);
+        enemyGraphic.setTranslateZ(10);
         return entityBuilder(data)
                 .type(TowerDefenseType.ENEMY)
                 .viewWithBBox(enemyGraphic)
@@ -50,13 +51,18 @@ public class TowerDefenseFactory implements EntityFactory {
     public Entity spawnPath(SpawnData data) {
         int width = (Integer) data.getData().get("width");
         int height = (Integer) data.getData().get("height");
+
+        Rectangle pathGraphic = new Rectangle(
+                width,
+                height,
+                Color.LIGHTGRAY
+        );
+
+        pathGraphic.setTranslateZ(0);
+
         return entityBuilder(data)
                 .type(TowerDefenseType.PATH)
-                .viewWithBBox(new Rectangle(
-                        width,
-                        height,
-                        Color.LIGHTGRAY
-                ))
+                .viewWithBBox(pathGraphic)
                 .with(new CollidableComponent(true))
                 .build();
     }

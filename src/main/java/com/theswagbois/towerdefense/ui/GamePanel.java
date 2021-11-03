@@ -2,7 +2,7 @@ package com.theswagbois.towerdefense.ui;
 
 import com.theswagbois.towerdefense.models.Combat;
 import com.theswagbois.towerdefense.models.Player;
-import com.theswagbois.towerdefense.services.TowerData;
+import com.theswagbois.towerdefense.services.Towers;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -20,6 +20,8 @@ public class GamePanel extends Pane {
     private static Color selectedColor;
     private static int selectedIndex = 1;
 
+    private static boolean initialized = false;
+
     public GamePanel() {
 
         initializeIcons();
@@ -35,10 +37,11 @@ public class GamePanel extends Pane {
         this.setTranslateX(510);
         this.setTranslateY(500);
 
+        initialized = true;
     }
 
     private void initializeIcons() {
-        for (int i = 0; i < TowerData.NUMTOWERS; i++) {
+        for (int i = 0; i < Towers.NUMTOWERS; i++) {
             int index = i + 1;
 
             TowerIcon icon = new TowerIcon(i);
@@ -101,5 +104,13 @@ public class GamePanel extends Pane {
 
     public static void setSelectedIndex(int selectedIndex) {
         GamePanel.selectedIndex = selectedIndex;
+    }
+
+    public static boolean isInitialized() {
+        return initialized;
+    }
+
+    public static void setInitialized(boolean initialized) {
+        GamePanel.initialized = initialized;
     }
 }

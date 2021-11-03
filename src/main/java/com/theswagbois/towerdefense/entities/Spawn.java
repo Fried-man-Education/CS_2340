@@ -6,7 +6,7 @@ import com.almasb.fxgl.entity.SpawnData;
 import com.theswagbois.towerdefense.models.Combat;
 import com.theswagbois.towerdefense.models.Level;
 import com.theswagbois.towerdefense.models.Player;
-import com.theswagbois.towerdefense.services.TowerData;
+import com.theswagbois.towerdefense.services.Towers;
 import com.theswagbois.towerdefense.ui.GamePanel;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
@@ -27,7 +27,6 @@ public class Spawn {
     public static void spawnEnemy() {
         if (Combat.isCombatStarted()) {
             double secondsElapsed = getGameTimer().getNow();
-            inc("numEnemies", -1);
 
             int width = 20;
             int height = 20;
@@ -42,7 +41,7 @@ public class Spawn {
     }
 
     public static void spawnTower() {
-        TowerData selectedTower = TowerData.getTowersData().get(GamePanel.getSelectedIndex() - 1);
+        Towers selectedTower = Towers.getTowersData().get(GamePanel.getSelectedIndex() - 1);
         if (Player.getMoney() >= selectedTower.getCost()) {
             Player.decreaseMoney(selectedTower.getCost());
             GamePanel.updateLabels();

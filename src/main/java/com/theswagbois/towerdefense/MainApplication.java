@@ -13,26 +13,19 @@ import com.theswagbois.towerdefense.event.EnemyKilledEvent;
 import com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent;
 import com.theswagbois.towerdefense.event.EventHandlers;
 import com.theswagbois.towerdefense.event.IllegalTowerLocationEvent;
-import com.theswagbois.towerdefense.models.Level;
-import com.theswagbois.towerdefense.services.LevelData;
-import com.theswagbois.towerdefense.services.TowerData;
+import com.theswagbois.towerdefense.services.Levels;
+import com.theswagbois.towerdefense.services.Towers;
 import com.theswagbois.towerdefense.ui.MySceneFactory;
 import com.theswagbois.towerdefense.ui.GamePanel;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.input.MouseButton;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-import java.util.List;
 import java.util.Map;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
-import static com.theswagbois.towerdefense.entities.Spawn.spawnMonument;
-import static com.theswagbois.towerdefense.entities.Spawn.spawnPath;
 
 public class MainApplication extends GameApplication {
 
@@ -77,58 +70,22 @@ public class MainApplication extends GameApplication {
 
     @Override
     protected void initGameVars(Map<String, Object> vars) {
-        vars.put("numEnemies", 100);
+        //vars.put("numEnemies", 100);
     }
 
     @Override
     protected void initGame() {
-        TowerData.loadTowersData();
-        LevelData.loadLevelData();
+        Towers.loadTowersData();
+        Levels.loadLevelData();
         getGameScene().setCursor(Cursor.DEFAULT);
 
         getGameWorld().addEntityFactory(new TowerDefenseFactory());
+        Levels.initializeLevel(0);
 
-        Level.setActiveLevel(LevelData.getLevels().get(0));
-        Point2D enemySpawnPoint = Level.getActiveLevel().getSpawnPoint();
-        List<Point2D> waypoints = Level.getActiveLevel().getWaypoints();
+        // BooleanProperty enemiesLeft = new SimpleBooleanProperty();
+        // enemiesLeft.bind(getip("numEnemies").greaterThan(0));
 
-        for (int i = 0; i < waypoints.size(); i++) {
-            Point2D point1;
-            if (i == 0) {
-                point1 = enemySpawnPoint;
-            } else {
-                point1 = waypoints.get(i - 1);
-            }
-            Point2D point2 = waypoints.get(i);
-
-            int startX = (int) point1.getX();
-            int endX = (int) point2.getX();
-            int startY = (int) point1.getY();
-            int endY = (int) point2.getY();
-
-            if (endX < startX) {
-                int temp = startX;
-                startX = endX;
-                endX = temp;
-            }
-
-            if (endY < startY) {
-                int temp = startY;
-                startY = endY;
-                endY = temp;
-            }
-
-            spawnPath(startX, endX, startY, endY);
-        }
-
-        Point2D monumentLocation = waypoints.get(waypoints.size() - 1);
-        spawnMonument((int) monumentLocation.getX(), (int) monumentLocation.getY());
-
-
-        BooleanProperty enemiesLeft = new SimpleBooleanProperty();
-        enemiesLeft.bind(getip("numEnemies").greaterThan(0));
-
-        getGameTimer().runAtIntervalWhile(Spawn::spawnEnemy, Duration.seconds(2), enemiesLeft);
+        getGameTimer().runAtInterval(Spawn::spawnEnemy, Duration.seconds(2));
 
         getEventBus().addEventHandler(EnemyKilledEvent.ANY, EventHandlers::handleEnemyKilled);
         getEventBus().addEventHandler(
@@ -158,6 +115,4 @@ public class MainApplication extends GameApplication {
         // tower icons, hp and money labels, and start combat button
         getGameScene().addUINode(new GamePanel());
     }
-
-
 }

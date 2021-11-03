@@ -9,10 +9,12 @@ public class Level {
 
     private Point2D spawnPoint;
     private List<Point2D> waypoints;
+    private int index;
 
-    public Level(Point2D spawnPoint, List<Point2D> points) {
+    public Level(Point2D spawnPoint, List<Point2D> points, int index) {
         this.spawnPoint = spawnPoint;
         this.waypoints = points;
+        this.index = index;
     }
 
     public Point2D getSpawnPoint() {
@@ -48,5 +50,9 @@ public class Level {
             throw new IllegalArgumentException("active level cannot be null");
         }
         Level.activeLevel = activeLevel;
+    }
+
+    public int getIndex() {
+        return index;
     }
 }

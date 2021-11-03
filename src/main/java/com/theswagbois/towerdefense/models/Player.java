@@ -9,6 +9,9 @@ public class Player {
     private static final int BASEMONEY = 1000;
     private static final int BASEHP = 200;
 
+    private static int initialMoney;
+    private static int initalHP;
+
     private static int lastExpense = 0;
 
     public static String getName() {
@@ -52,6 +55,8 @@ public class Player {
             break;
         default: throw new IllegalArgumentException("Invalid difficulty: " + difficulty);
         }
+        initalHP = newHP;
+        initialMoney = newMoney;
         money = newMoney;
         hp = newHP;
     }
@@ -87,5 +92,13 @@ public class Player {
 
     public static void setLastExpense(int lastExpense) {
         Player.lastExpense = lastExpense;
+    }
+
+    public static void resetHP() {
+        hp = initalHP;
+    }
+
+    public static void resetMoney() {
+        money = initialMoney;
     }
 }

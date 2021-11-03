@@ -1,4 +1,5 @@
-package legacy;//import javafx.scene.paint.Color;
+package legacy;
+//import javafx.scene.paint.Color;
 //import org.junit.Test;
 //
 //import static org.junit.Assert.assertEquals;

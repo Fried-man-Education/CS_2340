@@ -1,6 +1,6 @@
 package com.theswagbois.towerdefense.ui;
 
-import com.theswagbois.towerdefense.services.TowerData;
+import com.theswagbois.towerdefense.services.Towers;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -12,7 +12,7 @@ public class TowerIcon extends Pane {
 
     public TowerIcon(int index) {
 
-        TowerData td = TowerData.getTowersData().get(index);
+        Towers td = Towers.getTowersData().get(index);
         this.color = Color.web(td.getColor());
 
         Rectangle defaultRect = new Rectangle(80, 80, color);

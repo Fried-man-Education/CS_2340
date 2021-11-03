@@ -6,11 +6,11 @@ import java.util.List;
 
 import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
 
-public class TowerData {
-    private static final List<TowerData> TOWERS_DATA = new ArrayList<>();
+public class Towers {
+    private static final List<Towers> TOWERS_DATA = new ArrayList<>();
     public static final int NUMTOWERS = 3;
 
-    public static List<TowerData> getTowersData() {
+    public static List<Towers> getTowersData() {
         return TOWERS_DATA;
     }
 
@@ -30,7 +30,7 @@ public class TowerData {
             double accuracy = (Double) towerData.get("accuracy");
             double bulletSpeed = (Double) towerData.get("bulletSpeed");
             int[] intValues = new int[]{i, damage, cost};
-            TowerData td = new TowerData(name, color,  hp,
+            Towers td = new Towers(name, color,  hp,
                     attackDelay, accuracy, bulletSpeed, intValues);
             TOWERS_DATA.add(td);
         }
@@ -46,8 +46,8 @@ public class TowerData {
     private double accuracy;
     private double bulletSpeed;
 
-    public TowerData(String name, String color, int hp,
-                     double attackDelay, double accuracy, double bulletSpeed, int[] intValues) {
+    public Towers(String name, String color, int hp,
+                  double attackDelay, double accuracy, double bulletSpeed, int[] intValues) {
         this.name = name;
         this.color = color;
         this.index = intValues[0];

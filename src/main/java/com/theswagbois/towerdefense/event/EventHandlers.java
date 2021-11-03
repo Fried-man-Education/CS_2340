@@ -3,6 +3,7 @@ package com.theswagbois.towerdefense.event;
 import com.almasb.fxgl.app.scene.GameView;
 import com.almasb.fxgl.entity.Entity;
 import com.theswagbois.towerdefense.models.Player;
+import com.theswagbois.towerdefense.services.Levels;
 import com.theswagbois.towerdefense.ui.GamePanel;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
@@ -20,6 +21,7 @@ public class EventHandlers {
         xMark.setOpacity(0.2);
         xMark.setTranslateX(position.getX());
         xMark.setTranslateY(position.getY() + 20);
+        xMark.setTranslateZ(5);
 
 
         getGameScene().addGameView(new GameView(xMark, 0));
@@ -30,7 +32,7 @@ public class EventHandlers {
 
         if (Player.getHp() <= decreaseAmount) {
             decreaseAmount = Player.getHp();
-            showMessage("Game Over. Thanks for playing!", getGameController()::exit);
+            showMessage("You Lost. Try Again?", Levels::retryLevel);
         }
 
         Player.decreaseHP(decreaseAmount);
