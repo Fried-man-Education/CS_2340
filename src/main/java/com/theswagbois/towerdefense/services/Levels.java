@@ -122,8 +122,10 @@ public class Levels {
         if (nextIndex >= LEVELS.size()) {
             showMessage("Congratulations! You completed every level! Play Again?",
                     Levels::restartGame);
+        } else {
+            initializeLevel(nextIndex);
         }
-        initializeLevel(nextIndex);
+
     }
 
     public static void restartGame() {
