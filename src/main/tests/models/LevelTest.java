@@ -84,7 +84,7 @@ public class LevelTest {
         String correct = "Level{spawnPoint=" + level.getSpawnPoint();
         correct += ", waypoints=" + level.getWayPoints();
         correct += ", index=" + level.getIndex();
-        correct += ", numEnemies=" + level.getNumEnemies();
+        correct += ", numEnemies=" + level.getNumEnemies() + "}";
         assertEquals(correct, level.toString());
     }
 }
