@@ -1,4 +1,4 @@
-package com.theswagbois.towerdefense;
+package com.theswagbois.towerdefense.entities;
 
 import com.almasb.fxgl.dsl.components.OffscreenCleanComponent;
 import com.almasb.fxgl.entity.Entity;
@@ -6,8 +6,9 @@ import com.almasb.fxgl.entity.EntityFactory;
 import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
 import com.almasb.fxgl.entity.components.CollidableComponent;
-import com.theswagbois.towerdefense.components.EnemyComponent;
-import com.theswagbois.towerdefense.components.TowerComponent;
+import com.theswagbois.towerdefense.TowerDefenseType;
+import com.theswagbois.towerdefense.entities.components.EnemyComponent;
+import com.theswagbois.towerdefense.entities.components.TowerComponent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 

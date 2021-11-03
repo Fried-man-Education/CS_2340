@@ -1,7 +1,8 @@
-package com.theswagbois.towerdefense.components;
+package com.theswagbois.towerdefense.entities.components;
 
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.component.Component;
+import com.theswagbois.towerdefense.models.Level;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Rectangle;
 import com.theswagbois.towerdefense.MainApplication;
@@ -12,12 +13,14 @@ public class EnemyComponent extends Component {
 
     private List<Point2D> waypoints;
     private Point2D nextWaypoint;
+    private int nextWaypointIndex = 0;
 
     private double speed;
     private int hp;
     private Rectangle graphic;
     private Point2D velocity;
     private boolean hasReachedGoal;
+
 
     public EnemyComponent(int hp, Rectangle graphic) {
         this.hp = hp;
@@ -28,9 +31,9 @@ public class EnemyComponent extends Component {
 
     @Override
     public void onAdded() {
-        waypoints = ((MainApplication) FXGL.getApp()).getWaypoints();
+        waypoints = Level.getActiveLevel().getWaypoints();
 
-        nextWaypoint = waypoints.remove(0);
+        nextWaypoint = waypoints.get(0);
     }
 
     @Override
@@ -46,7 +49,8 @@ public class EnemyComponent extends Component {
             entity.setPosition(nextWaypoint);
 
             if (!waypoints.isEmpty()) {
-                nextWaypoint = waypoints.remove(0);
+                nextWaypointIndex++;
+                nextWaypoint = waypoints.get(nextWaypointIndex);
             } else {
                 if (!hasReachedGoal) {
                     hasReachedGoal = true;

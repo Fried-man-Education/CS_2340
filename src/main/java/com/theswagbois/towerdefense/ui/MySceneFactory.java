@@ -1,4 +1,4 @@
-package com.theswagbois.towerdefense;
+package com.theswagbois.towerdefense.ui;
 
 import com.almasb.fxgl.app.scene.FXGLMenu;
 import com.almasb.fxgl.app.scene.SceneFactory;

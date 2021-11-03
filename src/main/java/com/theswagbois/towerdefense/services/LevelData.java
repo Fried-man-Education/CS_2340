@@ -1,6 +1,6 @@
 package com.theswagbois.towerdefense.services;
 
-import com.theswagbois.towerdefense.Level;
+import com.theswagbois.towerdefense.models.Level;
 import javafx.geometry.Point2D;
 
 import java.util.ArrayList;

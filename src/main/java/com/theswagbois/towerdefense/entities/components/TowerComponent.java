@@ -1,4 +1,4 @@
-package com.theswagbois.towerdefense.components;
+package com.theswagbois.towerdefense.entities.components;
 
 import com.almasb.fxgl.core.math.FXGLMath;
 import com.almasb.fxgl.dsl.FXGL;

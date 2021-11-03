@@ -1,4 +1,4 @@
-package com.theswagbois.towerdefense.components;
+package com.theswagbois.towerdefense.entities.components;
 
 import com.almasb.fxgl.entity.component.Component;
 

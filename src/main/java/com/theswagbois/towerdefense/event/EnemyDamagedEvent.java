@@ -3,8 +3,8 @@ package com.theswagbois.towerdefense.event;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.dsl.components.ProjectileComponent;
 import com.almasb.fxgl.entity.Entity;
-import com.theswagbois.towerdefense.components.BulletComponent;
-import com.theswagbois.towerdefense.components.EnemyComponent;
+import com.theswagbois.towerdefense.entities.components.BulletComponent;
+import com.theswagbois.towerdefense.entities.components.EnemyComponent;
 import javafx.event.Event;
 import javafx.event.EventType;
 

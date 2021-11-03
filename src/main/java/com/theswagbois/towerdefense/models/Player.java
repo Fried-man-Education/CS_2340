@@ -1,5 +1,7 @@
 package com.theswagbois.towerdefense.models;
 
+import com.theswagbois.towerdefense.ui.gamePanel.GamePanel;
+
 public class Player {
     private static String name;
     private static String difficulty;
@@ -8,6 +10,8 @@ public class Player {
 
     private static final int BASEMONEY = 1000;
     private static final int BASEHP = 200;
+
+    private static int lastExpense = 0;
 
     public static String getName() {
         return name;
@@ -56,6 +60,9 @@ public class Player {
         if (amount > money) {
             throw new IllegalArgumentException("Money cannot be set to a negative number");
         }
+        if (amount >= 0) {
+            lastExpense = amount;
+        }
         money = money - amount;
     }
 
@@ -70,4 +77,11 @@ public class Player {
         hp = hp - amount;
     }
 
+    public static int getLastExpense() {
+        return lastExpense;
+    }
+
+    public static void setLastExpense(int lastExpense) {
+        Player.lastExpense = lastExpense;
+    }
 }

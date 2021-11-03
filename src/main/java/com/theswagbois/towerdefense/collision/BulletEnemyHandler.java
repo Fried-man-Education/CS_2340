@@ -4,7 +4,7 @@ import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.physics.CollisionHandler;
 import com.theswagbois.towerdefense.TowerDefenseType;
-import com.theswagbois.towerdefense.components.BulletComponent;
+import com.theswagbois.towerdefense.entities.components.BulletComponent;
 import com.theswagbois.towerdefense.event.EnemyDamagedEvent;
 
 public class BulletEnemyHandler extends CollisionHandler {

@@ -1,10 +1,12 @@
-package com.theswagbois.towerdefense;
+package com.theswagbois.towerdefense.models;
 
 import javafx.geometry.Point2D;
 
 import java.util.List;
 
 public class Level {
+    private static Level activeLevel;
+
     private Point2D spawnPoint;
     private List<Point2D> waypoints;
 
@@ -27,5 +29,13 @@ public class Level {
 
     public void setWaypoints(List<Point2D> waypoints) {
         this.waypoints = waypoints;
+    }
+
+    public static Level getActiveLevel() {
+        return activeLevel;
+    }
+
+    public static void setActiveLevel(Level activeLevel) {
+        Level.activeLevel = activeLevel;
     }
 }
