@@ -56,6 +56,6 @@ public class EventHandlers {
         // refund money
         Player.incrementMoney(Player.getLastExpense());
         GamePanel.updateLabels();
-        showMessage("You can't place a tower on the path");
+        showMessage("You can't place a tower here");
     }
 }

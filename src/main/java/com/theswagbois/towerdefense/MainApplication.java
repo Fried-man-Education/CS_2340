@@ -7,6 +7,7 @@ import com.almasb.fxgl.input.UserAction;
 import com.theswagbois.towerdefense.collision.BulletEnemyHandler;
 import com.theswagbois.towerdefense.collision.EnemyMonumentHandler;
 import com.theswagbois.towerdefense.collision.PathTowerHandler;
+import com.theswagbois.towerdefense.collision.TowerTowerHandler;
 import com.theswagbois.towerdefense.entities.Spawn;
 import com.theswagbois.towerdefense.entities.TowerDefenseFactory;
 import com.theswagbois.towerdefense.event.EnemyKilledEvent;
@@ -104,6 +105,7 @@ public class MainApplication extends GameApplication {
         getPhysicsWorld().addCollisionHandler(new BulletEnemyHandler());
         getPhysicsWorld().addCollisionHandler(new PathTowerHandler());
         getPhysicsWorld().addCollisionHandler(new EnemyMonumentHandler());
+        getPhysicsWorld().addCollisionHandler(new TowerTowerHandler());
     }
 
 
