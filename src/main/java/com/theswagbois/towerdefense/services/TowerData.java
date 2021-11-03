@@ -29,8 +29,9 @@ public class TowerData {
             int cost = (Integer) towerData.get("cost");
             double accuracy = (Double) towerData.get("accuracy");
             double bulletSpeed = (Double) towerData.get("bulletSpeed");
-            TowerData td = new TowerData(name, color, i, damage, hp,
-                    attackDelay, cost, accuracy, bulletSpeed);
+            int[] intValues = new int[]{i, damage, cost};
+            TowerData td = new TowerData(name, color,  hp,
+                    attackDelay, accuracy, bulletSpeed, intValues);
             TOWERS_DATA.add(td);
         }
     }
@@ -45,15 +46,15 @@ public class TowerData {
     private double accuracy;
     private double bulletSpeed;
 
-    public TowerData(String name,String color, int index, int damage, int hp,
-                     double attackDelay, int cost, double accuracy, double bulletSpeed) {
+    public TowerData(String name, String color, int hp,
+                     double attackDelay, double accuracy, double bulletSpeed, int[] intValues) {
         this.name = name;
         this.color = color;
-        this.index = index;
-        this.damage = damage;
+        this.index = intValues[0];
+        this.damage = intValues[1];
         this.hp = hp;
         this.attackDelay = attackDelay;
-        this.cost = cost;
+        this.cost = intValues[2];
         this.accuracy = accuracy;
         this.bulletSpeed = bulletSpeed;
     }
