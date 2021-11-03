@@ -16,12 +16,14 @@ public class GamePanelTest {
         gamePanel = new GamePanel();
     }
 
+    //#19 Joseph Vitko
     @Test(timeout = TIMEOUT)
     public void testInit() {
         assertTrue(gamePanel.getChildren().stream().count() > 0);
         assertTrue(gamePanel.isInitialized());
     }
 
+    //#20 Andrew Friedman
     @Test(timeout = TIMEOUT)
     public void testSetSelectedColor() {
         Color temp = gamePanel.getSelectedColor();
@@ -32,6 +34,7 @@ public class GamePanelTest {
         }
     }
 
+    //#21 Andrew Friedman
     @Test(timeout = TIMEOUT)
     public void testGetSelectedColor() {
         Color temp = gamePanel.getSelectedColor();
@@ -42,6 +45,7 @@ public class GamePanelTest {
         }
     }
 
+    //#22 Andrew Friedman
     @Test(timeout = TIMEOUT)
     public void testSetSelectedIndex() {
         int temp = gamePanel.getSelectedIndex();
@@ -52,6 +56,7 @@ public class GamePanelTest {
         }
     }
 
+    //#23 Kobe Beard
     @Test(timeout = TIMEOUT)
     public void testGetSelectedIndex() {
         int temp = gamePanel.getSelectedIndex();
@@ -62,6 +67,7 @@ public class GamePanelTest {
         }
     }
 
+    //#24 Kobe Beard
     @Test(timeout = TIMEOUT)
     public void testIsInitialized() {
         assertTrue(gamePanel.isInitialized());
@@ -69,6 +75,7 @@ public class GamePanelTest {
         assertTrue(!gamePanel.isInitialized());
     }
 
+    //#25 Kobe Beard
     @Test(timeout = TIMEOUT)
     public void testSetInitialized() {
         gamePanel.setInitialized(false);

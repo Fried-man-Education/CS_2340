@@ -45,7 +45,7 @@ public class LevelTest {
         assertEquals(sameWayPoints, level.getWayPoints());
     }
 
-    //#14 Andrew Friedman
+    //#14 Nick Hulston
     @Test
     public void testSetWayPoints() {
         ArrayList<Point2D> newWayPoints = new ArrayList<>();
@@ -57,14 +57,14 @@ public class LevelTest {
         assertEquals(newWayPoints, level.getWayPoints());
     }
 
-    //#15 Andrew Friedman
+    //#15 Nick Hulston
     @Test
     public void testSetActiveLevel() {
         Level.setActiveLevel(level);
         assertEquals(level, Level.getActiveLevel());
     }
 
-    //#16 Andrew Friedman
+    //#16 Nick Hulston
     @Test
     public void testGetIndex() {
         int index = 1;
