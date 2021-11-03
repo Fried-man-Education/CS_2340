@@ -2,7 +2,6 @@ package com.theswagbois.towerdefense.components;
 
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.component.Component;
-import com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Rectangle;
 import com.theswagbois.towerdefense.MainApplication;

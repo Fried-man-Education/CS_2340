@@ -160,7 +160,9 @@ public class MainApplication extends GameApplication {
 
         getEventBus().addEventHandler(EnemyKilledEvent.ANY, this::onEnemyKilled);
         getEventBus().addEventHandler(EnemyReachedMonumentEvent.ANY, this::reduceHp);
-        getEventBus().addEventHandler(IllegalTowerLocationEvent.ANY, this::handleIllegalTowerPosition);
+        getEventBus().addEventHandler(
+                IllegalTowerLocationEvent.ANY, this::handleIllegalTowerPosition
+        );
 
         super.initGame();
     }
@@ -235,8 +237,10 @@ public class MainApplication extends GameApplication {
             int height = 20;
 
             spawn("Enemy",
-                    new SpawnData(enemySpawnPoint.getX() - width / 2.0, enemySpawnPoint.getY() - height / 2.0)
-                            .put("hp", FXGLMath.random(20, (int) Math.round(40 + secondsElapsed / 2)))
+                    new SpawnData(enemySpawnPoint.getX() - width / 2.0,
+                            enemySpawnPoint.getY() - height / 2.0)
+                            .put("hp",
+                                    FXGLMath.random(20, (int) Math.round(40 + secondsElapsed / 2)))
             );
         }
     }
