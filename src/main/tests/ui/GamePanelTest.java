@@ -61,4 +61,19 @@ public class GamePanelTest {
             assertNotEquals(temp, gamePanel.getSelectedIndex());
         }
     }
+
+    @Test(timeout = TIMEOUT)
+    public void testIsInitialized() {
+        assertTrue(gamePanel.isInitialized());
+        gamePanel.setInitialized(false);
+        assertTrue(!gamePanel.isInitialized());
+    }
+
+    @Test(timeout = TIMEOUT)
+    public void testSetInitialized() {
+        gamePanel.setInitialized(false);
+        assertTrue(!gamePanel.isInitialized());
+        gamePanel.setInitialized(true);
+        assertTrue(gamePanel.isInitialized());
+    }
 }
