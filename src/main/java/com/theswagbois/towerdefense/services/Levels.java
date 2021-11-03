@@ -65,6 +65,9 @@ public class Levels {
         ArrayList<Entity> entities = (ArrayList<Entity>) getGameWorld().getEntities().clone();
         FXGL.getGameWorld().removeEntities(entities);
 
+        // remove x-marks
+        getGameScene().clearGameViews();
+
         Level.setActiveLevel(LEVELS.get(index));
         Point2D enemySpawnPoint = Level.getActiveLevel().getSpawnPoint();
         List<Point2D> waypoints = Level.getActiveLevel().getWayPoints();

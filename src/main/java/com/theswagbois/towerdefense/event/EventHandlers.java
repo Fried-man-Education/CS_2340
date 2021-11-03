@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class EventHandlers {
+
     public static void handleEnemyKilled(EnemyKilledEvent event) {
         Entity enemy = event.getEnemy();
         Point2D position = enemy.getPosition();

@@ -1,7 +1,6 @@
 package com.theswagbois.towerdefense.models;
 
 import javafx.geometry.Point2D;
-
 import java.util.List;
 
 public class Level {
