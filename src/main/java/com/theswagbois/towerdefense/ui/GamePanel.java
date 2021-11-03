@@ -1,6 +1,7 @@
 package com.theswagbois.towerdefense.ui;
 
 import com.theswagbois.towerdefense.models.Combat;
+import com.theswagbois.towerdefense.models.Level;
 import com.theswagbois.towerdefense.models.Player;
 import com.theswagbois.towerdefense.services.Towers;
 import javafx.scene.control.Button;
@@ -14,6 +15,7 @@ import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
 
 public class GamePanel extends Pane {
     private static Rectangle labelsBackground;
+    private static Label levelLabel;
     private static Label hpLabel;
     private static Label moneyLabel;
     private static Button startCombatButton;
@@ -24,14 +26,15 @@ public class GamePanel extends Pane {
     private static boolean initialized = false;
 
     public GamePanel() {
-
         initializeIcons();
+        initializeLevelLabel();
         initializeHpLabel();
         initializeMoneyLabel();
         initializeStartCombatButton();
         initializeBackground();
 
         this.getChildren().add(labelsBackground);
+        this.getChildren().add(levelLabel);
         this.getChildren().add(hpLabel);
         this.getChildren().add(moneyLabel);
         this.getChildren().add(startCombatButton);
@@ -60,21 +63,29 @@ public class GamePanel extends Pane {
         }
     }
 
+    private void initializeLevelLabel() {
+        levelLabel = new Label("Level " + (Level.getActiveLevel().getIndex() + 1));
+        levelLabel.setStyle("-fx-font-weight: bold");
+        levelLabel.setTextFill(Color.WHITE);
+        levelLabel.setLayoutY(5);
+    }
+
     private void initializeHpLabel() {
         hpLabel = new Label(Player.getHp() + " HP");
         hpLabel.setTextFill(Color.WHITE);
+        hpLabel.setLayoutY(25);
     }
 
     private void initializeMoneyLabel() {
         moneyLabel = new Label("$" + Player.getMoney());
         moneyLabel.setTextFill(Color.WHITE);
-        moneyLabel.setLayoutY(15);
+        moneyLabel.setLayoutY(45);
     }
 
     private void initializeStartCombatButton() {
         startCombatButton = new Button("Start Combat");
         startCombatButton.setOnMousePressed(event -> startCombat());
-        startCombatButton.setLayoutY(30);
+        startCombatButton.setLayoutY(65);
     }
 
     private void startCombat() {

@@ -1,8 +1,6 @@
 package com.theswagbois.towerdefense.event;
 
 import com.almasb.fxgl.entity.Entity;
-import com.theswagbois.towerdefense.entities.components.EnemyComponent;
-import com.theswagbois.towerdefense.models.Player;
 import javafx.event.Event;
 import javafx.event.EventType;
 
