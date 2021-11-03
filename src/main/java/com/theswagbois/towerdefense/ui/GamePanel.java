@@ -1,9 +1,8 @@
-package com.theswagbois.towerdefense.ui.gamePanel;
+package com.theswagbois.towerdefense.ui;
 
 import com.theswagbois.towerdefense.models.Combat;
 import com.theswagbois.towerdefense.models.Player;
 import com.theswagbois.towerdefense.services.TowerData;
-import com.theswagbois.towerdefense.ui.TowerIcon;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;

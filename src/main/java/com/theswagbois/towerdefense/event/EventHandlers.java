@@ -3,7 +3,7 @@ package com.theswagbois.towerdefense.event;
 import com.almasb.fxgl.app.scene.GameView;
 import com.almasb.fxgl.entity.Entity;
 import com.theswagbois.towerdefense.models.Player;
-import com.theswagbois.towerdefense.ui.gamePanel.GamePanel;
+import com.theswagbois.towerdefense.ui.GamePanel;
 import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;

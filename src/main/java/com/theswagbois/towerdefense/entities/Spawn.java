@@ -7,7 +7,7 @@ import com.theswagbois.towerdefense.models.Combat;
 import com.theswagbois.towerdefense.models.Level;
 import com.theswagbois.towerdefense.models.Player;
 import com.theswagbois.towerdefense.services.TowerData;
-import com.theswagbois.towerdefense.ui.gamePanel.GamePanel;
+import com.theswagbois.towerdefense.ui.GamePanel;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 import static com.almasb.fxgl.dsl.FXGL.spawn;

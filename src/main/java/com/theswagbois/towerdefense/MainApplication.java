@@ -17,7 +17,7 @@ import com.theswagbois.towerdefense.models.Level;
 import com.theswagbois.towerdefense.services.LevelData;
 import com.theswagbois.towerdefense.services.TowerData;
 import com.theswagbois.towerdefense.ui.MySceneFactory;
-import com.theswagbois.towerdefense.ui.gamePanel.GamePanel;
+import com.theswagbois.towerdefense.ui.GamePanel;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Point2D;
