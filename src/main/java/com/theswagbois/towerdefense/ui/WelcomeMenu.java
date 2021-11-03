@@ -31,6 +31,8 @@ public class WelcomeMenu extends FXGLMenu {
     }
 
     private void setFirstMenu() {
+        getContentRoot().getChildren().clear();
+
         var startButton = new DefaultButton("new game", this::setSecondMenu);
         startButton.setTranslateX(getAppWidth() / 3.0 - defaultButtonWidth / 2.0);
         startButton.setTranslateY(getAppHeight() * 2.0 / 3.0 - defaultButtonHeight / 2.0);
@@ -87,6 +89,7 @@ public class WelcomeMenu extends FXGLMenu {
             Player.setName(nameTextField.getText());
             Player.setDifficulty(Player.getDifficulty());
             fireNewGame();
+            this.setFirstMenu();
         } catch (Exception ignored) {
             System.out.println("Name or difficulty not yet chosen");
         }
