@@ -6,5 +6,6 @@
   "attackDelay": 0.35,
   "cost": 200,
   "accuracy": 0.4,
-  "bulletSpeed": 200.0
+  "bulletSpeed": 200.0,
+  "range": 150.0
 }

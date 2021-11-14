@@ -21,6 +21,7 @@ public class TowerComponent extends Component {
     private double bulletSpeed;
     private LocalTimer shootTimer;
     private double accuracyError = 1;
+    private double range;
 
     public TowerComponent(int index) {
         Tower t = Towers.getTowersData().get(index - 1);
@@ -29,6 +30,7 @@ public class TowerComponent extends Component {
         this.attackDelay = t.getAttackDelay();
         this.accuracy = t.getAccuracy();
         this.bulletSpeed = t.getBulletSpeed();
+        this.range = t.getRange();
     }
 
     @Override
@@ -56,6 +58,12 @@ public class TowerComponent extends Component {
         EnemyComponent enemyProjectile = enemy.getComponent(EnemyComponent.class);
         Point2D position = getEntity().getPosition();
         Point2D enemyPosition = enemy.getPosition();
+
+        if (position.distance(enemyPosition) > this.range) {
+            // don't shoot if the enemy is out of range
+            return;
+        }
+
         accuracyError = accuracyError
                 + FXGLMath.random(-(1 - accuracy), 1 - accuracy);
         Point2D enemyVelocity = enemyProjectile.getVelocity()

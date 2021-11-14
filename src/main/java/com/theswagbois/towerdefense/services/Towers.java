@@ -31,9 +31,9 @@ public class Towers {
             int cost = (Integer) towerData.get("cost");
             double accuracy = (Double) towerData.get("accuracy");
             double bulletSpeed = (Double) towerData.get("bulletSpeed");
-            int[] intValues = new int[]{i, damage, cost};
-            Tower t = new Tower(name, color,  hp,
-                    attackDelay, accuracy, bulletSpeed, intValues);
+            double range = (Double) towerData.get("range");
+            int[] intValues = new int[]{i, damage, cost, hp};
+            Tower t = new Tower(name, color, attackDelay, accuracy, bulletSpeed, range, intValues);
             TOWERS_DATA.add(t);
         }
     }

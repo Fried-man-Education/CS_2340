@@ -10,18 +10,20 @@ public class Tower {
     private int cost;
     private double accuracy;
     private double bulletSpeed;
+    private double range;
 
-    public Tower(String name, String color, int hp,
-                  double attackDelay, double accuracy, double bulletSpeed, int[] intValues) {
+    public Tower(String name, String color,
+                  double attackDelay, double accuracy, double bulletSpeed, double range, int[] intValues) {
         this.name = name;
         this.color = color;
         this.index = intValues[0];
         this.damage = intValues[1];
-        this.hp = hp;
         this.attackDelay = attackDelay;
         this.cost = intValues[2];
+        this.hp = intValues[3];
         this.accuracy = accuracy;
         this.bulletSpeed = bulletSpeed;
+        this.range = range;
     }
 
     public String getName() {
@@ -94,5 +96,13 @@ public class Tower {
 
     public void setBulletSpeed(double bulletSpeed) {
         this.bulletSpeed = bulletSpeed;
+    }
+
+    public double getRange() {
+        return range;
+    }
+
+    public void setRange(double range) {
+        this.range = range;
     }
 }
