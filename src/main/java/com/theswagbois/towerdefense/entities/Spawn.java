@@ -31,7 +31,6 @@ public class Spawn {
                     FXGLMath.random(0, Enemies.getEnemiesData().size() - 1)
             );
 
-            int hp = FXGLMath.random(20, (int) Math.round(40 + secondsElapsed / 2));
             int width = (int) (Math.sqrt(e.getHp()) + 10);
             int height = (int) (Math.sqrt(e.getHp()) + 10);
 
