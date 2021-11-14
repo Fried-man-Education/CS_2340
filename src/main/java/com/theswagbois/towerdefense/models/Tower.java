@@ -12,8 +12,8 @@ public class Tower {
     private double bulletSpeed;
     private double range;
 
-    public Tower(String name, String color,
-                  double attackDelay, double accuracy, double bulletSpeed, double range, int[] intValues) {
+    public Tower(String name, String color, double attackDelay,
+                 double accuracy, double bulletSpeed, double range, int[] intValues) {
         this.name = name;
         this.color = color;
         this.index = intValues[0];

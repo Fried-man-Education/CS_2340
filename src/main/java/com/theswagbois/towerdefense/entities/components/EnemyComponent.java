@@ -28,7 +28,7 @@ public class EnemyComponent extends Component {
         this.graphic = graphic;
         this.velocity = new Point2D(0, 0);
         this.speed = e.getSpeed();
-        this.moneyValue = e.getHp() / 2; // TODO: add to enemy files
+        this.moneyValue = e.getHp() / 2;
     }
 
     @Override
