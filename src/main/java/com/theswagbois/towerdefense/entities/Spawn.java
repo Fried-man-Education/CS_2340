@@ -25,8 +25,6 @@ public class Spawn {
 
     public static void spawnEnemy() {
         if (Combat.isCombatStarted()) {
-            double secondsElapsed = getGameTimer().getNow() - Combat.getCombatStartedTimestamp();
-
             Enemy e = Enemies.getEnemiesData().get(
                     FXGLMath.random(0, Enemies.getEnemiesData().size() - 1)
             );
