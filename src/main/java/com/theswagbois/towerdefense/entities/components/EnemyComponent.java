@@ -1,6 +1,7 @@
 package com.theswagbois.towerdefense.entities.components;
 
 import com.almasb.fxgl.entity.component.Component;
+import com.theswagbois.towerdefense.models.Enemy;
 import com.theswagbois.towerdefense.models.Level;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Rectangle;
@@ -22,12 +23,12 @@ public class EnemyComponent extends Component {
     private final int moneyValue;
 
 
-    public EnemyComponent(int hp, Rectangle graphic) {
-        this.hp = hp;
+    public EnemyComponent(Enemy e, Rectangle graphic) {
+        this.hp = e.getHp();
         this.graphic = graphic;
         this.velocity = new Point2D(0, 0);
-        this.speed = 2.0 / Math.sqrt(hp / 10.0);
-        this.moneyValue = hp / 2;
+        this.speed = e.getSpeed();
+        this.moneyValue = e.getHp() / 2; // TODO: add to enemy files
     }
 
     @Override

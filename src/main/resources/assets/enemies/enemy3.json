@@ -1,0 +1,6 @@
+{
+  "name": "Tank Enemy",
+  "color": "rgb(51,36,60)",
+  "hp": 80,
+  "speed": 0.5
+}

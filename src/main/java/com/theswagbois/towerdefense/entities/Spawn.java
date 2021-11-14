@@ -3,10 +3,8 @@ package com.theswagbois.towerdefense.entities;
 import com.almasb.fxgl.core.math.FXGLMath;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.SpawnData;
-import com.theswagbois.towerdefense.models.Combat;
-import com.theswagbois.towerdefense.models.Level;
-import com.theswagbois.towerdefense.models.Player;
-import com.theswagbois.towerdefense.models.Tower;
+import com.theswagbois.towerdefense.models.*;
+import com.theswagbois.towerdefense.services.Enemies;
 import com.theswagbois.towerdefense.services.Towers;
 import com.theswagbois.towerdefense.ui.GamePanel;
 
@@ -29,14 +27,18 @@ public class Spawn {
         if (Combat.isCombatStarted()) {
             double secondsElapsed = getGameTimer().getNow() - Combat.getCombatStartedTimestamp();
 
+            Enemy e = Enemies.getEnemiesData().get(FXGLMath.random(0, Enemies.getEnemiesData().size() - 1));
+
             int hp = FXGLMath.random(20, (int) Math.round(40 + secondsElapsed / 2));
-            int width = (int) (Math.sqrt(hp) + 10);
-            int height = (int) (Math.sqrt(hp) + 10);
+            int width = (int) (Math.sqrt(e.getHp()) + 10);
+            int height = (int) (Math.sqrt(e.getHp()) + 10);
 
             spawn("Enemy",
                     new SpawnData(Level.getActiveLevel().getSpawnPoint().getX() - width / 2.0,
                             Level.getActiveLevel().getSpawnPoint().getY() - height / 2.0)
-                            .put("hp", hp)
+                            .put("enemy", e)
+                            .put("width", width)
+                            .put("height", height)
             );
         }
     }

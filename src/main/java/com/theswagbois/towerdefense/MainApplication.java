@@ -14,6 +14,7 @@ import com.theswagbois.towerdefense.event.EnemyKilledEvent;
 import com.theswagbois.towerdefense.event.EnemyReachedMonumentEvent;
 import com.theswagbois.towerdefense.event.EventHandlers;
 import com.theswagbois.towerdefense.event.IllegalTowerLocationEvent;
+import com.theswagbois.towerdefense.services.Enemies;
 import com.theswagbois.towerdefense.services.Levels;
 import com.theswagbois.towerdefense.services.Towers;
 import com.theswagbois.towerdefense.ui.GamePanel;
@@ -80,6 +81,7 @@ public class MainApplication extends GameApplication {
     protected void initGame() {
         Towers.loadTowersData();
         Levels.loadLevelData();
+        Enemies.loadEnemiesData();
         getGameScene().setCursor(Cursor.DEFAULT);
 
         getGameWorld().addEntityFactory(new TowerDefenseFactory());

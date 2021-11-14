@@ -1,0 +1,6 @@
+{
+  "name": "Normal Enemy",
+  "color": "rgb(42,127,98)",
+  "hp": 40,
+  "speed": 1.0
+}

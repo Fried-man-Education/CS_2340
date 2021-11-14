@@ -8,6 +8,7 @@ import com.almasb.fxgl.entity.Spawns;
 import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.theswagbois.towerdefense.entities.components.EnemyComponent;
 import com.theswagbois.towerdefense.entities.components.TowerComponent;
+import com.theswagbois.towerdefense.models.Enemy;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -16,18 +17,21 @@ import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
 public class TowerDefenseFactory implements EntityFactory {
     @Spawns("Enemy")
     public Entity spawnEnemy(SpawnData data) {
-        int hp = (Integer) data.getData().get("hp");
+        int height = (Integer) data.getData().get("height");
+        int width = (Integer) data.getData().get("width");
+        Enemy e = (Enemy) data.getData().get("enemy");
+
         Rectangle enemyGraphic = new Rectangle(
-                Math.sqrt(hp) + 10,
-                Math.sqrt(hp) + 10,
-                Color.rgb(218, 65, 103)
+                width,
+                height,
+                Color.web(e.getColor())
         );
         enemyGraphic.setTranslateZ(10);
         return entityBuilder(data)
                 .type(TowerDefenseType.ENEMY)
                 .viewWithBBox(enemyGraphic)
                 .with(new CollidableComponent(true))
-                .with(new EnemyComponent(hp, enemyGraphic))
+                .with(new EnemyComponent(e, enemyGraphic))
                 .build();
     }
 
