@@ -10,12 +10,15 @@ public class Level {
     private List<Point2D> waypoints;
     private final int index;
     private final int numEnemies;
+    private final double enemySpawnDelay;
 
-    public Level(Point2D spawnPoint, List<Point2D> points, int index, int numEnemies) {
+    public Level(Point2D spawnPoint, List<Point2D> points, int index,
+                 int numEnemies, double enemySpawnDelay) {
         this.spawnPoint = spawnPoint;
         this.waypoints = points;
         this.index = index;
         this.numEnemies = numEnemies;
+        this.enemySpawnDelay = enemySpawnDelay;
     }
 
     public Point2D getSpawnPoint() {
@@ -31,6 +34,10 @@ public class Level {
 
     public List<Point2D> getWayPoints() {
         return waypoints;
+    }
+
+    public double getEnemySpawnDelay() {
+        return enemySpawnDelay;
     }
 
     public void setWayPoints(List<Point2D> waypoints) {
@@ -60,6 +67,8 @@ public class Level {
     public int getNumEnemies() {
         return numEnemies;
     }
+
+
 
     @Override
     public String toString() {

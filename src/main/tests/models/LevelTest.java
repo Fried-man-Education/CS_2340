@@ -19,7 +19,8 @@ public class LevelTest {
         ArrayList<Point2D> randWayPoints = new ArrayList<>();
         int index = 1;
         int numEnemies = 10;
-        level = new Level(randPoint, randWayPoints, index, numEnemies);
+        double enemySpawnDelay = 1;
+        level = new Level(randPoint, randWayPoints, index, numEnemies, enemySpawnDelay);
     }
 
     //#11 Alik Emelianov

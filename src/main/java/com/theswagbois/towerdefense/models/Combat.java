@@ -1,5 +1,7 @@
 package com.theswagbois.towerdefense.models;
 
+import com.theswagbois.towerdefense.entities.Spawn;
+
 public class Combat {
     private static boolean combatStarted = false;
 
@@ -11,6 +13,11 @@ public class Combat {
 
     public static void setCombatStarted(boolean combatStarted) {
         Combat.combatStarted = combatStarted;
+        if (combatStarted) {
+            Spawn.startSpawningEnemies();
+        } else {
+            Spawn.stopSpawningEnemies();
+        }
     }
 
     public static double getCombatStartedTimestamp() {

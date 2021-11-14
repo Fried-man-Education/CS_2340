@@ -1,5 +1,6 @@
 {
   "numEnemies": 10,
+  "enemySpawnDelay": 2.0,
   "waypoints": {
     "0": {
       "x": 400,

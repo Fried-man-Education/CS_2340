@@ -24,7 +24,7 @@ public class GamePanelTest {
     @Before
     public void setup() {
         Towers.setNumTowers(0);
-        Level l = new Level(new Point2D(0, 0), new ArrayList<Point2D>(), 0, 0);
+        Level l = new Level(new Point2D(0, 0), new ArrayList<Point2D>(), 0, 0, 1);
         Level.setActiveLevel(l);
         Levels.getLevels().add(l);
         Levels.setLevelCount(1);

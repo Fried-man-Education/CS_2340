@@ -54,7 +54,8 @@ public class Levels {
                     waypoints.add(point);
                 }
             }
-            Level level = new Level(spawnPoint, waypoints, i - 1, numEnemies);
+            double enemySpawnDelay = (Double) levelData.get("enemySpawnDelay");
+            Level level = new Level(spawnPoint, waypoints, i - 1, numEnemies, enemySpawnDelay);
             LEVELS.add(level);
             System.out.println(LEVELS);
         }

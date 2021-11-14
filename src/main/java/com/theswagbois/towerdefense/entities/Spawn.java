@@ -7,11 +7,23 @@ import com.theswagbois.towerdefense.models.*;
 import com.theswagbois.towerdefense.services.Enemies;
 import com.theswagbois.towerdefense.services.Towers;
 import com.theswagbois.towerdefense.ui.GamePanel;
+import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 import static com.almasb.fxgl.dsl.FXGL.spawn;
 
 public class Spawn {
+
+    private static boolean spawnEnemies = false;
+
+    public static void startSpawningEnemies() {
+        spawnEnemies = true;
+        spawnEnemyTimer();
+    }
+
+    public static void stopSpawningEnemies() {
+        spawnEnemies = false;
+    }
 
     public static void spawnPath(int startX, int endX, int startY, int endY) {
         int thickness = 75;
@@ -40,6 +52,18 @@ public class Spawn {
                             .put("height", height)
             );
         }
+    }
+
+    public static void spawnEnemyTimer() {
+        if (!spawnEnemies) {
+            return;
+        }
+        spawnEnemy();
+        getGameTimer().runOnceAfter(
+                Spawn::spawnEnemyTimer, Duration.seconds(
+                        Level.getActiveLevel().getEnemySpawnDelay()
+                )
+        );
     }
 
     public static void spawnTower() {
