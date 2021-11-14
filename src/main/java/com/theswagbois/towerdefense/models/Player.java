@@ -6,8 +6,8 @@ public class Player {
     private static int money;
     private static int hp;
 
-    private static final int BASEMONEY = 1000;
-    private static final int BASEHP = 200;
+    private static final int BASEMONEY = 1200;
+    private static final int BASEHP = 240;
 
     private static int initialMoney;
     private static int initalHP;
@@ -44,12 +44,12 @@ public class Player {
     private static void calculateMoneyAndHp() {
         switch (difficulty) {
         case "Easy":
-            hp = BASEHP;
-            money = BASEMONEY;
-            break;
-        case "Medium":
             hp = BASEHP / 2;
             money = BASEMONEY / 2;
+            break;
+        case "Medium":
+            hp = BASEHP / 3;
+            money = BASEMONEY / 3;
             break;
         case "Hard":
             hp = BASEHP / 4;

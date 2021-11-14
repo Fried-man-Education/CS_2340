@@ -90,8 +90,6 @@ public class MainApplication extends GameApplication {
         BooleanProperty enemiesLeft = new SimpleBooleanProperty();
         enemiesLeft.bind(getip("numEnemies").greaterThan(-1));
 
-        getGameTimer().runAtIntervalWhile(Spawn::spawnEnemy, Duration.seconds(2), enemiesLeft);
-
         getEventBus().addEventHandler(EnemyKilledEvent.ANY, EventHandlers::handleEnemyKilled);
         getEventBus().addEventHandler(
                 EnemyReachedMonumentEvent.ANY, EventHandlers::handleEnemyReachedMonument);

@@ -7,5 +7,5 @@
   "cost": 300,
   "accuracy": 0.9,
   "bulletSpeed": 500.0,
-  "range": 1000.0
+  "range": 800.0
 }

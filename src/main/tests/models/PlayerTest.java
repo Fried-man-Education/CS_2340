@@ -61,8 +61,8 @@ public class PlayerTest {
         Player.setDifficulty("Easy");
         // CalculateMoneyAndHp is implicitly called ^
 
-        assertEquals(1000, Player.getMoney());
-        assertEquals(200, Player.getHp());
+        assertEquals(600, Player.getMoney());
+        assertEquals(120, Player.getHp());
     }
 
     //#5 Andrew Friedman
@@ -71,8 +71,8 @@ public class PlayerTest {
         Player.setDifficulty("Medium");
         // CalculateMoneyAndHp is implicitly called ^
 
-        assertEquals(500, Player.getMoney());
-        assertEquals(100, Player.getHp());
+        assertEquals(400, Player.getMoney());
+        assertEquals(80, Player.getHp());
     }
 
     //#6 Andrew Friedman
@@ -81,8 +81,8 @@ public class PlayerTest {
         Player.setDifficulty("Hard");
         // CalculateMoneyAndHp is implicitly called ^
 
-        assertEquals(250, Player.getMoney());
-        assertEquals(50, Player.getHp());
+        assertEquals(300, Player.getMoney());
+        assertEquals(60, Player.getHp());
     }
 
     //#7 Koby Beard
