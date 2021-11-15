@@ -25,7 +25,6 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.input.MouseButton;
 import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
 
 import java.util.Map;
 
