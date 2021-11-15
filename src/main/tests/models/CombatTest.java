@@ -17,4 +17,9 @@ public class CombatTest {
         Combat.setCombatStarted(false);
         assertFalse(Combat.isCombatStarted());
     }
+
+    @Test
+    public void testGetCombatStartedTimestamp() {
+        assertNotNull(Combat.getCombatStartedTimestamp());
+    }
 }
