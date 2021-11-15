@@ -55,7 +55,7 @@ public class Spawn {
     }
 
     public static void spawnEnemyTimer() {
-        if (!spawnEnemies) {
+        if (!spawnEnemies || Enemies.getEnemiesData().size() == 0) {
             return;
         }
         spawnEnemy();

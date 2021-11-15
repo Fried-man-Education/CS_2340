@@ -89,10 +89,10 @@ public class PlayerTest {
     @Test
     public void testDecreaseMoney() {
         Player.setDifficulty("Easy");
-        // Money should be 1000
+        // Money should be 600
 
         Player.incrementMoney(-500);
-        assertEquals(500, Player.getMoney());
+        assertEquals(100, Player.getMoney());
         assertEquals(500, Player.getLastExpense());
     }
 
@@ -100,9 +100,9 @@ public class PlayerTest {
     @Test
     public void testDecreaseHP() {
         Player.setDifficulty("Medium");
-        // HP should be 100
+        // HP should be 80
 
         Player.decreaseHP(50);
-        assertEquals(50, Player.getHp());
+        assertEquals(30, Player.getHp());
     }
 }
