@@ -1,12 +1,6 @@
 package services;
 
-import com.theswagbois.towerdefense.models.Level;
-import com.theswagbois.towerdefense.models.Player;
 import com.theswagbois.towerdefense.services.Enemies;
-import com.theswagbois.towerdefense.services.Levels;
-import com.theswagbois.towerdefense.services.Towers;
-import com.theswagbois.towerdefense.ui.GamePanel;
-import javafx.geometry.Point2D;
 import org.junit.Before;
 import org.junit.Test;
 

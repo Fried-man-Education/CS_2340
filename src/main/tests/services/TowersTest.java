@@ -1,7 +1,6 @@
 package services;
 
 import com.theswagbois.towerdefense.models.Level;
-import com.theswagbois.towerdefense.services.Levels;
 import com.theswagbois.towerdefense.services.Towers;
 import org.junit.Before;
 import org.junit.Test;
