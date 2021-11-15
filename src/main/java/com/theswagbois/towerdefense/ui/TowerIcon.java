@@ -28,10 +28,10 @@ public class TowerIcon extends Pane {
         getChildren().add(defaultRect);
 
         Label infoLabel = new Label(
-                t.getHp() + " HP\n"
                 + t.getDamage() + " Damage\n"
                 + t.getAttackDelay() + " s / Shot\n"
-                + Math.round(t.getAccuracy() * 100) + "% Accuracy\n$"
+                + Math.round(t.getAccuracy() * 100) + "% Accuracy\n"
+                + Math.round(t.getRange()) + " Range\n$"
                 + t.getCost());
         infoLabel.setTextFill(Color.WHITE);
 
