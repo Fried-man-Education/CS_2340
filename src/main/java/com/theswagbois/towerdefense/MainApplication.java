@@ -74,6 +74,7 @@ public class MainApplication extends GameApplication {
     @Override
     protected void initGameVars(Map<String, Object> vars) {
         vars.put("numEnemies", 0);
+        vars.put("bossActive", false);
     }
 
     @Override

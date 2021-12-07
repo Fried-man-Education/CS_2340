@@ -125,6 +125,8 @@ public class Levels {
         int nextIndex = Level.getActiveLevel().getIndex() + 1;
         System.out.println(nextIndex);
         System.out.println(LEVELS.size());
+
+
         if (nextIndex >= LEVELS.size()) {
             showMessage("Congratulations! You completed every level! Play Again?",
                     Levels::restartGame);
