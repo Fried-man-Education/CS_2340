@@ -8,7 +8,14 @@ public class EnemyReachedMonumentEvent extends Event {
     public static final EventType<EnemyReachedMonumentEvent> ANY
             = new EventType<>(Event.ANY, "EnemyReachedGoalEvent");
 
-    public EnemyReachedMonumentEvent() {
+    private int decreaseAmount;
+
+    public EnemyReachedMonumentEvent(int decreaseAmount) {
         super(ANY);
+        this.decreaseAmount = decreaseAmount;
+    }
+
+    public int getDecreaseAmount() {
+        return decreaseAmount;
     }
 }

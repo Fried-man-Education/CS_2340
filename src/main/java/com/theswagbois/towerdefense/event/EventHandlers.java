@@ -58,7 +58,7 @@ public class EventHandlers {
     }
 
     public static void handleEnemyReachedMonument(EnemyReachedMonumentEvent event) {
-        int decreaseAmount = 10;
+        int decreaseAmount = event.getDecreaseAmount();
 
         if (Player.getHp() <= decreaseAmount) {
             decreaseAmount = Player.getHp();
