@@ -15,7 +15,11 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class EventHandlers {
 
+    public static int enemiesKilled;
+
     public static void handleEnemyKilled(EnemyKilledEvent event) {
+        enemiesKilled++;
+
         Entity enemy = event.getEnemy();
         Point2D position = enemy.getPosition();
 

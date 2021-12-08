@@ -15,6 +15,7 @@ import static com.almasb.fxgl.dsl.FXGL.spawn;
 public class Spawn {
 
     private static boolean spawnEnemies = false;
+    public static int moneySpent;
 
     public static void startSpawningEnemies() {
         spawnEnemies = true;
@@ -69,6 +70,7 @@ public class Spawn {
     public static void spawnTower() {
         Tower selectedTower = Towers.getTowersData().get(GamePanel.getSelectedIndex() - 1);
         if (Player.getMoney() >= selectedTower.getCost()) {
+            moneySpent += selectedTower.getCost();
             Player.incrementMoney(-selectedTower.getCost());
             GamePanel.updateLabels();
 

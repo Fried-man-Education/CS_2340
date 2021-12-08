@@ -10,6 +10,8 @@ import javafx.event.EventType;
 
 public class EnemyDamagedEvent extends Event {
 
+    public static int damageDone;
+
     public static final EventType<EnemyDamagedEvent> ANY
             = new EventType<>(Event.ANY, "ENEMY_DAMAGED");
 
@@ -31,6 +33,8 @@ public class EnemyDamagedEvent extends Event {
         super(ANY);
         this.enemy = enemy;
         this.damage = damage;
+
+        damageDone += damage;
 
         EnemyComponent enemyComponent = this.enemy.getComponent(EnemyComponent.class);
         int newHealth = enemyComponent.getHp() - damage;
