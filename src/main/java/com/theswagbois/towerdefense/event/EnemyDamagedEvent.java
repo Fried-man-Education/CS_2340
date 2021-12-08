@@ -10,13 +10,17 @@ import javafx.event.EventType;
 
 public class EnemyDamagedEvent extends Event {
 
-    public static int damageDone;
+    private static int damageDone;
 
     public static final EventType<EnemyDamagedEvent> ANY
             = new EventType<>(Event.ANY, "ENEMY_DAMAGED");
 
     private Entity enemy;
     private int damage;
+
+    public static int getDamageDone() {
+        return damageDone;
+    }
 
     /**
      * @return damaged enemy

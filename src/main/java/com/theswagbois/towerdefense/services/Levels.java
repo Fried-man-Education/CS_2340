@@ -19,7 +19,6 @@ import java.util.List;
 
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 import static com.almasb.fxgl.dsl.FXGL.set;
-import static com.almasb.fxgl.dsl.FXGL.showMessage;
 import static com.almasb.fxgl.dsl.FXGLForKtKt.*;
 import static com.theswagbois.towerdefense.entities.Spawn.spawnMonument;
 import static com.theswagbois.towerdefense.entities.Spawn.spawnPath;
@@ -134,9 +133,9 @@ public class Levels {
 
         if (nextIndex >= LEVELS.size()) {
             String message = "Congratulations! You completed every level!"
-                    + "\nEnemies killed: " + EventHandlers.enemiesKilled
-                    + "\nDamage done: " + EnemyDamagedEvent.damageDone
-                    + "\nMoney spent: $" + Spawn.moneySpent;
+                    + "\nEnemies killed: " + EventHandlers.getEnemiesKilled()
+                    + "\nDamage done: " + EnemyDamagedEvent.getDamageDone()
+                    + "\nMoney spent: $" + Spawn.getMoneySpent();
             Button restartGame = new Button("Restart Game");
             restartGame.setOnMouseClicked(e -> Levels.restartGame());
 

@@ -16,7 +16,11 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class EventHandlers {
 
-    public static int enemiesKilled;
+    private static int enemiesKilled;
+
+    public static int getEnemiesKilled() {
+        return enemiesKilled;
+    }
 
     public static void handleEnemyKilled(EnemyKilledEvent event) {
         enemiesKilled++;

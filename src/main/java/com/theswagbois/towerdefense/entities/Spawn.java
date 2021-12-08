@@ -15,7 +15,11 @@ import static com.almasb.fxgl.dsl.FXGL.spawn;
 public class Spawn {
 
     private static boolean spawnEnemies = false;
-    public static int moneySpent;
+    private static int moneySpent;
+
+    public static int getMoneySpent() {
+        return moneySpent;
+    }
 
     public static void startSpawningEnemies() {
         spawnEnemies = true;
