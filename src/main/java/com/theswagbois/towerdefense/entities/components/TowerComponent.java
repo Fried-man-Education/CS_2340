@@ -22,9 +22,11 @@ public class TowerComponent extends Component {
     private LocalTimer shootTimer;
     private double accuracyError = 1;
     private double range;
+    private int cost;
 
-    public TowerComponent(int index) {
+    public TowerComponent(int index, int cost) {
         Tower t = Towers.getTowersData().get(index - 1);
+        this.cost = cost;
         this.damage = t.getDamage();
         this.hp = t.getHp();
         this.attackDelay = t.getAttackDelay();
@@ -100,5 +102,9 @@ public class TowerComponent extends Component {
                 new ProjectileComponent(aim.subtract(position).normalize(), bulletSpeed)
         );
         bullet.addComponent(new BulletComponent(damage));
+    }
+
+    public int getCost() {
+        return cost;
     }
 }

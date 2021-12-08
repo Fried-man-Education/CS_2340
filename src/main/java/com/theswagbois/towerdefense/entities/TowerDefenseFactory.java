@@ -41,7 +41,8 @@ public class TowerDefenseFactory implements EntityFactory {
                 .type(TowerDefenseType.TOWER)
                 .viewWithBBox(new Rectangle(40, 40, data.get("color")))
                 .with(new CollidableComponent(true))
-                .with(new TowerComponent((Integer) data.getData().get("index")))
+                .with(new TowerComponent((Integer) data.getData().get("index"),
+                        (Integer) data.getData().get("cost")))
                 .build();
     }
 
