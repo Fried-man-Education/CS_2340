@@ -1,5 +1,5 @@
 {
-  "numEnemies": 1,
+  "numEnemies": 30,
   "enemySpawnDelay": 1.0,
   "waypoints": {
     "0": {
