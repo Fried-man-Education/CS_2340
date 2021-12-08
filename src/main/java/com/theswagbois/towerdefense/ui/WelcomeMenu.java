@@ -95,7 +95,7 @@ public class WelcomeMenu extends FXGLMenu {
         }
     }
 
-    private  void closeApp() {
+    private void closeApp() {
         Platform.exit();
     }
 

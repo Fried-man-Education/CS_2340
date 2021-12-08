@@ -2,10 +2,14 @@ package com.theswagbois.towerdefense.services;
 
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
+import com.theswagbois.towerdefense.entities.Spawn;
+import com.theswagbois.towerdefense.event.EnemyDamagedEvent;
+import com.theswagbois.towerdefense.event.EventHandlers;
 import com.theswagbois.towerdefense.models.Combat;
 import com.theswagbois.towerdefense.models.Level;
 import com.theswagbois.towerdefense.models.Player;
 import com.theswagbois.towerdefense.ui.GamePanel;
+import javafx.application.Platform;
 import javafx.geometry.Point2D;
 import javafx.scene.control.Button;
 
@@ -15,7 +19,6 @@ import java.util.List;
 
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 import static com.almasb.fxgl.dsl.FXGL.set;
-import static com.almasb.fxgl.dsl.FXGL.showMessage;
 import static com.almasb.fxgl.dsl.FXGLForKtKt.*;
 import static com.theswagbois.towerdefense.entities.Spawn.spawnMonument;
 import static com.theswagbois.towerdefense.entities.Spawn.spawnPath;
@@ -129,7 +132,16 @@ public class Levels {
 
 
         if (nextIndex >= LEVELS.size()) {
-            FXGL.Companion.getDialogService().showBox("Congratulations! You completed every level! Play Again?", new Button("Retry"), new Button("Close"));
+            String message = "Congratulations! You completed every level!"
+                    + "\nEnemies killed: " + EventHandlers.getEnemiesKilled()
+                    + "\nDamage done: " + EnemyDamagedEvent.getDamageDone()
+                    + "\nMoney spent: $" + Spawn.getMoneySpent();
+            Button restartGame = new Button("Restart Game");
+            restartGame.setOnMouseClicked(e -> Levels.restartGame());
+
+            Button closeGame = new Button("Close Game");
+            closeGame.setOnMouseClicked(e -> Platform.exit());
+            FXGL.Companion.getDialogService().showBox(message, restartGame, closeGame);
         } else {
             initializeLevel(nextIndex);
         }
