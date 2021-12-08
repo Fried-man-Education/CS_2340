@@ -19,7 +19,6 @@ public class IllegalTowerLocationEvent extends Event {
 
     public IllegalTowerLocationEvent(Entity tower) {
         super(ANY);
-        System.out.println("Enemy Killed");
         this.tower = tower;
         tower.removeFromWorld();
     }

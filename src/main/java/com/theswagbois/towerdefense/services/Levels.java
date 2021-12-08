@@ -7,6 +7,7 @@ import com.theswagbois.towerdefense.models.Level;
 import com.theswagbois.towerdefense.models.Player;
 import com.theswagbois.towerdefense.ui.GamePanel;
 import javafx.geometry.Point2D;
+import javafx.scene.control.Button;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -128,8 +129,7 @@ public class Levels {
 
 
         if (nextIndex >= LEVELS.size()) {
-            showMessage("Congratulations! You completed every level! Play Again?",
-                    Levels::restartGame);
+            FXGL.Companion.getDialogService().showBox("Congratulations! You completed every level! Play Again?", new Button("Retry"), new Button("Close"));
         } else {
             initializeLevel(nextIndex);
         }

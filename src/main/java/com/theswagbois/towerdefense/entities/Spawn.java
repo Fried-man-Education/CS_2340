@@ -93,6 +93,7 @@ public class Spawn {
                     new SpawnData(getInput().getMouseXWorld(), getInput().getMouseYWorld())
                             .put("color", GamePanel.getSelectedColor())
                             .put("index", GamePanel.getSelectedIndex())
+                            .put("cost", selectedTower.getCost())
             );
             // center tower on mouse
             instantiatedTower.setX(instantiatedTower.getX() - instantiatedTower.getWidth() / 2);
