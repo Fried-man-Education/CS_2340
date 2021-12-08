@@ -86,4 +86,8 @@ public class EnemyComponent extends Component {
     public Enemy getEnemy() {
         return enemy;
     }
+
+    public double getSpeed() {
+        return speed;
+    }
 }

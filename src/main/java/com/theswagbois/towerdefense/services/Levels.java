@@ -66,6 +66,10 @@ public class Levels {
     }
 
     public static void initializeLevel(int index) {
+        try {
+            GamePanel.updateLabels();
+        } catch (Exception e1) {}
+
         // FXGL.getGameWorld().reset();
         ArrayList<Entity> entities = (ArrayList<Entity>) getGameWorld().getEntities().clone();
         FXGL.getGameWorld().removeEntities(entities);

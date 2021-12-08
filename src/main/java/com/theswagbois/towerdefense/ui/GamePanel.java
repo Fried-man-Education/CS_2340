@@ -109,6 +109,7 @@ public class GamePanel extends Pane {
     }
 
     public static void updateLabels() {
+        levelLabel.setText("Level " + Level.getActiveLevel().getIndex() + 1);
         moneyLabel.setText("$" + Player.getMoney());
         hpLabel.setText(Player.getHp() + " HP");
 
