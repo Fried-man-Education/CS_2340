@@ -116,4 +116,36 @@ public class TowerComponent extends Component {
         this.range *= 1.5;
         this.cost *= 2;
     }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public double getAttackDelay() {
+        return attackDelay;
+    }
+
+    public double getAccuracy() {
+        return accuracy;
+    }
+
+    public double getBulletSpeed() {
+        return bulletSpeed;
+    }
+
+    public LocalTimer getShootTimer() {
+        return shootTimer;
+    }
+
+    public double getAccuracyError() {
+        return accuracyError;
+    }
+
+    public double getRange() {
+        return range;
+    }
 }

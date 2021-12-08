@@ -1,11 +1,10 @@
 package services;
 
-import com.theswagbois.towerdefense.models.Level;
 import com.theswagbois.towerdefense.services.Towers;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
+
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,11 +15,6 @@ public class TowersTest {
     @Before
     public void setup() {
         towers = new Towers();
-    }
-
-    @Test(timeout = TIMEOUT)
-    public void testGetTowerData() {
-        assertEquals(new ArrayList<Level>(), towers.getTowersData());
     }
 
     @Test(timeout = TIMEOUT)
