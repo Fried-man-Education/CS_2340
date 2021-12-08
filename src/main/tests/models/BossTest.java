@@ -11,17 +11,17 @@ public class BossTest {
     @Test
     public void testBossIsEnemy() {
         Boss boss = Boss.getBoss();
-        assert(boss instanceof Enemy);
+        assert (boss instanceof Enemy);
     }
 
     @Test
     public void testGetBoss() {
         Enemy boss = Boss.getBoss();
-        assert(boss instanceof Boss);
+        assert (boss instanceof Boss);
 
-        assert(boss.getSpeed() != 0);
-        assert(!boss.getName().equals(""));
-        assert(boss.getHp() > 0);
+        assert (boss.getSpeed() != 0);
+        assert (!boss.getName().equals(""));
+        assert (boss.getHp() > 0);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class BossTest {
         Enemy boss = Boss.getBoss();
         List<Enemy> enemies = Enemies.getEnemiesData();
         for (Enemy e : enemies) {
-            assert(e.getHp() < boss.getHp());
+            assert (e.getHp() < boss.getHp());
         }
     }
 
@@ -38,7 +38,7 @@ public class BossTest {
         Enemy boss = Boss.getBoss();
         List<Enemy> enemies = Enemies.getEnemiesData();
         for (Enemy e : enemies) {
-            assert(!e.getColor().equals(boss.getColor()));
+            assert (!e.getColor().equals(boss.getColor()));
         }
     }
 
@@ -47,7 +47,7 @@ public class BossTest {
         Enemy boss = Boss.getBoss();
         List<Enemy> enemies = Enemies.getEnemiesData();
         for (Enemy e : enemies) {
-            assert(e.getSpeed() > boss.getSpeed());
+            assert (e.getSpeed() > boss.getSpeed());
         }
     }
 }

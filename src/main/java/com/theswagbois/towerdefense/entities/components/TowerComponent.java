@@ -107,4 +107,13 @@ public class TowerComponent extends Component {
     public int getCost() {
         return cost;
     }
+
+    public void upgrade() {
+        this.damage *= 2;
+        this.attackDelay *= .75;
+        this.accuracy = (1 - accuracy) / 3 + accuracy;
+        this.bulletSpeed *= 1.5;
+        this.range *= 1.5;
+        this.cost *= 2;
+    }
 }

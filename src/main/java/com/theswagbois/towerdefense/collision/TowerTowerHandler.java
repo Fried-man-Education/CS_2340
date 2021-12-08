@@ -7,7 +7,7 @@ import com.theswagbois.towerdefense.entities.TowerDefenseType;
 import com.theswagbois.towerdefense.entities.components.TowerComponent;
 import com.theswagbois.towerdefense.event.IllegalTowerLocationEvent;
 import com.theswagbois.towerdefense.models.Player;
-import com.theswagbois.towerdefense.ui.GamePanel;
+import javafx.scene.text.Text;
 
 public class TowerTowerHandler extends CollisionHandler {
 
@@ -23,12 +23,15 @@ public class TowerTowerHandler extends CollisionHandler {
         int costDifference = (tower.getComponent(TowerComponent.class).getCost()
                 - tower2.getComponent(TowerComponent.class).getCost());
 
-        if (costDifference >= Player.getMoney() + Player.getLastExpense()) {
-            FXGL.getEventBus().fireEvent(new IllegalTowerLocationEvent(tower2));
+        if (costDifference == 0) {
+            tower.getViewComponent().addChild(new Text("+"));
+            tower.getComponent(TowerComponent.class).upgrade();
+            tower2.removeFromWorld();
             return;
+        } else {
+            FXGL.getEventBus().fireEvent(new IllegalTowerLocationEvent(tower2));
         }
-        Player.incrementMoney((Player.getLastExpense() + costDifference));
-        GamePanel.updateLabels();
-        tower.removeFromWorld();
+        Player.incrementMoney((Player.getLastExpense()));
+        tower2.removeFromWorld();
     }
 }
