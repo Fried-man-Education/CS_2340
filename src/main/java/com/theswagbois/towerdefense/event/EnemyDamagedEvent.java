@@ -22,6 +22,10 @@ public class EnemyDamagedEvent extends Event {
         return damageDone;
     }
 
+    public static void resetDamageDone() {
+        damageDone = 0;
+    }
+
     /**
      * @return damaged enemy
      */

@@ -22,6 +22,10 @@ public class EventHandlers {
         return enemiesKilled;
     }
 
+    public static void resetEnemiesKilled() {
+        enemiesKilled = 0;
+    }
+
     public static void handleEnemyKilled(EnemyKilledEvent event) {
         enemiesKilled++;
 
@@ -62,7 +66,11 @@ public class EventHandlers {
 
         if (Player.getHp() <= decreaseAmount) {
             decreaseAmount = Player.getHp();
-            showMessage("You Lost. Try Again?", Levels::restartGame);
+            String message = "You lost. Try again?"
+                    + "\nEnemies killed: " + EventHandlers.getEnemiesKilled()
+                    + "\nDamage done: " + EnemyDamagedEvent.getDamageDone()
+                    + "\nMoney spent: $" + Spawn.getMoneySpent();
+            showMessage(message, Levels::restartGame);
         }
 
         Player.decreaseHP(decreaseAmount);
