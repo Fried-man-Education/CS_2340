@@ -16,14 +16,12 @@ public class BossTest {
 
     @Test
     public void testGetBoss() {
-        Boss boss = Boss.getBoss();
+        Enemy boss = Boss.getBoss();
         assert(boss instanceof Boss);
-    }
 
-    @Test
-    public void parentNotChild() {
-        Enemy enemy = new Enemy("name", "color", 5, 5);
-        assert(!(enemy instanceof Boss));
+        assert(boss.getSpeed() != 0);
+        assert(!boss.getName().equals(""));
+        assert(boss.getHp() > 0);
     }
 
     @Test
