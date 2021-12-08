@@ -2,6 +2,7 @@ package com.theswagbois.towerdefense.event;
 
 import com.almasb.fxgl.app.scene.GameView;
 import com.almasb.fxgl.entity.Entity;
+import com.theswagbois.towerdefense.entities.Spawn;
 import com.theswagbois.towerdefense.entities.components.EnemyComponent;
 import com.theswagbois.towerdefense.models.Level;
 import com.theswagbois.towerdefense.models.Player;
@@ -36,12 +37,19 @@ public class EventHandlers {
 
         getGameScene().addGameView(new GameView(xMark, 0));
 
-        inc("numEnemies", -1);
-        if (getGameWorld().getProperties().getInt("numEnemies") == 0) {
+        String enemyName = enemy.getComponent(EnemyComponent.class).getEnemy().getName();
+
+        if (enemyName.equals("Boss")) {
+            getGameWorld().getProperties().setValue("bossActive", false);
             String winText = "Congratulations! You beat Level "
                     + (Level.getActiveLevel().getIndex() + 1)
                     + "!\nClick OK to go to the next level";
             showMessage(winText, Levels::nextLevel);
+        }
+        inc("numEnemies", -1);
+        if (getGameWorld().getProperties().getInt("numEnemies") == 0) {
+            getGameWorld().getProperties().setValue("bossActive", false);
+            Spawn.spawnBoss();
         }
     }
 

@@ -67,6 +67,21 @@ public class Spawn {
         );
     }
 
+    public static void spawnBoss() {
+        Enemy e = Boss.getBoss();
+
+        int width = (int) (Math.sqrt(e.getHp()) + 10);
+        int height = (int) (Math.sqrt(e.getHp()) + 10);
+
+        spawn("Enemy",
+                new SpawnData(Level.getActiveLevel().getSpawnPoint().getX() - width / 2.0,
+                        Level.getActiveLevel().getSpawnPoint().getY() - height / 2.0)
+                        .put("enemy", e)
+                        .put("width", width)
+                        .put("height", height)
+        );
+    }
+
     public static void spawnTower() {
         Tower selectedTower = Towers.getTowersData().get(GamePanel.getSelectedIndex() - 1);
         if (Player.getMoney() >= selectedTower.getCost()) {

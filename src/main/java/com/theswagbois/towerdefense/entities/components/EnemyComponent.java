@@ -14,6 +14,8 @@ public class EnemyComponent extends Component {
     private Point2D nextWaypoint;
     private int nextWaypointIndex = 0;
 
+    private Enemy enemy;
+
     private double speed;
     private int hp;
     private Rectangle graphic;
@@ -24,6 +26,7 @@ public class EnemyComponent extends Component {
 
 
     public EnemyComponent(Enemy e, Rectangle graphic) {
+        this.enemy = e;
         this.hp = e.getHp();
         this.graphic = graphic;
         this.velocity = new Point2D(0, 0);
@@ -78,5 +81,9 @@ public class EnemyComponent extends Component {
 
     public int getMoneyValue() {
         return moneyValue;
+    }
+
+    public Enemy getEnemy() {
+        return enemy;
     }
 }

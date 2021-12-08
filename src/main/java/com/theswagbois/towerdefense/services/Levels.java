@@ -130,6 +130,8 @@ public class Levels {
         int nextIndex = Level.getActiveLevel().getIndex() + 1;
         System.out.println(nextIndex);
         System.out.println(LEVELS.size());
+
+
         if (nextIndex >= LEVELS.size()) {
             String message = "Congratulations! You completed every level!"
                     + "\nEnemies killed: " + EventHandlers.enemiesKilled
