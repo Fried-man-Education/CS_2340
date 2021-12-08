@@ -118,6 +118,10 @@ public class Spawn {
                         .put("width", width)
         );
     }
+
+    public static void resetMoneySpent() {
+        moneySpent = 0;
+    }
 }
 
 

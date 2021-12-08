@@ -153,6 +153,9 @@ public class Levels {
     }
 
     public static void restartGame() {
+        EventHandlers.resetEnemiesKilled();
+        EnemyDamagedEvent.resetDamageDone();
+        Spawn.resetMoneySpent();
         FXGL.getGameController().gotoMainMenu();
         // initializeLevel(0);
     }
