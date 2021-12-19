@@ -1,4 +1,4 @@
-# Georgia Tech's CS 2340 - Objects and Design
+# Georgia Tech's CS 2340 - Objects and Design (Fall 2021)
 ## Course Objective
 CS2340 takes students who know an object-oriented language and focuses on getting them to use that language in a true object-oriented style.  The course achieves this goal by introducing a design methodology and notation, and covering standard principles and practice in design.
 ## Course Outcomes
