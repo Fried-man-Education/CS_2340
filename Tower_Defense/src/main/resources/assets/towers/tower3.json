@@ -1,0 +1,11 @@
+{
+  "name": "Sniper Tower",
+  "color": "rgb(8,61,119)",
+  "hp": 30,
+  "damage": 90,
+  "attackDelay": 3.0,
+  "cost": 300,
+  "accuracy": 0.9,
+  "bulletSpeed": 500.0,
+  "range": 800.0
+}

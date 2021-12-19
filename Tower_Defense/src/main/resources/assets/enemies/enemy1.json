@@ -1,0 +1,6 @@
+{
+  "name": "Fast Enemy",
+  "color": "rgb(164,3,31)",
+  "hp": 20,
+  "speed": 2.0
+}

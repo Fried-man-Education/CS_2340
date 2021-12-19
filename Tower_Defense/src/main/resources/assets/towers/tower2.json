@@ -1,0 +1,11 @@
+{
+  "name": "Machine Tower",
+  "color": "rgb(139,149,201)",
+  "hp": 30,
+  "damage": 10,
+  "attackDelay": 0.35,
+  "cost": 200,
+  "accuracy": 0.4,
+  "bulletSpeed": 200.0,
+  "range": 200.0
+}
