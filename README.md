@@ -17,8 +17,8 @@ CS2340 takes students who know an object-oriented language and focuses on gettin
 ## About
 This repository containts the group work we did for the class. This includes the [M1 repository](https://github.gatech.edu/afriedman38/CS_2340_M1) and the [tower defense game project repository](https://github.gatech.edu/afriedman38/Tower_Defense). The commit history is preserved according to the users on github.gatech.edu. For some reason, GitHub only detected certain gatech acounts' corresponding regular GitHub account.
 ## Credits
-- Alik Emelianov - [Georgia Tech GitHub Acount](https://github.gatech.edu/aemelianov8)
-- Andrew Friedman - [Github Account](https://github.com/Fried-man) & [Georgia Tech GitHub Acount](https://github.gatech.edu/afriedman38)
-- Joseph Vitko - [Github Account](https://github.com/JosephVitko) & [Georgia Tech GitHub Acount](https://github.gatech.edu/jvitko3)
+- Alik Emelianov - [GitHub Account](https://github.com/Alik-da-Geek) & [Georgia Tech GitHub Acount](https://github.gatech.edu/aemelianov8)
+- Andrew Friedman - [GitHub Account](https://github.com/Fried-man) & [Georgia Tech GitHub Acount](https://github.gatech.edu/afriedman38)
+- Joseph Vitko - [GitHub Account](https://github.com/JosephVitko) & [Georgia Tech GitHub Acount](https://github.gatech.edu/jvitko3)
 - Koby Beard - [Georgia Tech GitHub Acount](https://github.gatech.edu/kbeard8)
-- Nick Hulston - [Github Account](https://github.com/nhulston) & [Georgia Tech GitHub Acount](https://github.gatech.edu/nhulston3)
+- Nick Hulston - [GitHub Account](https://github.com/nhulston) & [Georgia Tech GitHub Acount](https://github.gatech.edu/nhulston3)
