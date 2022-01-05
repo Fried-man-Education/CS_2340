@@ -20,5 +20,5 @@ This repository containts the group work we did for the class. This includes the
 - Alik Emelianov - [GitHub Account](https://github.com/Alik-da-Geek) & [Georgia Tech GitHub Acount](https://github.gatech.edu/aemelianov8)
 - Andrew Friedman - [GitHub Account](https://github.com/Fried-man) & [Georgia Tech GitHub Acount](https://github.gatech.edu/afriedman38)
 - Joseph Vitko - [GitHub Account](https://github.com/JosephVitko) & [Georgia Tech GitHub Acount](https://github.gatech.edu/jvitko3)
-- Koby Beard - [Georgia Tech GitHub Acount](https://github.gatech.edu/kbeard8)
+- Koby Beard - [GitHub Account](https://github.com/kbeard8) & [Georgia Tech GitHub Acount](https://github.gatech.edu/kbeard8)
 - Nick Hulston - [GitHub Account](https://github.com/nhulston) & [Georgia Tech GitHub Acount](https://github.gatech.edu/nhulston3)
